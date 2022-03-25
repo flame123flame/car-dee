@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/themify-icons.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link href="css/style.css" rel="stylesheet">
+    <script src="https://requirejs.org/docs/release/2.3.6/minified/require.js" type="text/javascript"></script>
 
 </head>
 
@@ -43,7 +44,8 @@
                                         class="font-menu">คำนวณค่างวดเบื้องต้น</b></a> </li>
                             <li class="nav-item"> <a class="nav-link" href="#contact"><b
                                         class="font-menu">เกี่ยวกับเรา</b> </a> </li>
-                            <li class="nav-item"> <a class="nav-link"><b class="font-menu">ค้นหารถมือสอง</b></a> </li>
+                            <li class="nav-item" style="cursor: pointer;"> <a class="nav-link" href="search-car.html"><b
+                                        class="font-menu">ค้นหารถมือสอง</b></a> </li>
                             <li class="nav-item">
                                 <a href="register.html" style="color: #fff;"
                                     class="btn btn-outline-light my-3 my-sm-0 ml-lg-3">
@@ -69,553 +71,28 @@
         </div>
     </header>
 
-    <div class="client-logos my-5" id="search_car" style="margin-top: 2.5rem!important;    margin-bottom: 2rem!important;">
-        <div class="container text-center" style="display: flex;    justify-content: space-around;">
-            <div class="search-item">
-                <div class="img-wrapper">
-                    <img class="item-img imge-size" src="images/toyota-color-icon.svg">
-                </div>
-                <div class="item-title">Toyota</div>
-            </div>
-            <div class="search-item">
-                <div class="img-wrapper">
-                    <img class="item-img imge-size" src="images/honda-color-icon.svg" alt="honda">
-                </div>
-                <div class="item-title">Honda</div>
-            </div>
-            <div class="search-item">
-                <div class="img-wrapper">
-                    <img class="item-img imge-size" src="images/mazda-color-icon-v2.webp" style="max-width: 39px;">
-                </div>
-                <div class="item-title">Mazda</div>
-            </div>
-            <div class="search-item">
-                <div class="img-wrapper">
-                    <img class="item-img imge-size" src="images/isuzu-color-icon.svg">
-                </div>
-                <div class="item-title">Isuzu</div>
-            </div>
-            <div class="search-item">
-                <div class="img-wrapper">
-                    <img class="item-img imge-size" src="images/mercedes-benz-color-icon.svg">
-                </div>
-                <div class="item-title">Mercedes Benz</div>
-            </div>
-            <div class="search-item">
-                <div class="img-wrapper">
-                    <img class="item-img imge-size" src="images/bmw.svg" style="width: 35px;"> 
-                </div>
-                <div class="item-title">BMW</div>
-            </div>
-            <div class="search-item">
-                <div class="img-wrapper">
-                    <img class="item-img imge-size" src="images/nissan-color-icon.svg">
-                </div>
-                <div class="item-title">Nissan</div>
-            </div>
-            <div class="search-item">
-                <div class="img-wrapper">
-                    <img class="item-img imge-size" src="images/ford-color-icon.svg">
-                </div>
-                <div class="item-title">Ford</div>
-            </div>
-            <div class="search-item">
-                <div class="img-wrapper">
-                    <img class="item-img imge-size" src="images/mitsubishi-color-icon.svg">
-                </div>
-                <div class="item-title">Mitsubishi</div>
-            </div>
-            <div class="search-item">
-                <div class="img-wrapper">
-                    <img class="item-img imge-size" src="images/suzuki-color-icon.svg">
-                </div>
-                <div class="item-title">Suzuki</div>
-            </div>
-            <div class="search-item">
-                <div class="img-wrapper">
-                    <img class="item-img imge-size" src="images/mg-color-icon.svg">
-                </div>
-                <div class="item-title">MG</div>
-            </div>
-            <div class="search-item">
-                <div class="img-wrapper">
-                    <img class="item-img imge-size" src="images/subaru-color-icon.svg">
-                </div>
-                <div class="item-title">Subaru</div>
-            </div>
-            <div class="search-item">
-                <div class="img-wrapper">
-                    <img class="item-img imge-size" src="images/chevrolet-color-icon.svg">
-                </div>
-                <div class="item-title">Chevrolet</div>
-            </div>
-
+    <div class="client-logos my-5" id="search_car"
+        style="margin-top: 2.5rem!important;    margin-bottom: 2rem!important;">
+        <div class="container text-center" id="brandCar" style="display: flex;    justify-content: space-around;">
+            <!-- brand 
+             -->
         </div>
     </div>
     <hr>
     <div class="size-container">
-        <div class="row">
-            <!-- <div class="col-3">
-                <div class="card card-search">
-                    <h2 class="heading-line">ค้นหารถ</h2>
-                    <div class="card-body">
-                        <div class="form-group">
-                            <select class="form-control form-control-lg input-style">
-                                <option>เลือกราคา</option>
-                                <option>น้อยกว่า 100,000</option>
-                                <option>100,000-300,000</option>
-                                <option>400,000-600,000</option>
-                                <option>มากกว่า 600,0000</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <select class="form-control form-control-lg input-style">
-                                <option>ยี่ห้อ/แบรนด์</option>
-                                <option>Toyota</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <select class="form-control form-control-lg input-style">
-                                <option>รุ่น</option>
-                                <option>veloz</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <select class="form-control form-control-lg input-style">
-                                <option>ปี</option>
-                                <option>2022</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <select class="form-control form-control-lg input-style">
-                                <option>เลขไมล์ </option>
-                                <option>30,000</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <select class="form-control form-control-lg input-style">
-                                <option>ระบบเกียร์</option>
-                                <option>เกียร์อัตโนมัติ</option>
-                                <option>เกียร์ธรรมดา</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <select class="form-control form-control-lg input-style">
-                                <option>ประเภทรถ</option>
-                                <option>SUV</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <select class="form-control form-control-lg input-style">
-                                <option>สี</option>
-                                <option>ดำ</option>
-                                <option>แดง</option>
-                            </select>
-                        </div>
-                        <button type="button" class="btn  btn-lg  btn-block "
-                            style="cursor: pointer; background: linear-gradient(90deg, rgb(41, 61, 147) 0%, rgb(70, 90, 183) 50%, rgb(41, 61, 147) 100%);">
-                            <b style="color: #fff;font-size: 19px;">ค้นหารถ</b>
-                        </button>
-                        <button type="button" class="btn btn-outline-primary btn-block" style="cursor: pointer;"><b
-                                style="font-size: 15px;">ดูรถทั้งหมด</b></button>
-                    </div>
-                </div>
-            </div> -->
-            <div class="col-12">
-                <span color="#FFFFFF" class="span-h-1 span-h-2 " style="margin-bottom: 13px;">รถที่แนะนำสำหรับคุณ</span>
-                <div class="card-deck">
-                    <div class="card card-car mt-3 card-hover">
-                        <div class="ribbon ribbon-top-left"><span>รถเข้าใหม่</span></div>
-                        <img class="card-img-top" src="images/car2/2.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <div style="display: flex;justify-content: space-between;font-size: 25px;">
-                                <b style="color:rgb(41, 61, 147)">รถปี 2020</b><b style="color: #f58d4e;">฿ 546,000</b>
-                            </div>
-                            <b class="font-header-card">Ford Ranger 2.2 xlt</b>
-                            <p class="card-text mt-2"> <span class="ti-dashboard mr-2"></span><span class="mr-2">33,045
-                                    กม.</span>
-                                <span class="ti-plug mr-1"></span><span class="mr-2">เกียร์อัตโนมัติ</span>
-                                <span class="ti-car mr-1"></span><span>ดีเซล 2.5</span>
-                            </p>
-                            <p class="card-text" style="margin-top: -8px;">
-                                <span class="ti-location-pin mr-1"></span>
-                                <span>กรุงเทพมหานคร</span>
-                            </p>
-                            <div
-                                style="display: flex;justify-content: space-around;flex-direction: row-reverse;align-items: baseline;">
-                                <button type="button"
-                                    class="btn  btn-lg  btn-outline-success btn-block padding-button-contract"
-                                    style="margin-left: 3px;">
-                                    <img src="images/icons8-line.svg" class="img-fluid icon-width"
-                                        alt="logo"><b>ติดต่อไลน์</b></button>
-                                <button type="button"
-                                    class="btn  btn-outline-info btn-lg  btn-lg btn-block padding-button-contract"
-                                    style="margin-right: 3px;">
-                                    <img src="images/icons8-phone-48.png" class="img-fluid icon-width" alt="logo">
-                                    <b>เบอร์ติดต่อ</b></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card card-car card-hover mt-3">
-                        <img class="card-img-top" src="images/car2/1.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <div style="display: flex;justify-content: space-between;    font-size: 25px;">
-                                <b style="color:rgb(41, 61, 147)">รถปี 2018</b><b style="color: #f58d4e;">฿
-                                    1,009,000</b>
-                            </div>
-                            <b class="font-header-card">bmw series 5 2.0 Turbo</b>
-                            <p class="card-text mt-2"> <span class="ti-dashboard mr-2"></span><span class="mr-2">33,045
-                                    กม.</span>
-                                <span class="ti-plug mr-1"></span><span class="mr-2">เกียร์อัตโนมัติ</span>
-                                <span class="ti-car mr-1"></span><span>ดีเซล 2.5</span>
-                            </p>
-                            <p class="card-text" style="margin-top: -8px;">
-                                <span class="ti-location-pin mr-1"></span>
-                                <span>กรุงเทพมหานคร</span>
-                            </p>
-                            <div
-                                style="display: flex;justify-content: space-around;flex-direction: row-reverse;align-items: baseline;">
-                                <button type="button"
-                                    class="btn  btn-lg  btn-outline-success btn-block padding-button-contract"
-                                    style="margin-left: 3px;">
-                                    <img src="images/icons8-line.svg" class="img-fluid icon-width" alt="logo"
-                                        style="width: 37px;"><b>ติดต่อไลน์</b></button>
-                                <button type="button"
-                                    class="btn  btn-outline-info btn-lg  btn-lg btn-block padding-button-contract"
-                                    style="margin-right: 3px;">
-                                    <img src="images/icons8-phone-48.png" class="img-fluid icon-width" alt="logo">
-                                    <b>เบอร์ติดต่อ</b></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card card-car card-hover mt-3">
-                        <div class="ribbon ribbon-top-left"><span>รถเข้าใหม่</span></div>
-                        <img class="card-img-top" src="images/car2/6.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <div style="display: flex;justify-content: space-between;    font-size: 25px;">
-                                <b style="color:rgb(41, 61, 147)">รถปี 2012</b><b style="color: #f58d4e;">฿ 486,000</b>
-                            </div>
-                            <b class="font-header-card">Isuzu D-max 2.5 </b>
-                            <p class="card-text mt-2"> <span class="ti-dashboard mr-2"></span><span class="mr-2">33,045
-                                    กม.</span>
-                                <span class="ti-plug mr-1"></span><span class="mr-2">เกียร์ธรรมดา</span>
-                                <span class="ti-car mr-1"></span><span>ดีเซล 2.5</span>
-                            </p>
-                            <p class="card-text" style="margin-top: -8px;">
-                                <span class="ti-location-pin mr-1"></span>
-                                <span>กรุงเทพมหานคร</span>
-                            </p>
-                            <div
-                                style="display: flex;justify-content: space-around;flex-direction: row-reverse;align-items: baseline;">
-                                <button type="button"
-                                    class="btn  btn-lg  btn-outline-success btn-block padding-button-contract"
-                                    style="margin-left: 3px;">
-                                    <img src="images/icons8-line.svg" class="img-fluid icon-width"
-                                        alt="logo"><b>ติดต่อไลน์</b></button>
-                                <button type="button"
-                                    class="btn  btn-outline-info btn-lg  btn-lg btn-block padding-button-contract"
-                                    style="margin-right: 3px;">
-                                    <img src="images/icons8-phone-48.png" class="img-fluid icon-width" alt="logo">
-                                    <b>เบอร์ติดต่อ</b></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card card-car card-hover mt-3">
-                        <img class="card-img-top" src="images/car2/3.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <div style="display: flex;justify-content: space-between;font-size: 25px;">
-                                <b style="color:rgb(41, 61, 147)">รถปี 2016</b><b style="color: #f58d4e;">฿
-                                    3,746,000</b>
-                            </div>
-                            <b class="font-header-card">Ford Mustang 5.0</b>
-                            <p class="card-text mt-2"> <span class="ti-dashboard mr-2"></span><span class="mr-2">33,045
-                                    กม.</span>
-                                <span class="ti-plug mr-1"></span><span class="mr-2">เกียร์อัตโนมัติ</span>
-                                <span class="ti-car mr-1"></span><span>ดีเซล 2.5</span>
-                            </p>
-                            <p class="card-text" style="margin-top: -8px;">
-                                <span class="ti-location-pin mr-1"></span>
-                                <span>กรุงเทพมหานคร</span>
-                            </p>
-                            <div
-                                style="display: flex;justify-content: space-around;flex-direction: row-reverse;align-items: baseline;">
-                                <button type="button"
-                                    class="btn  btn-lg  btn-outline-success btn-block padding-button-contract"
-                                    style="margin-left: 3px;">
-                                    <img src="images/icons8-line.svg" class="img-fluid icon-width"
-                                        alt="logo"><b>ติดต่อไลน์</b></button>
-                                <button type="button"
-                                    class="btn  btn-outline-info btn-lg  btn-lg btn-block padding-button-contract"
-                                    style="margin-right: 3px;">
-                                    <img src="images/icons8-phone-48.png" class="img-fluid icon-width" alt="logo">
-                                    <b>เบอร์ติดต่อ</b></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-deck">
-                    <div class="card card-car card-hover mt-3">
-                        <img class="card-img-top" src="images/car2/4.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <div style="display: flex;justify-content: space-between;    font-size: 25px;">
-                                <b style="color:rgb(41, 61, 147)">รถปี 2019</b><b style="color: #f58d4e;">฿ 870,000</b>
-                            </div>
-                            <b class="font-header-card">Honda Civic 1.5 RS </b>
-                            <p class="card-text mt-2"> <span class="ti-dashboard mr-2"></span><span class="mr-2">33,045
-                                    กม.</span>
-                                <span class="ti-plug mr-1"></span><span class="mr-2">เกียร์อัตโนมัติ</span>
-                                <span class="ti-car mr-1"></span><span>ดีเซล 2.5</span>
-                            </p>
-                            <p class="card-text" style="margin-top: -8px;">
-                                <span class="ti-location-pin mr-1"></span>
-                                <span>กรุงเทพมหานคร</span>
-                            </p>
-                            <div
-                                style="display: flex;justify-content: space-around;flex-direction: row-reverse;align-items: baseline;">
-                                <button type="button"
-                                    class="btn  btn-lg  btn-outline-success btn-block padding-button-contract"
-                                    style="margin-left: 3px;">
-                                    <img src="images/icons8-line.svg" class="img-fluid icon-width"
-                                        alt="logo"><b>ติดต่อไลน์</b></button>
-                                <button type="button"
-                                    class="btn  btn-outline-info btn-lg  btn-lg btn-block padding-button-contract"
-                                    style="margin-right: 3px;">
-                                    <img src="images/icons8-phone-48.png" class="img-fluid icon-width" alt="logo">
-                                    <b>เบอร์ติดต่อ</b></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card card-car card-hover mt-3">
-                        <img class="card-img-top" src="images/car2/5.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <div style="display: flex;justify-content: space-between;    font-size: 25px;">
-                                <b style="color:rgb(41, 61, 147)">รถปี 2022</b><b style="color: #f58d4e;">฿ 639,000</b>
-                            </div>
-                            <b class="font-header-card">Honda Civic 1.5 SE </b>
-                            <p class="card-text mt-2"> <span class="ti-dashboard mr-2"></span><span class="mr-2">33,045
-                                    กม.</span>
-                                <span class="ti-plug mr-1"></span><span class="mr-2">เกียร์อัตโนมัติ</span>
-                                <span class="ti-car mr-1"></span><span>ดีเซล 2.5</span>
-                            </p>
-                            <p class="card-text" style="margin-top: -8px;">
-                                <span class="ti-location-pin mr-1"></span>
-                                <span>กรุงเทพมหานคร</span>
-                            </p>
-                            <div
-                                style="display: flex;justify-content: space-around;flex-direction: row-reverse;align-items: baseline;">
-                                <button type="button"
-                                    class="btn  btn-lg  btn-outline-success btn-block padding-button-contract"
-                                    style="margin-left: 3px;">
-                                    <img src="images/icons8-line.svg" class="img-fluid icon-width"
-                                        alt="logo"><b>ติดต่อไลน์</b></button>
-                                <button type="button"
-                                    class="btn  btn-outline-info btn-lg  btn-lg btn-block padding-button-contract"
-                                    style="margin-right: 3px;">
-                                    <img src="images/icons8-phone-48.png" class="img-fluid icon-width" alt="logo">
-                                    <b>เบอร์ติดต่อ</b></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card card-car card-hover mt-3">
-                        <img class="card-img-top" src="images/car2/6.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <div style="display: flex;justify-content: space-between;    font-size: 25px;">
-                                <b style="color:rgb(41, 61, 147)">รถปี 2012</b><b style="color: #f58d4e;">฿ 486,000</b>
-                            </div>
-                            <b class="font-header-card">Isuzu D-max 2.5 </b>
-                            <p class="card-text mt-2"> <span class="ti-dashboard mr-2"></span><span class="mr-2">33,045
-                                    กม.</span>
-                                <span class="ti-plug mr-1"></span><span class="mr-2">เกียร์ธรรมดา</span>
-                                <span class="ti-car mr-1"></span><span>ดีเซล 2.5</span>
-                            </p>
-                            <p class="card-text" style="margin-top: -8px;">
-                                <span class="ti-location-pin mr-1"></span>
-                                <span>กรุงเทพมหานคร</span>
-                            </p>
-                            <div
-                                style="display: flex;justify-content: space-around;flex-direction: row-reverse;align-items: baseline;">
-                                <button type="button"
-                                    class="btn  btn-lg  btn-outline-success btn-block padding-button-contract"
-                                    style="margin-left: 3px;">
-                                    <img src="images/icons8-line.svg" class="img-fluid icon-width"
-                                        alt="logo"><b>ติดต่อไลน์</b></button>
-                                <button type="button"
-                                    class="btn  btn-outline-info btn-lg  btn-lg btn-block padding-button-contract"
-                                    style="margin-right: 3px;">
-                                    <img src="images/icons8-phone-48.png" class="img-fluid icon-width" alt="logo">
-                                    <b>เบอร์ติดต่อ</b></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card card-car card-hover mt-3">
-                        <img class="card-img-top" src="images/car2/4.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <div style="display: flex;justify-content: space-between;    font-size: 25px;">
-                                <b style="color:rgb(41, 61, 147)">รถปี 2019</b><b style="color: #f58d4e;">฿ 870,000</b>
-                            </div>
-                            <b class="font-header-card">Honda Civic 1.5 RS </b>
-                            <p class="card-text mt-2"> <span class="ti-dashboard mr-2"></span><span class="mr-2">33,045
-                                    กม.</span>
-                                <span class="ti-plug mr-1"></span><span class="mr-2">เกียร์อัตโนมัติ</span>
-                                <span class="ti-car mr-1"></span><span>ดีเซล 2.5</span>
-                            </p>
-                            <p class="card-text" style="margin-top: -8px;">
-                                <span class="ti-location-pin mr-1"></span>
-                                <span>กรุงเทพมหานคร</span>
-                            </p>
-                            <div
-                                style="display: flex;justify-content: space-around;flex-direction: row-reverse;align-items: baseline;">
-                                <button type="button"
-                                    class="btn  btn-lg  btn-outline-success btn-block padding-button-contract"
-                                    style="margin-left: 3px;">
-                                    <img src="images/icons8-line.svg" class="img-fluid icon-width"
-                                        alt="logo"><b>ติดต่อไลน์</b></button>
-                                <button type="button"
-                                    class="btn  btn-outline-info btn-lg  btn-lg btn-block padding-button-contract"
-                                    style="margin-right: 3px;">
-                                    <img src="images/icons8-phone-48.png" class="img-fluid icon-width" alt="logo">
-                                    <b>เบอร์ติดต่อ</b></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-deck">
-                    <div class="card card-car card-hover mt-3">
-                        <div class="ribbon ribbon-top-left"><span>รถเข้าใหม่</span></div>
-                        <img class="card-img-top" src="images/car2/1.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <div style="display: flex;justify-content: space-between;    font-size: 25px;">
-                                <b style="color:rgb(41, 61, 147)">รถปี 2018</b><b style="color: #f58d4e;">฿ 546,000</b>
-                            </div>
-                            <b class="font-header-card">bmw series 5 2.0 Turbo</b>
-                            <p class="card-text mt-2"> <span class="ti-dashboard mr-2"></span><span class="mr-2">33,045
-                                    กม.</span>
-                                <span class="ti-plug mr-1"></span><span class="mr-2">เกียร์อัตโนมัติ</span>
-                                <span class="ti-car mr-1"></span><span>ดีเซล 2.5</span>
-                            </p>
-                            <p class="card-text" style="margin-top: -8px;">
-                                <span class="ti-location-pin mr-1"></span>
-                                <span>กรุงเทพมหานคร</span>
-                            </p>
-                            <div
-                                style="display: flex;justify-content: space-around;flex-direction: row-reverse;align-items: baseline;">
-                                <button type="button"
-                                    class="btn  btn-lg  btn-outline-success btn-block padding-button-contract"
-                                    style="margin-left: 3px;">
-                                    <img src="images/icons8-line.svg" class="img-fluid icon-width"
-                                        alt="logo"><b>ติดต่อไลน์</b></button>
-                                <button type="button"
-                                    class="btn  btn-outline-info btn-lg  btn-lg btn-block padding-button-contract"
-                                    style="margin-right: 3px;">
-                                    <img src="images/icons8-phone-48.png" class="img-fluid icon-width" alt="logo">
-                                    <b>เบอร์ติดต่อ</b></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card card-car card-hover mt-3">
-                        <img class="card-img-top" src="images/car2/4.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <div style="display: flex;justify-content: space-between;    font-size: 25px;">
-                                <b style="color:rgb(41, 61, 147)">รถปี 2019</b><b style="color: #f58d4e;">฿ 870,000</b>
-                            </div>
-                            <b class="font-header-card">Honda Civic 1.5 RS </b>
-                            <p class="card-text mt-2"> <span class="ti-dashboard mr-2"></span><span class="mr-2">33,045
-                                    กม.</span>
-                                <span class="ti-plug mr-1"></span><span class="mr-2">เกียร์อัตโนมัติ</span>
-                                <span class="ti-car mr-1"></span><span>ดีเซล 2.5</span>
-                            </p>
-                            <p class="card-text" style="margin-top: -8px;">
-                                <span class="ti-location-pin mr-1"></span>
-                                <span>กรุงเทพมหานคร</span>
-                            </p>
-                            <div
-                                style="display: flex;justify-content: space-around;flex-direction: row-reverse;align-items: baseline;">
-                                <button type="button"
-                                    class="btn  btn-lg  btn-outline-success btn-block padding-button-contract"
-                                    style="margin-left: 3px;">
-                                    <img src="images/icons8-line.svg" class="img-fluid icon-width"
-                                        alt="logo"><b>ติดต่อไลน์</b></button>
-                                <button type="button"
-                                    class="btn  btn-outline-info btn-lg  btn-lg btn-block padding-button-contract"
-                                    style="margin-right: 3px;">
-                                    <img src="images/icons8-phone-48.png" class="img-fluid icon-width" alt="logo">
-                                    <b>เบอร์ติดต่อ</b></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card card-car card-hover mt-3">
-                        <img class="card-img-top" src="images/car2/2.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <div style="display: flex;justify-content: space-between;    font-size: 25px;">
-                                <b style="color:rgb(41, 61, 147)">รถปี 2020</b><b style="color: #f58d4e;">฿ 546,000</b>
-                            </div>
-                            <b class="font-header-card">Ford Ranger 2.2 xlt</b>
-                            <p class="card-text mt-2"> <span class="ti-dashboard mr-2"></span><span class="mr-2">33,045
-                                    กม.</span>
-                                <span class="ti-plug mr-1"></span><span class="mr-2">เกียร์อัตโนมัติ</span>
-                                <span class="ti-car mr-1"></span><span>ดีเซล 2.5</span>
-                            </p>
-                            <p class="card-text" style="margin-top: -8px;">
-                                <span class="ti-location-pin mr-1"></span>
-                                <span>กรุงเทพมหานคร</span>
-                            </p>
-                            <div
-                                style="display: flex;justify-content: space-around;flex-direction: row-reverse;align-items: baseline;">
-                                <button type="button"
-                                    class="btn  btn-lg  btn-outline-success btn-block padding-button-contract"
-                                    style="margin-left: 3px;">
-                                    <img src="images/icons8-line.svg" class="img-fluid icon-width"
-                                        alt="logo"><b>ติดต่อไลน์</b></button>
-                                <button type="button"
-                                    class="btn  btn-outline-info btn-lg  btn-lg btn-block padding-button-contract"
-                                    style="margin-right: 3px;">
-                                    <img src="images/icons8-phone-48.png" class="img-fluid icon-width" alt="logo">
-                                    <b>เบอร์ติดต่อ</b></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card card-car card-hover mt-3">
-                        <img class="card-img-top" src="images/car2/3.jpg" alt="Card image cap">
-                        <div class="card-body">
-                            <div style="display: flex;justify-content: space-between;    font-size: 25px;">
-                                <b style="color:rgb(41, 61, 147)">รถปี 2016</b><b style="color: #f58d4e;">฿
-                                    3,746,000</b>
-                            </div>
-                            <b class="font-header-card">Ford Mustang 5.0</b>
-                            <p class="card-text mt-2"> <span class="ti-dashboard mr-2"></span><span class="mr-2">33,045
-                                    กม.</span>
-                                <span class="ti-plug mr-1"></span><span class="mr-2">เกียร์อัตโนมัติ</span>
-                                <span class="ti-car mr-1"></span><span>ดีเซล 2.5</span>
-                            </p>
-                            <p class="card-text" style="margin-top: -8px;">
-                                <span class="ti-location-pin mr-1"></span>
-                                <span>กรุงเทพมหานคร</span>
-                            </p>
-                            <div
-                                style="display: flex;justify-content: space-around;flex-direction: row-reverse;align-items: baseline;">
-                                <button type="button"
-                                    class="btn  btn-lg  btn-outline-success btn-block padding-button-contract"
-                                    style="margin-left: 3px;">
-                                    <img src="images/icons8-line.svg" class="img-fluid icon-width"
-                                        alt="logo"><b>ติดต่อไลน์</b></button>
-                                <button type="button"
-                                    class="btn  btn-outline-info btn-lg  btn-lg btn-block padding-button-contract"
-                                    style="margin-right: 3px;">
-                                    <img src="images/icons8-phone-48.png" class="img-fluid icon-width" alt="logo">
-                                    <b>เบอร์ติดต่อ</b></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mt-4 mb-3">
-                    <div class="col text-center">
-                        <button type="button" class="btn btn-info"
-                            style=" background: linear-gradient(90deg, rgb(41, 61, 147) 0%, rgb(70, 90, 183) 50%, rgb(41, 61, 147) 100%);cursor: pointer;">
-                            <b style="font-size: 17px;">ดูรถทั้งหมด</b></button>
-                    </div>
+
+        <div class="col-12">
+            <span color="#FFFFFF" class="span-h-1 span-h-2 " style="margin-bottom: 13px;">รถที่แนะนำสำหรับคุณ</span>
+            <div class="row" id="conCardDeck"></div>
+            <div class="row mt-4 mb-3">
+                <div class="col text-center">
+                    <button onclick="goToSearch()" type="button" class="btn btn-info"
+                        style=" background: linear-gradient(90deg, rgb(41, 61, 147) 0%, rgb(70, 90, 183) 50%, rgb(41, 61, 147) 100%);cursor: pointer;">
+                        <b style="font-size: 17px;">ดูรถทั้งหมด</b></button>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
 
@@ -628,29 +105,8 @@
             <hr>
             <div class="row">
                 <div class="col-md-8 d-flex align-items-center">
-                    <ul class="list-unstyled ui-steps">
-                        <li class="media">
-                            <div class="circle-icon mr-4">1</div>
-                            <div class="media-body">
-                                <h5>ลงทะเบียนเป็นสมาชิกกับเรา</h5>
-                                <p>ลงทะเบียนกับเราง่ายๆ เพียงกรอกข้อมูลส่วนตัวพร้อมภาพถ่ายบัตรประชาชนเพื่อยืนยันตัวตน
-                                    ในเว็บไซต์ของเรา</p>
-                            </div>
-                        </li>
-                        <li class="media my-4">
-                            <div class="circle-icon mr-4">2</div>
-                            <div class="media-body">
-                                <h5> ดำเนินตรวจสอบเอกสารยืนยันตัวตนของคุณ</h5>
-                                <p>เจ้าหน้าจะทำการตรวจสอบเอกสารของคุณ ด่วนทันใจ รู้ผลทันทีภายใน 30 นาที</p>
-                            </div>
-                        </li>
-                        <li class="media">
-                            <div class="circle-icon mr-4">3</div>
-                            <div class="media-body">
-                                <h5>ขายรถของคุณผ่านเว็บไซต์ของเรา</h5>
-                                <p>ทำการขายรถของท่ายโดยใส่รายละเอียดของท่านมาในเว็บไซต์เราได้เลย</p>
-                            </div>
-                        </li>
+                    <ul class="list-unstyled ui-steps" id="stepSell">
+                        <!-- stepSell -->
                     </ul>
                 </div>
                 <div class="col-md-4">
@@ -701,12 +157,13 @@
                                     </div>
                                     <div class="form-group mt-2">
                                         <label>จำนวนเงินดาวน์ (%)</label>
-                                        <input type="text" id="downPayment1" onclick="clickInputDownPayment1()" name="downPayment1"
-                                            class="form-control form-control-lg CurrencyInputDownPayment1" placeholder=""
-                                            style="margin-top: -7px; background-color: #fdfdfd;">
-                                            <div class="invalid-feedback">
-                                                กรุณากรอกเฉพาะตัวเลขไม่เกิน 100 เท่านั้น
-                                            </div>
+                                        <input type="text" id="downPayment1" onclick="clickInputDownPayment1()"
+                                            name="downPayment1"
+                                            class="form-control form-control-lg CurrencyInputDownPayment1"
+                                            placeholder="" style="margin-top: -7px; background-color: #fdfdfd;">
+                                        <div class="invalid-feedback">
+                                            กรุณากรอกเฉพาะตัวเลขไม่เกิน 100 เท่านั้น
+                                        </div>
                                     </div>
                                     <div class="form-group mt-2">
                                         <label>จำนวนปีที่ผ่อน</label>
@@ -816,7 +273,8 @@
                                     <div class="form-group mt-2">
                                         <label>ราคารถ (บาท)</label>
                                         <input type="text" id="price2" name="price2"
-                                            class="form-control form-control-lg CurrencyInput" onclick="clickInputPrice2()"
+                                            class="form-control form-control-lg CurrencyInput"
+                                            onclick="clickInputPrice2()"
                                             style="margin-top: -7px;background-color: #fdfdfd;">
                                         <div class="invalid-feedback">
                                             กรุณากรอกเฉพาะตัวเลขเท่านั้น
@@ -940,50 +398,8 @@
             <div class="section-title">
                 <h3>ทำไมต้องซื้อรถกับ CAR-DEE</h3>
             </div>
-            <div class="row">
-                <div class="col-12 col-lg-4">
-                    <div class="card features">
-                        <div class="card-body">
-                            <div class="media">
-                                <span class="ti-car gradient-fill ti-3x mr-3"></span>
-                                <div class="media-body">
-                                    <h4 class="card-title">ทุกคันผ่านการตรวจสภาพ</h4>
-                                    <p class="card-text">รถทุกคันผ่านการตรวจสภาพ
-                                        รับรองว่าไม่มีอุบัติเหตุถึงโครงสร้าง
-                                        ตัวรถ ไฟไหม้ น้ำท่วม</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-4">
-                    <div class="card features">
-                        <div class="card-body">
-                            <div class="media">
-                                <span class="ti-truck gradient-fill ti-3x mr-3"></span>
-                                <div class="media-body">
-                                    <h4 class="card-title">ส่งตรงถึงหน้าบ้าน</h4>
-                                    <p class="card-text">ไม่เสียเวลาและปลอดภัยด้วยบริการส่งฟรีทั่วประเทศถึงหน้าบ้าน
-                                        รวมถึงการทดลองขับ</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-4">
-                    <div class="card features">
-                        <div class="card-body">
-                            <div class="media">
-                                <span class="ti-headphone-alt gradient-fill ti-3x mr-3"></span>
-                                <div class="media-body">
-                                    <h4 class="card-title">ช่วยเหลือฉุกเฉิน 24 ชม.</h4>
-                                    <p class="card-text">เรามีบริการช่วยเหลือฉุกเฉิน 24 ชั่วโมง
-                                        สำหรับลูกค้าที่ซื้อรถยนต์มือสองกับเรา CAR-DEE</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="row" id="about">
+                <!-- about -->
             </div>
 
         </div>
@@ -1048,6 +464,441 @@
     <script src="js/script.js"></script>
 
     <script>
+
+        function something() {
+            var url_string = window.location.pathname + window.location.search
+            var active = url_string.split("=")
+            if (active[1] == "contact") {
+                location.href = "#contact";
+            } else if (active[1] == "calculate") {
+                location.href = "#calculate";
+            } else if (active[1] == "gallery") {
+                location.href = "#gallery";
+            } else if (active[1] == "search_car") {
+                location.href = "#search_car";
+            } else if (active[1] == "home") {
+                location.href = "#home";
+            }
+        }
+        something()
+
+        const brandCar = [
+            {
+                name: "Toyota",
+                image: "images/toyota-color-icon.svg",
+            },
+            {
+                name: "Honda",
+                image: "images/honda-color-icon.svg",
+            },
+            {
+                name: "Mazda",
+                image: "images/mazda-color-icon-v2.webp",
+                sizeImage: "max-width: 39px"
+            },
+            {
+                name: "Mercedes Benz",
+                image: "images/mercedes-benz-color-icon.svg",
+            },
+            {
+                name: "BMW",
+                image: "images/bmw.svg",
+                sizeImage: "max-width: 35px"
+            },
+            {
+                name: "Nissan",
+                image: "images/nissan-color-icon.svg",
+            },
+            {
+                name: "Mitsubishi",
+                image: "images/mitsubishi-color-icon.svg",
+            },
+            {
+                name: "Suzuki",
+                image: "images/suzuki-color-icon.svg",
+            },
+            {
+                name: "MG",
+                image: "images/mg-color-icon.svg",
+            },
+            {
+                name: "Subaru",
+                image: "images/subaru-color-icon.svg",
+            },
+            {
+                name: "Chevrolet",
+                image: "images/chevrolet-color-icon.svg",
+            },
+            {
+                name: "Haval",
+                image: "images/haval.png",
+                sizeImage: "max-width: 83px"
+            },
+            {
+                name: "Hyundai",
+                image: "images/hyundai.svg",
+                sizeImage: "max-width: 50px"
+            },
+
+
+        ]
+        const brandCarInnerHTML = document.getElementById("brandCar");
+        brandCarInnerHTML.innerHTML = brandCar
+            .map(({ name, image, sizeImage }, i) => `
+            <div class="search-item">
+                <div class="img-wrapper">
+                    <img class="item-img imge-size" src="${image}" style="${sizeImage}">
+                </div>
+                <div class="item-title">${name}</div>
+            </div>
+            `).join("");
+
+        const stepSell = [
+            {
+                header: "ลงทะเบียนเป็นสมาชิกกับเรา",
+                description: "ลงทะเบียนกับเราง่ายๆ เพียงกรอกข้อมูลส่วนตัวพร้อมภาพถ่ายบัตรประชาชนเพื่อยืนยันตัวตนในเว็บไซต์ของเรา",
+            },
+            {
+                header: "ดำเนินตรวจสอบเอกสารยืนยันตัวตนของคุณ",
+                description: "เจ้าหน้าจะทำการตรวจสอบเอกสารของคุณ ด่วนทันใจ รู้ผลทันทีภายใน 30 นาที",
+            },
+            {
+                header: "ขายรถของคุณผ่านเว็บไซต์ของเรา",
+                description: "ทำการขายรถของท่ายโดยใส่รายละเอียดของท่านมาในเว็บไซต์เราได้เลย",
+            },
+        ]
+        const stepSellInnerHTML = document.getElementById("stepSell");
+        stepSellInnerHTML.innerHTML = stepSell
+            .map(({ header, description }, i) => `
+            <li class="media">
+                            <div class="circle-icon mr-4">${i + 1}</div>
+                            <div class="media-body">
+                                <h5>${header}</h5>
+                                <p>${description}</p>
+                            </div>
+                        </li>
+            `).join("");
+
+        const about = [
+            {
+                icon: "ti-car",
+                header: "ทุกคันผ่านการตรวจสภาพ",
+                description: "รถทุกคันผ่านการตรวจสภาพ รับรองว่าไม่มีอุบัติเหตุถึงโครงสร้าง ตัวรถ ไฟไหม้ น้ำท่วม",
+            },
+            {
+                icon: "ti-truck",
+                header: "ส่งตรงถึงหน้าบ้าน",
+                description: "ไม่เสียเวลาและปลอดภัยด้วยบริการส่งฟรีทั่วประเทศถึงหน้าบ้านรวมถึงการทดลองขับ",
+            },
+            {
+                icon: "ti-headphone-alt",
+                header: "ช่วยเหลือฉุกเฉิน 24 ชม.",
+                description: "เรามีบริการช่วยเหลือฉุกเฉิน 24 ชั่วโมง สำหรับลูกค้าที่ซื้อรถยนต์มือสองกับเรา CAR-DEE",
+            },
+        ]
+
+        const aboutInnerHTML = document.getElementById("about");
+        aboutInnerHTML.innerHTML = about
+            .map(({ icon, header, description }, i) => `
+            <div class="col-12 col-lg-4">
+                    <div class="card features">
+                        <div class="card-body">
+                            <div class="media">
+                                <span class="${icon} gradient-fill ti-3x mr-3"></span>
+                                <div class="media-body">
+                                    <h4 class="card-title">${header}</h4>
+                                    <p class="card-text">${description}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `).join("");
+
+
+
+        const dataCar = [
+            {
+                name: "Bmw series 5",
+                image: "images/car2/1.jpg",
+                year: "2019",
+                price: "950,000",
+                engine: "เบนซิน",
+                engineSize: "2.0",
+                gear: "อัตโนมัติ",
+                phoneContact: "0982139552",
+                lineContact: "@line",
+                location: "กรุวเทพมหานคร",
+                miles: "28,980",
+                isNew: "old"
+            },
+            {
+                name: "Ford ranger 2.2 xlt",
+                image: "images/car2/2.jpg",
+                year: "2017",
+                price: "782,000",
+                engine: "ดีเซล",
+                engineSize: "2.2",
+                gear: "ธรรมดา",
+                phoneContact: "0982139552",
+                lineContact: "@line",
+                location: "กรุวเทพมหานคร",
+                miles: "12,980",
+                isNew: "new"
+            },
+            {
+
+                name: "Ford mustang 5.0",
+                image: "images/car2/3.jpg",
+                year: "2017",
+                price: "1,910,000",
+                engine: "เบนซิน",
+                engineSize: "5.0",
+                gear: "อัตโนมัติ",
+                phoneContact: "0982139552",
+                lineContact: "@line",
+                location: "กรุวเทพมหานคร",
+                miles: "89,382",
+                isNew: "old"
+            },
+            {
+
+                name: "Honda Civic 1.8 E",
+                image: "images/car2/4.jpg",
+                year: "2017",
+                price: "625,000",
+                engine: "เบนซิน",
+                engineSize: "1.8",
+                gear: "อัตโนมัติ",
+                phoneContact: "0982139552",
+                lineContact: "@line",
+                location: "กรุวเทพมหานคร",
+                miles: "89,382",
+                isNew: "new"
+            },
+            {
+
+                name: "Honda Civic 1.5 RS ",
+                image: "images/car2/5.jpg",
+                year: "2017",
+                price: "740,000",
+                engine: "เบนซิน",
+                engineSize: "1.5",
+                gear: "อัตโนมัติ",
+                phoneContact: "0982139552",
+                lineContact: "@line",
+                location: "กรุวเทพมหานคร",
+                miles: "89,382",
+                isNew: "old"
+            },
+            {
+
+                name: "Isuzu D-max 2.5",
+                image: "images/car2/6.jpg",
+                year: "2017",
+                price: "479,900",
+                engine: "ดีเซล",
+                engineSize: "2.5",
+                gear: "ธรรมดา",
+                phoneContact: "0982139552",
+                lineContact: "@line",
+                location: "กรุวเทพมหานคร",
+                miles: "89,382",
+                isNew: "old"
+            },
+            {
+                name: "Bmw series 5",
+                image: "images/car2/1.jpg",
+                year: "2019",
+                price: "950,000",
+                engine: "เบนซิน",
+                engineSize: "2.0",
+                gear: "อัตโนมัติ",
+                phoneContact: "0982139552",
+                lineContact: "@line",
+                location: "กรุวเทพมหานคร",
+                miles: "28,980",
+                isNew: "old"
+            },
+            {
+                name: "Ford ranger 2.2 xlt",
+                image: "images/car2/2.jpg",
+                year: "2017",
+                price: "782,000",
+                engine: "ดีเซล",
+                engineSize: "2.2",
+                gear: "ธรรมดา",
+                phoneContact: "0982139552",
+                lineContact: "@line",
+                location: "กรุวเทพมหานคร",
+                miles: "12,980",
+                isNew: "new"
+            },
+            {
+                name: "Bmw series 5",
+                image: "images/car2/1.jpg",
+                year: "2019",
+                price: "950,000",
+                engine: "เบนซิน",
+                engineSize: "2.0",
+                gear: "อัตโนมัติ",
+                phoneContact: "0982139552",
+                lineContact: "@line",
+                location: "กรุวเทพมหานคร",
+                miles: "28,980",
+                isNew: "old"
+            },
+            {
+                name: "Ford ranger 2.2 xlt",
+                image: "images/car2/2.jpg",
+                year: "2017",
+                price: "782,000",
+                engine: "ดีเซล",
+                engineSize: "2.2",
+                gear: "ธรรมดา",
+                phoneContact: "0982139552",
+                lineContact: "@line",
+                location: "กรุวเทพมหานคร",
+                miles: "12,980",
+                isNew: "new"
+            },
+            {
+
+                name: "Ford mustang 5.0",
+                image: "images/car2/3.jpg",
+                year: "2017",
+                price: "1,910,000",
+                engine: "เบนซิน",
+                engineSize: "5.0",
+                gear: "อัตโนมัติ",
+                phoneContact: "0982139552",
+                lineContact: "@line",
+                location: "กรุวเทพมหานคร",
+                miles: "89,382",
+                isNew: "old"
+            },
+            {
+
+                name: "Honda Civic 1.8 E",
+                image: "images/car2/4.jpg",
+                year: "2017",
+                price: "625,000",
+                engine: "เบนซิน",
+                engineSize: "1.8",
+                gear: "อัตโนมัติ",
+                phoneContact: "0982139552",
+                lineContact: "@line",
+                location: "กรุวเทพมหานคร",
+                miles: "89,382",
+                isNew: "new"
+            },
+            {
+
+                name: "Honda Civic 1.5 RS ",
+                image: "images/car2/5.jpg",
+                year: "2017",
+                price: "740,000",
+                engine: "เบนซิน",
+                engineSize: "1.5",
+                gear: "อัตโนมัติ",
+                phoneContact: "0982139552",
+                lineContact: "@line",
+                location: "กรุวเทพมหานคร",
+                miles: "89,382",
+                isNew: "old"
+            },
+            {
+
+                name: "Isuzu D-max 2.5",
+                image: "images/car2/6.jpg",
+                year: "2017",
+                price: "479,900",
+                engine: "ดีเซล",
+                engineSize: "2.5",
+                gear: "ธรรมดา",
+                phoneContact: "0982139552",
+                lineContact: "@line",
+                location: "กรุวเทพมหานคร",
+                miles: "89,382",
+                isNew: "old"
+            },
+            {
+                name: "Bmw series 5",
+                image: "images/car2/1.jpg",
+                year: "2019",
+                price: "950,000",
+                engine: "เบนซิน",
+                engineSize: "2.0",
+                gear: "อัตโนมัติ",
+                phoneContact: "0982139552",
+                lineContact: "@line",
+                location: "กรุวเทพมหานคร",
+                miles: "28,980",
+                isNew: "old"
+            },
+            {
+                name: "Ford ranger 2.2 xlt",
+                image: "images/car2/2.jpg",
+                year: "2017",
+                price: "782,000",
+                engine: "ดีเซล",
+                engineSize: "2.2",
+                gear: "ธรรมดา",
+                phoneContact: "0982139552",
+                lineContact: "@line",
+                location: "กรุวเทพมหานคร",
+                miles: "12,980",
+                isNew: "new"
+            },
+
+        ]
+        const conCardDeck = document.getElementById("conCardDeck");
+        conCardDeck.innerHTML = dataCar
+            .map(({ name, image, year, price, engine, engineSize, gear, phoneContact, lineContact, location, miles, isNew }, i) => `
+                        <div class="col-12 col-sm-6 col-md-3 col-xs-3 mt-2">
+                            <div class="card card-car mt-3 card-hover">
+                                <div class="ribbon ribbon-top-left ${isNew}" id="newCar"><span>รถเข้าใหม่</span></div>
+                                <img class="card-img-top" src="${image}" alt="Card image cap">
+                                <div class="card-body">
+                                    <div style="display: flex;justify-content: space-between;font-size: 25px;">
+                                        <b style="color:rgb(41, 61, 147)">รถปี ${year}</b><b style="color: #f58d4e;">฿ ${price}</b>
+                                    </div>
+                                    <b class="font-header-card" stype="color: #343434;">${name}</b>
+                                    <p class="card-text mt-2"> <span class="ti-dashboard mr-2"></span><span class="mr-2">${miles}
+                                            กม.</span>
+                                        <span class="ti-plug mr-1"></span><span class="mr-2">เกียร์${gear}</span>
+                                        <span class="ti-car mr-1"></span><span>${engine} ${engineSize}</span>
+                                    </p>
+                                    <p class="card-text" style="margin-top: -8px;">
+                                        <span class="ti-location-pin mr-1"></span>
+                                        <span>${location}</span>
+                                    </p>
+                                    <div
+                                        style="display: flex;justify-content: space-around;flex-direction: row-reverse;align-items: baseline;">
+                                        <button type="button"
+                                            class="btn  btn-lg  btn-outline-success btn-block padding-button-contract"
+                                            style="margin-left: 3px;">
+                                            <img src="images/icons8-line.svg" class="img-fluid icon-width"
+                                                alt="logo"><b>ติดต่อไลน์</b></button>
+                                        <button type="button"
+                                            class="btn  btn-outline-info btn-lg  btn-lg btn-block padding-button-contract"
+                                            style="margin-right: 3px;">
+                                            <img src="images/icons8-phone-48.png" class="img-fluid icon-width" alt="logo">
+                                            <b>เบอร์ติดต่อ</b></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                   `).join("");
+
+        function goToSearch() {
+            // var url_string = "search-car.html?a=1&b=3&c=m2-m3-m4-m5"; //window.location.href
+            // var url = new URL(url_string);
+            // var c = url.searchParams.get("c");
+            // console.log(c);
+            window.location.href = 'search-car.html?test=test';
+        }
+
 
         function calculate1() {
             var vat1 = document.getElementById("vat1").value;
@@ -1198,7 +1049,7 @@
             if (document.getElementById("price1").value == "NaN") {
                 document.getElementById("price1").value = ""
             }
-            
+
             if (document.getElementById("price2").value == "NaN") {
                 document.getElementById("price2").value = ""
             }
@@ -1217,7 +1068,7 @@
         });
 
         $('input.CurrencyInputDownPayment1').on('blur', function () {
-            console.log( this.value);
+            console.log(this.value);
             this.value = this.value + "%"
         });
 
@@ -1267,7 +1118,7 @@
             document.getElementById('price2').value = price1.split(".")[0];
         }
 
-        function clickInputDownPayment1(){
+        function clickInputDownPayment1() {
             var downPayment1 = document.getElementById("downPayment1").value.split("%")[0]
             document.getElementById('downPayment1').value = downPayment1
         }
@@ -1284,6 +1135,15 @@
         src: url("fonts/Prompt-Regular.ttf"), url("fonts/Prompt-Medium.ttf"),
             url("fonts/Prompt-SemiBold.ttf");
     }
+
+    .new {
+        display: initial !important;
+    }
+
+    .old {
+        display: none !important;
+    }
+
     .ribbon {
         width: 150px;
         height: 150px;
@@ -1343,10 +1203,7 @@
         transform: rotate(-45deg);
     }
 
-    input[type=radio] {
-        width: 20px;
-        height: 20px;
-    }
+
 
     * {
         font-family: "Prompt", sans-serif;
@@ -1383,7 +1240,10 @@
 
     .card-car {
         border-radius: 13px;
-        box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+        box-shadow: rgb(176 189 255 / 40%) 0px 0px 16px 0px;
+        grid-template-columns: minmax(25%, 264px) 1fr 25%;
+        border: none;
+
     }
 
     .border-r-1 {
@@ -1439,8 +1299,8 @@
     }
 
     .size-container {
-        margin-left: 165px;
-        margin-right: 165px;
+        margin-left: 185px;
+        margin-right: 185px;
         margin-top: 23px;
     }
 
@@ -1483,6 +1343,11 @@
         padding: 0 10px;
     }
 
+    input[type=radio] {
+        width: 20px;
+        height: 20px;
+    }
+
     .span-h-2 {
         display: block;
         text-align: center;
@@ -1496,8 +1361,8 @@
         font-size: 17px;
         font-weight: bold;
         line-height: 22px;
-        padding-top: 11px;
-        padding-bottom: 11px;
+        padding-top: 9px;
+        padding-bottom: 9px;
     }
 
     .card-hover {

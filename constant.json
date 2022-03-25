@@ -1,0 +1,53 @@
+
+{
+    "data": {
+        "brandCar": [
+            {
+                "name": "Toyota",
+                "image": "images/toyota-color-icon.svg"
+            },
+            {
+                "name": "Honda",
+                "image": "images/honda-color-icon.svg"
+            },
+            {
+                "name": "Mazda",
+                "image": "images/mazda-color-icon-v2.webp",
+                "sizeImage": "max-width: 39px"
+            },
+            {
+                "name": "Mercedes Benz",
+                "image": "images/mercedes-benz-color-icon.svg"
+            },
+            {
+                "name": "BMW",
+                "image": "images/bmw.svg",
+                "sizeImage": "max-width: 35px"
+            },
+            {
+                "name": "Nissan",
+                "image": "images/nissan-color-icon.svg"
+            },
+            {
+                "name": "Mitsubishi",
+                "image": "images/mitsubishi-color-icon.svg"
+            },
+            {
+                "name": "Suzuki",
+                "image": "images/suzuki-color-icon.svg"
+            },
+            {
+                "name": "MG",
+                "image": "images/mg-color-icon.svg"
+            },
+            {
+                "name": "Subaru",
+                "image": "images/subaru-color-icon.svg"
+            },
+            {
+                "name": "Chevrolet",
+                "image": "images/chevrolet-color-icon.svg"
+            }
+        ]
+    }
+}
