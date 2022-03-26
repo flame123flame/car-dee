@@ -99,7 +99,7 @@
 
     <div class="section light-bg" id="gallery">
         <div class="section-title">
-            <h3>ขายรถกับเราง่ายๆ เพียงมีมือถือเครื่องเดียว</h3>
+            <h3 style="color: #633991; font-size: 38px; font-weight: bold;">ขายรถกับเราง่ายๆ เพียงมีมือถือเครื่องเดียว</h3>
         </div>
         <div class="container">
             <hr>
@@ -129,7 +129,7 @@
     <div class="section" id="calculate">
         <div class="container">
             <div class="section-title">
-                <h3>ทดลองคำนวณค่างวดรถของคุณได้ง่ายๆ ผ่านเว็บเรา</h3>
+                <h3 style="color: #633991; font-size: 38px; font-weight: bold;">ทดลองคำนวณค่างวดรถของคุณได้ง่ายๆ ผ่านเว็บเรา</h3>
             </div>
             <div class="row">
                 <div class="col">
@@ -396,7 +396,7 @@
         <div class="container">
 
             <div class="section-title">
-                <h3>ทำไมต้องซื้อรถกับ CAR-DEE</h3>
+                <h3 style="color: #633991; font-size: 38px; font-weight: bold;">ทำไมต้องซื้อรถกับ CAR-DEE</h3>
             </div>
             <div class="row" id="about">
                 <!-- about -->
@@ -458,13 +458,36 @@
     <footer class="my-5 text-center">
         <p class="mb-2"><small>Copyright © 2020 CAR-DEE.com สงวนลิขสิทธิ์</small></p>
     </footer>
+
+
+    <div class="modal fade" id="modalContactPhone" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header"
+                    style="display: flex; justify-content: flex-start; flex-direction: row; align-content: center; align-items: center;">
+                    <img src="images/icons8-phone-48.png" class="img-fluid icon-width" alt="logo">
+                    <h4 class="modal-title" style="font-size: 24px; margin-left: 13px;">เบอร์โทรศัพท์ผู้ขาย</h4>
+                </div>
+                <div class="modal-body" style="    display: flex;">
+                    <b id="phoneContact" class="mr-2" style="font-size: 20px; color: #6a6a6a;"></b> <button type="button" class="btn btn-outline-info" style="padding-top: 4px; padding-right: 11px; padding-bottom: 4px; padding-left: 11px; margin-left: 4px;cursor: pointer;"> <b>คัดลอก</b> </button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"
+                        style="cursor: pointer;"><b>ปิด</b></button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/script.js"></script>
 
     <script>
-
+    
+        something()
         function something() {
             var url_string = window.location.pathname + window.location.search
             var active = url_string.split("=")
@@ -480,7 +503,7 @@
                 location.href = "#home";
             }
         }
-        something()
+
 
         const brandCar = [
             {
@@ -626,7 +649,7 @@
                 engine: "เบนซิน",
                 engineSize: "2.0",
                 gear: "อัตโนมัติ",
-                phoneContact: "0982139552",
+                phoneContact: "0222222222",
                 lineContact: "@line",
                 location: "กรุวเทพมหานคร",
                 miles: "28,980",
@@ -640,7 +663,7 @@
                 engine: "ดีเซล",
                 engineSize: "2.2",
                 gear: "ธรรมดา",
-                phoneContact: "0982139552",
+                phoneContact: "0630369172",
                 lineContact: "@line",
                 location: "กรุวเทพมหานคร",
                 miles: "12,980",
@@ -655,7 +678,7 @@
                 engine: "เบนซิน",
                 engineSize: "5.0",
                 gear: "อัตโนมัติ",
-                phoneContact: "0982139552",
+                phoneContact: "0893423424",
                 lineContact: "@line",
                 location: "กรุวเทพมหานคร",
                 miles: "89,382",
@@ -861,7 +884,7 @@
                                 <img class="card-img-top" src="${image}" alt="Card image cap">
                                 <div class="card-body">
                                     <div style="display: flex;justify-content: space-between;font-size: 25px;">
-                                        <b style="color:rgb(41, 61, 147)">รถปี ${year}</b><b style="color: #f58d4e;">฿ ${price}</b>
+                                        <b style="color:rgb(41, 61, 147)">รถปี ${year}</b><b style="color: #ff7724;">฿ ${price}</b>
                                     </div>
                                     <b class="font-header-card" stype="color: #343434;">${name}</b>
                                     <p class="card-text mt-2"> <span class="ti-dashboard mr-2"></span><span class="mr-2">${miles}
@@ -877,12 +900,12 @@
                                         style="display: flex;justify-content: space-around;flex-direction: row-reverse;align-items: baseline;">
                                         <button type="button"
                                             class="btn  btn-lg  btn-outline-success btn-block padding-button-contract"
-                                            style="margin-left: 3px;">
+                                            style="margin-left: 3px;cursor: pointer;">
                                             <img src="images/icons8-line.svg" class="img-fluid icon-width"
                                                 alt="logo"><b>ติดต่อไลน์</b></button>
-                                        <button type="button"
+                                        <button type="button"  id="modal${i}"
                                             class="btn  btn-outline-info btn-lg  btn-lg btn-block padding-button-contract"
-                                            style="margin-right: 3px;">
+                                            style="margin-right: 3px;cursor: pointer;">
                                             <img src="images/icons8-phone-48.png" class="img-fluid icon-width" alt="logo">
                                             <b>เบอร์ติดต่อ</b></button>
                                     </div>
@@ -891,14 +914,29 @@
                         </div>
                    `).join("");
 
-        function goToSearch() {
-            // var url_string = "search-car.html?a=1&b=3&c=m2-m3-m4-m5"; //window.location.href
-            // var url = new URL(url_string);
-            // var c = url.searchParams.get("c");
-            // console.log(c);
+        function goToSearch() {ฃ
             window.location.href = 'search-car.html?test=test';
         }
+        for (let i = 0; i < dataCar.length; i++) {
+            $('#modal' + i).click(function () {
+                openModalContactPhone(dataCar[i].phoneContact)
+            });
 
+        }
+        function openModalContactPhone(phoneContact) {
+            const phoneContactHTML = document.getElementById("phoneContact");
+            phoneContactHTML.innerHTML = formatPhoneNumber(phoneContact)
+            $("#modalContactPhone").modal();
+
+        }
+        function formatPhoneNumber(phoneNumberString) {
+            var cleaned = ('' + phoneNumberString).replace(/\D/g, '');
+            var match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+            if (match) {
+                return '' + match[1] + '-' + match[2] + '-' + match[3];
+            }
+            return null;
+        }
 
         function calculate1() {
             var vat1 = document.getElementById("vat1").value;

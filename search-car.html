@@ -12,12 +12,11 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/themify-icons.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link href="css/style.css" rel="stylesheet">
-    <script src="https://requirejs.org/docs/release/2.3.6/minified/require.js" type="text/javascript"></script>
-
+    <link href="css/style.css" rel="stylesheet">\
 </head>
 
-<body data-spy="scroll" data-target="#navbar" data-offset="30" style="background: rgb(255, 255, 255);overflow-x: hidden;">
+<body data-spy="scroll" data-target="#navbar" data-offset="30" id="active"
+    style="background: rgb(255, 255, 255);overflow-x: hidden;">
     <div class=" nav-menu fixed-top color-back">
         <div class="row">
             <div class="col-md-12">
@@ -36,15 +35,16 @@
                         <ul class="navbar-nav ">
                             <li class="nav-item"> <a class="nav-link " href="index.html?active=home"><b
                                         class="font-menu">หน้าหลัก</b></a> </li>
-                            <li class="nav-item"> <a class="nav-link"  href="index.html?active=search_car">
-                                <b class="font-menu">สำหรับคุณ</b></a> </li>
+                            <li class="nav-item"> <a class="nav-link" href="index.html?active=search_car">
+                                    <b class="font-menu">สำหรับคุณ</b></a> </li>
                             <li class="nav-item"> <a class="nav-link" href="index.html?active=gallery"><b
                                         class="font-menu">ขายรถกับเรา</b></a> </li>
                             <li class="nav-item"> <a class="nav-link" href="index.html?active=calculate"><b
                                         class="font-menu">คำนวณค่างวดเบื้องต้น</b></a> </li>
-                            <li class="nav-item"> <a class="nav-link" href="index.html?active=about"><b
+                            <li class="nav-item"> <a class="nav-link" href="index.html?active=contact"><b
                                         class="font-menu">เกี่ยวกับเรา</b> </a> </li>
-                            <li class="nav-item"> <a class="nav-link active"><b class="font-menu">ค้นหารถมือสอง</b></a>
+                            <li class="nav-item"> <a class="nav-link active" href="#active" style="cursor: pointer;"><b
+                                        class="font-menu">ค้นหารถมือสอง</b></a>
                             </li>
                             <li class="nav-item">
                                 <a href="register.html" style="color: #fff;"
@@ -67,14 +67,23 @@
 
     <div class="size-container ">
         <div class="row">
+            <div class="col-12">
+                <div class="client-logos my-5" style="margin-top: 2.5rem!important;    margin-bottom: 2rem!important;">
+                    <div class="container text-center" id="brandCar"
+                        style="display: flex;    justify-content: space-around;">
+                        <!-- brand 
+                     -->
+                    </div>
+                </div>
+            </div>
             <div class="col-12 mt-2" id="status-show">
                 <div class="card card-search" style="border-radius: 10px;border: none;">
-                    <h2 class="heading-line">ค้นหารถ</h2>
+                    <h2 class="heading-line" style="margin-top: 12px; font-size: 27px; ">ค้นหารถ</h2>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-4">
                                 <div class="form-group">
-                                    <select class="form-control form-control-lg input-style">
+                                    <select class="form-control form-control-lg input-style dropdown-toggle">
                                         <option>เลือกราคา</option>
                                         <option>น้อยกว่า 100,000</option>
                                         <option>100,000-300,000</option>
@@ -141,6 +150,14 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="col-4">
+                                <div class="form-group">
+                                    <select class="form-control form-control-lg input-style">
+                                        <option>จังหวัด</option>
+                                        <option>กรุงเทพมหานคร</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                         <div class="col-12 text-center mt-3 mb-3">
                             <button type="button" class="btn"
@@ -148,25 +165,43 @@
                                 <b style="color: #fff;font-size: 17px;" class="mr-5 ml-5">ค้นหารถ</b>
                             </button>
                             <button type="button" class="btn "
-                            style="  background-color: #c3c3c7;cursor: pointer;">
-                            <b style="font-size: 17px;" class="mr-5 ml-5">ล้างข้อมูล</b></button>
+                                style="  background-color: #c3c3c7;cursor: pointer;color: #565656;">
+                                <b style="font-size: 17px;" class="mr-5 ml-5">ล้างข้อมูล</b></button>
                         </div>
 
                     </div>
                 </div>
             </div>
+
+
             <div class="col">
                 <br>
-                <hr class="">
-                <!-- <span color="#FFFFFF" class="span-h-1 span-h-2 mt-5" style="margin-bottom: 8px;">ค้นหารถ</span> -->
-                <!-- <div class="card card-search" style="border-radius: 10px;border: none;">
-                    <h2 class="heading-line">ค้นหารถ</h2>
-                    <div class="card-body">
-                <div class="row" id="conCardDeck"></div>
+                <br>
+                <div class="position-row"
+                    style="display: flex; align-content: flex-start; align-items: flex-end; justify-content: space-between;">
+                    <h3 style="color: #633991;font-size: 26px;font-weight: bold;" id="lengthCar"></h3>
+                    <div style="display: flex;">
+                        <label for="price" class="col-form-label text-right" style="padding-right: 12px;">
+                            <h3 style="color: #633991;font-size: 20px;font-weight: bold;">ตามราคา</h3>
+                        </label>
+                        <div class="">
+                            <select class="form-control  input-style" onchange="orderData(this.value)" id="selectOrder"
+                                style="border: 1px solid #f58d4e; border-radius: 10px !important; background-color: #ffffff;">
+                                <option value="low"> ราคาต่ำสุด-สูงสุด &nbsp;&nbsp;&nbsp;</option>
+                                <option value="high">ราคาสูงสุด-ต่ำสุด &nbsp;&nbsp;&nbsp;</option>
+                            </select>
+                            <span class="ti-arrow-circle-down" id="closed"
+                                style="position: absolute;top: 59px;right: 22px;color: #f58d4e;cursor: pointer;"></span>
+                            <span class="ti-arrow-circle-up" id="open"
+                                style="position: absolute;top: 59px;right: 22px;color: #f58d4e;cursor: pointer;"></span>
+                        </div>
+                    </div>
                 </div>
-                </div> -->
+
+
+                <hr>
                 <div class="row" id="conCardDeck"></div>
-            
+
             </div>
         </div>
     </div>
@@ -176,18 +211,19 @@
     <div class="section bg-gradient mt-5">
         <div class="container">
             <div class="call-to-action">
-
                 <div class="box-icon"><span class="ti-mobile gradient-fill ti-3x"></span></div>
                 <h2>ดาวน์โหลด CAR-DEE</h2>
                 <p class="tagline" style=" color: #FFF !important;">ดาวน์โหลด CAR-DEE ได้แล้ววันนี้ทั้ง Google
                     Pay และ App Store รองรับทุกแพลตฟอร์มทั้งระบบ Android และ IOS
-                    เพื่อทำการซื้อ-ขายได้สะดวกมากยิ่งขึ้นขึ้น
+                    เพื่อทำการซื้อขายได้สะดวกมากยิ่งขึ้นขึ้น
                 </p>
                 <div class="my-4">
                     <a href="#" class="btn btn-light" style="border-radius: 7px;"><img src="images/appleicon.png"
-                            alt="icon"> App Store</a>
+                            alt="icon"> App
+                        Store</a>
                     <a href="#" class="btn btn-light" style="border-radius: 7px;"><img src="images/playicon.png"
-                            alt="icon"> Google play</a>
+                            alt="icon">
+                        Google play</a>
                 </div>
                 <p style=" color: #FFF !important;"><small><i>*รองรับ iOS และ Android ทุกเวอร์ชั่น</i></small></p>
             </div>
@@ -227,6 +263,30 @@
     <footer class="my-5 text-center">
         <p class="mb-2"><small>Copyright © 2020 CAR-DEE.com สงวนลิขสิทธิ์</small></p>
     </footer>
+
+
+    <!-- modal -->
+
+    <div class="modal fade" id="modalContactPhone" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header"
+                    style="display: flex; justify-content: flex-start; flex-direction: row; align-content: center; align-items: center;">
+                    <img src="images/icons8-phone-48.png" class="img-fluid icon-width" alt="logo">
+                    <h4 class="modal-title" style="font-size: 24px; margin-left: 13px;">เบอร์โทรศัพท์ผู้ขาย</h4>
+                </div>
+                <div class="modal-body" style="    display: flex;">
+                    <b id="phoneContact" class="mr-2" style="font-size: 20px; color: #6a6a6a;"></b> <button type="button" class="btn btn-outline-info" style="padding-top: 4px; padding-right: 11px; padding-bottom: 4px; padding-left: 11px; margin-left: 4px;cursor: pointer;"> <b>คัดลอก</b> </button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"
+                        style="cursor: pointer;"><b>ปิด</b></button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
@@ -234,18 +294,26 @@
 
     <script>
 
-     
 
-        const dataCar = [
+        function formatPhoneNumber(phoneNumberString) {
+            var cleaned = ('' + phoneNumberString).replace(/\D/g, '');
+            var match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+            if (match) {
+                return '' + match[1] + '-' + match[2] + '-' + match[3];
+            }
+            return null;
+        }
+
+        var dataCar = [
             {
                 name: "Bmw series 5",
                 image: "images/car2/1.jpg",
                 year: "2019",
-                price: "950,000",
+                price: 950000,
                 engine: "เบนซิน",
                 engineSize: "2.0",
                 gear: "อัตโนมัติ",
-                phoneContact: "0982139552",
+                phoneContact: "0222222222",
                 lineContact: "@line",
                 location: "กรุวเทพมหานคร",
                 miles: "28,980",
@@ -255,11 +323,11 @@
                 name: "Ford ranger 2.2 xlt",
                 image: "images/car2/2.jpg",
                 year: "2017",
-                price: "782,000",
+                price: 782000,
                 engine: "ดีเซล",
                 engineSize: "2.2",
                 gear: "ธรรมดา",
-                phoneContact: "0982139552",
+                phoneContact: "03333333333",
                 lineContact: "@line",
                 location: "กรุวเทพมหานคร",
                 miles: "12,980",
@@ -270,11 +338,11 @@
                 name: "Ford mustang 5.0",
                 image: "images/car2/3.jpg",
                 year: "2017",
-                price: "1,910,000",
+                price: 1910000,
                 engine: "เบนซิน",
                 engineSize: "5.0",
                 gear: "อัตโนมัติ",
-                phoneContact: "0982139552",
+                phoneContact: "0932423133",
                 lineContact: "@line",
                 location: "กรุวเทพมหานคร",
                 miles: "89,382",
@@ -285,7 +353,7 @@
                 name: "Honda Civic 1.8 E",
                 image: "images/car2/4.jpg",
                 year: "2017",
-                price: "625,000",
+                price: 625000,
                 engine: "เบนซิน",
                 engineSize: "1.8",
                 gear: "อัตโนมัติ",
@@ -300,7 +368,7 @@
                 name: "Honda Civic 1.5 RS ",
                 image: "images/car2/5.jpg",
                 year: "2017",
-                price: "740,000",
+                price: 910000,
                 engine: "เบนซิน",
                 engineSize: "1.5",
                 gear: "อัตโนมัติ",
@@ -315,7 +383,7 @@
                 name: "Isuzu D-max 2.5",
                 image: "images/car2/6.jpg",
                 year: "2017",
-                price: "479,900",
+                price: 187909,
                 engine: "ดีเซล",
                 engineSize: "2.5",
                 gear: "ธรรมดา",
@@ -329,7 +397,7 @@
                 name: "Bmw series 5",
                 image: "images/car2/1.jpg",
                 year: "2019",
-                price: "950,000",
+                price: 450000,
                 engine: "เบนซิน",
                 engineSize: "2.0",
                 gear: "อัตโนมัติ",
@@ -343,7 +411,7 @@
                 name: "Ford ranger 2.2 xlt",
                 image: "images/car2/2.jpg",
                 year: "2017",
-                price: "782,000",
+                price: 882000,
                 engine: "ดีเซล",
                 engineSize: "2.2",
                 gear: "ธรรมดา",
@@ -357,7 +425,7 @@
                 name: "Bmw series 5",
                 image: "images/car2/1.jpg",
                 year: "2019",
-                price: "950,000",
+                price: 950000,
                 engine: "เบนซิน",
                 engineSize: "2.0",
                 gear: "อัตโนมัติ",
@@ -371,7 +439,7 @@
                 name: "Ford ranger 2.2 xlt",
                 image: "images/car2/2.jpg",
                 year: "2017",
-                price: "782,000",
+                price: 782000,
                 engine: "ดีเซล",
                 engineSize: "2.2",
                 gear: "ธรรมดา",
@@ -386,7 +454,7 @@
                 name: "Ford mustang 5.0",
                 image: "images/car2/3.jpg",
                 year: "2017",
-                price: "1,910,000",
+                price: 2910000,
                 engine: "เบนซิน",
                 engineSize: "5.0",
                 gear: "อัตโนมัติ",
@@ -401,7 +469,7 @@
                 name: "Honda Civic 1.8 E",
                 image: "images/car2/4.jpg",
                 year: "2017",
-                price: "625,000",
+                price: 800000,
                 engine: "เบนซิน",
                 engineSize: "1.8",
                 gear: "อัตโนมัติ",
@@ -416,7 +484,7 @@
                 name: "Honda Civic 1.5 RS ",
                 image: "images/car2/5.jpg",
                 year: "2017",
-                price: "740,000",
+                price: 230000,
                 engine: "เบนซิน",
                 engineSize: "1.5",
                 gear: "อัตโนมัติ",
@@ -431,7 +499,7 @@
                 name: "Isuzu D-max 2.5",
                 image: "images/car2/6.jpg",
                 year: "2017",
-                price: "479,900",
+                price: 479900,
                 engine: "ดีเซล",
                 engineSize: "2.5",
                 gear: "ธรรมดา",
@@ -445,7 +513,7 @@
                 name: "Bmw series 5",
                 image: "images/car2/1.jpg",
                 year: "2019",
-                price: "950,000",
+                price: 750000,
                 engine: "เบนซิน",
                 engineSize: "2.0",
                 gear: "อัตโนมัติ",
@@ -459,7 +527,7 @@
                 name: "Ford ranger 2.2 xlt",
                 image: "images/car2/2.jpg",
                 year: "2017",
-                price: "782,000",
+                price: 980900,
                 engine: "ดีเซล",
                 engineSize: "2.2",
                 gear: "ธรรมดา",
@@ -471,16 +539,30 @@
             },
 
         ]
-        const conCardDeck = document.getElementById("conCardDeck");
-        conCardDeck.innerHTML = dataCar
-            .map(({ name, image, year, price, engine, engineSize, gear, phoneContact, lineContact, location, miles, isNew }, i) => `
+        let length = dataCar.length;
+        var lengthCar = document.getElementById('lengthCar');
+        lengthCar.innerHTML = "รถมือสองของ CAR-DEE | " + length + " คัน"
+
+        ngOnInit()
+        function ngOnInit() {
+            orderData("low")
+        }
+        function orderData(data) {
+            if (data == "low") {
+                dataCar.sort((a, b) => (a.price > b.price) ? 1 : ((b.price > a.price) ? -1 : 0))
+            } else {
+                dataCar.sort((a, b) => (b.price > a.price) ? 1 : ((a.price > b.price) ? -1 : 0))
+            }
+            const conCardDeck = document.getElementById("conCardDeck");
+            conCardDeck.innerHTML = dataCar
+                .map(({ name, image, year, price, engine, engineSize, gear, phoneContact, lineContact, location, miles, isNew }, i) => `
                         <div class="col-12 col-sm-6 col-md-3 col-xs-3 mt-2" >
                             <div class="card card-car mt-3 card-hover">
                                 <div class="ribbon ribbon-top-left ${isNew}" id="newCar"><span>รถเข้าใหม่</span></div>
                                 <img class="card-img-top" src="${image}" alt="Card image cap">
                                 <div class="card-body">
                                     <div style="display: flex;justify-content: space-between;font-size: 25px;">
-                                        <b style="color:rgb(41, 61, 147)">รถปี ${year}</b><b style="color: #f58d4e;">฿ ${price}</b>
+                                        <b style="color:rgb(41, 61, 147)">รถปี ${year}</b><b style="color: #ff7724;">฿ ${convertMoney(price)} </b>
                                     </div>
                                     <b class="font-header-card" stype="color: #343434;">${name}</b>
                                     <p class="card-text mt-2"> <span class="ti-dashboard mr-2"></span><span class="mr-2">${miles}
@@ -496,12 +578,12 @@
                                         style="display: flex;justify-content: space-around;flex-direction: row-reverse;align-items: baseline;">
                                         <button type="button"
                                             class="btn  btn-lg  btn-outline-success btn-block padding-button-contract"
-                                            style="margin-left: 3px;">
+                                            style="margin-left: 3px;cursor: pointer;">
                                             <img src="images/icons8-line.svg" class="img-fluid icon-width"
                                                 alt="logo"><b>ติดต่อไลน์</b></button>
-                                        <button type="button"
+                                        <button type="button"  id="modal${i}"
                                             class="btn  btn-outline-info btn-lg  btn-lg btn-block padding-button-contract"
-                                            style="margin-right: 3px;">
+                                            style="margin-right: 3px;cursor: pointer;">
                                             <img src="images/icons8-phone-48.png" class="img-fluid icon-width" alt="logo">
                                             <b>เบอร์ติดต่อ</b></button>
                                     </div>
@@ -511,7 +593,129 @@
                         
                    `).join("");
 
+        }
+        for (let i = 0; i < dataCar.length; i++) {
+            $('#modal' + i).click(function () {
+                openModalContactPhone(dataCar[i].phoneContact)
+            });
 
+        }
+        function openModalContactPhone(phoneContact) {
+            const phoneContactHTML = document.getElementById("phoneContact");
+            phoneContactHTML.innerHTML = formatPhoneNumber(phoneContact)
+            $("#modalContactPhone").modal();
+
+        }
+
+
+
+        const brandCar = [
+            {
+                name: "Toyota",
+                image: "images/toyota-color-icon.svg",
+            },
+            {
+                name: "Honda",
+                image: "images/honda-color-icon.svg",
+            },
+            {
+                name: "Mazda",
+                image: "images/mazda-color-icon-v2.webp",
+                sizeImage: "max-width: 39px"
+            },
+            {
+                name: "Mercedes Benz",
+                image: "images/mercedes-benz-color-icon.svg",
+            },
+            {
+                name: "BMW",
+                image: "images/bmw.svg",
+                sizeImage: "max-width: 35px"
+            },
+            {
+                name: "Nissan",
+                image: "images/nissan-color-icon.svg",
+            },
+            {
+                name: "Mitsubishi",
+                image: "images/mitsubishi-color-icon.svg",
+            },
+            {
+                name: "Suzuki",
+                image: "images/suzuki-color-icon.svg",
+            },
+            {
+                name: "MG",
+                image: "images/mg-color-icon.svg",
+            },
+            {
+                name: "Subaru",
+                image: "images/subaru-color-icon.svg",
+            },
+            {
+                name: "Chevrolet",
+                image: "images/chevrolet-color-icon.svg",
+            },
+            {
+                name: "Haval",
+                image: "images/haval.png",
+                sizeImage: "max-width: 83px"
+            },
+            {
+                name: "Hyundai",
+                image: "images/hyundai.svg",
+                sizeImage: "max-width: 50px"
+            },
+
+
+        ]
+        const brandCarInnerHTML = document.getElementById("brandCar");
+        brandCarInnerHTML.innerHTML = brandCar
+            .map(({ name, image, sizeImage }, i) => `
+            <div class="search-item">
+                <div class="img-wrapper">
+                    <img class="item-img imge-size" src="${image}" style="${sizeImage}">
+                </div>
+                <div class="item-title">${name}</div>
+            </div>
+            `).join("");
+
+        function convertMoney(money) {
+            return (Number(money)).toFixed(1).replace(/\d(?=(\d{3})+\.)/g, '$&,').split(".")[0];
+
+        }
+
+        document.getElementById('open').style.display = 'none'
+        var open = false;
+        function isOpen() {
+            if (open)
+                return "open";
+            else
+                return "closed";
+        }
+        $("#selectOrder").on("click", function () {
+            open = !open;
+            if (isOpen() == "open") {
+                document.getElementById('closed').style.display = 'none'
+                document.getElementById('open').style.display = 'initial'
+            } else {
+                document.getElementById('closed').style.display = 'initial'
+                document.getElementById('open').style.display = 'none'
+            }
+            console.log("1");
+        });
+        $("#selectOrder").on("blur", function () {
+            if (open) {
+                open = !open;
+                if (isOpen() == "open") {
+                    document.getElementById('closed').style.display = 'none'
+                    document.getElementById('open').style.display = 'initial'
+                } else {
+                    document.getElementById('closed').style.display = 'initial'
+                    document.getElementById('open').style.display = 'none'
+                }
+            }
+        });
 
 
 
@@ -525,6 +729,41 @@
         src: url("fonts/Prompt-Regular.ttf"), url("fonts/Prompt-Medium.ttf"),
             url("fonts/Prompt-SemiBold.ttf");
     }
+
+    .search-item :hover {
+        cursor: pointer;
+        color: #ff7724;
+        font-size: 15.5px;
+    }
+
+    .item-title {
+        color: rgb(161, 161, 161);
+        font-size: 14px;
+        line-height: 140%;
+    }
+
+    .search-item {
+        cursor: pointer;
+        margin-right: 55px;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: end;
+        justify-content: flex-end;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .search-item .img-wrapper {
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        min-height: 30px;
+        margin-bottom: 10px;
+    }
+
 
     .new {
         display: initial !important;
@@ -549,19 +788,30 @@
         display: block;
         border: 5px solid #2980b9;
     }
+
+    .dropdown-toggle::after {
+        display: none;
+    }
+
     .input-style {
+        cursor: pointer;
+        border-radius: 12px;
         width: 100%;
         border: none;
-        border-radius: 5px;
         background: #efefef;
         -webkit-box-shadow: inset 0 -1px 0 #ebebeb;
         box-shadow: inset 0 -1px 0 #ebebeb;
         padding: 0 10px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -o-appearance: none;
     }
+
     input[type=radio] {
         width: 20px;
         height: 20px;
     }
+
     .ribbon span {
         position: absolute;
         display: block;
@@ -642,8 +892,8 @@
     .card-car {
         border-radius: 13px;
         box-shadow: rgb(176 189 255 / 40%) 0px 0px 16px 0px;
-    grid-template-columns: minmax(25%, 264px) 1fr 25%;
-    border: none;
+        grid-template-columns: minmax(25%, 264px) 1fr 25%;
+        border: none;
 
     }
 
