@@ -469,7 +469,9 @@
                     <h4 class="modal-title" style="font-size: 24px; margin-left: 13px;">เบอร์โทรศัพท์ผู้ขาย</h4>
                 </div>
                 <div class="modal-body" style="    display: flex;">
-                    <b id="phoneContact" class="mr-2" style="font-size: 20px; color: #6a6a6a;"></b> <button type="button" class="btn btn-outline-info" style="padding-top: 4px; padding-right: 11px; padding-bottom: 4px; padding-left: 11px; margin-left: 4px;cursor: pointer;"> <b>คัดลอก</b> </button>
+                    <b id="phoneContact"  class="mr-2" style="font-size: 20px; color: #6a6a6a;"></b> 
+                    <button type="button" onclick="copyTextPhone()" id="buttonCopy" class="btn " style="padding-top: 4px; padding-right: 11px; padding-bottom: 4px; padding-left: 11px; margin-left: 4px;cursor: pointer;">
+                         <b id="copyText">คัดลอก</b> </button>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal"
@@ -508,6 +510,19 @@
 
     <script>
     
+    function copyTextPhone() {
+            const cb = navigator.clipboard;
+            const paragraph = document.querySelector('#phoneContact');
+            cb.writeText(paragraph.innerText.split(":")[1].split("-").join('')).then(() => {
+                const b = document.querySelector('#copyText');
+                b.innerHTML = '<span class="ti-check"></span>' + " คัดลอกแล้ว"
+                var element = document.getElementById("buttonCopy");
+                element.classList.add("btn-info");
+                element.classList.remove("btn-outline-info");
+            });
+        }
+
+
         something()
         function something() {
             var url_string = window.location.pathname + window.location.search
@@ -975,6 +990,10 @@
             const phoneContactHTML = document.getElementById("phoneContact");
             phoneContactHTML.innerHTML = "เบอร์โทร : " + formatPhoneNumber(phoneContact)
             $("#modalContactPhone").modal();
+                const b = document.querySelector('#copyText');
+                b.innerHTML = "คัดลอก"
+                var element = document.getElementById("buttonCopy");
+                element.classList.add("btn-outline-info");
 
         }
 

@@ -17,10 +17,10 @@
 
 <body data-spy="scroll" data-target="#navbar" data-offset="30" id="active"
     style="background: rgb(255, 255, 255);overflow-x: hidden;">
-    <div class=" nav-menu fixed-top color-back" >
+    <div class=" nav-menu fixed-top color-back">
         <div class="row">
             <div class="col-md-12">
-                <nav class="navbar navbar-dark navbar-expand-lg" >
+                <nav class="navbar navbar-dark navbar-expand-lg">
                     <a class="navbar-brand" href="index.html" style="margin-left: 44px;">
                         <h3
                             style="font-weight: bold;color: #fff;    text-shadow: 0px 2px 0px #fff, 1px 6px 0px rgb(0 0 0 / 10%);">
@@ -277,13 +277,13 @@
                 </div>
                 <div class="modal-body" style="    display: flex;">
                     <b id="phoneContact" class="mr-2" style="font-size: 20px; color: #6a6a6a;"></b>
-                    <button onclick="copyTextPhone()" type="button" class="btn btn-outline-info"
+                    <button onclick="copyTextPhone()" type="button" class="btn " id="buttonCopy"
                         style="padding-top: 4px; padding-right: 11px; padding-bottom: 4px; padding-left: 11px; margin-left: 4px;cursor: pointer;">
-                        <b>คัดลอก</b> </button>
+                        <b id="copyText">คัดลอก</b> </button>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal" style="cursor: pointer;"><b
-                            style="color: #666464; font-size: 15px;">ปิด</b></button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal"
+                        style="cursor: pointer;"><b style="color: #666464; font-size: 15px;">ปิด</b></button>
                 </div>
             </div>
 
@@ -323,11 +323,18 @@
         }
 
         function copyTextPhone() {
-            var copyText = document.getElementById("phoneContact");
-            copyText.select();
-            copyText.setSelectionRange(0, 99999);
-            navigator.clipboard.writeText(copyText.value);
+            const cb = navigator.clipboard;
+            const paragraph = document.querySelector('#phoneContact');
+            cb.writeText(paragraph.innerText.split(":")[1].split("-").join('')).then(() => {
+                const b = document.querySelector('#copyText');
+                b.innerHTML = '<span class="ti-check"></span>' + " คัดลอกแล้ว"
+                var element = document.getElementById("buttonCopy");
+                element.classList.add("btn-info");
+                element.classList.remove("btn-outline-info");
+            });
         }
+
+
 
 
         function formatPhoneNumber(phoneNumberString) {
@@ -642,6 +649,10 @@
                 const phoneContactHTML = document.getElementById("phoneContact");
                 phoneContactHTML.innerHTML = "เบอร์โทร : " + formatPhoneNumber(phoneContact)
                 $("#modalContactPhone").modal();
+                const b = document.querySelector('#copyText');
+                b.innerHTML = "คัดลอก"
+                var element = document.getElementById("buttonCopy");
+                element.classList.add("btn-outline-info");
 
             }
             // line
