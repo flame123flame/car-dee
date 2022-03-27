@@ -101,15 +101,16 @@
 
                                     <div class="image-b">
                                         <img id="fileBShow" src="images/cid/laser_code.png" alt="รอเลือกภาพ"
-                                        style="width: 260px;" />
+                                            style="width: 260px;" />
                                         <b style="position: absolute;
                                         top: 35%;
                                         font-size: 37px;
                                         color: red;
                                         font-weight: bold;
                                         right: 22%;
-                                    ">ตัวอย่าง</b></div>
-                                  
+                                    ">ตัวอย่าง</b>
+                                    </div>
+
                                 </div>
                                 <div
                                     style="display: flex;margin-bottom: 16px;justify-content: space-around;margin-top: 10px;">
@@ -126,6 +127,17 @@
                             </div>
 
                             <div class="tab-pane fade" id="login">
+                                <div class="row">
+                                    <div class="col-3"></div>
+                                    <div class="col-6">
+                                        <div class="form-group mt-2"  style="text-align: left;">
+                                            <label>Username</label>
+                                            <input class="form-control input-style" type="text" placeholder="username">
+    
+                                        </div>
+                                    </div>
+                                  
+                                </div>
 
                             </div>
                         </div>
@@ -221,6 +233,20 @@
 </body>
 
 <style>
+    .input-style {
+        height: 50px;
+        cursor: pointer;
+        border-radius: 8px;
+        width: 100%;
+        border: none;
+        background: #efefef;
+        -webkit-box-shadow: inset 0 -1px 0 #ebebeb;
+        box-shadow: inset 0 -1px 0 #ebebeb;
+        padding: 0 10px;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+
     .file {
         opacity: 0;
         width: 0.1px;
@@ -266,24 +292,7 @@
         color: rgb(41, 61, 147);
     }
 
-    .input-style {
-        cursor: pointer;
-        border-radius: 12px;
-        width: 100%;
-        border: none;
-        background: #efefef;
-        -webkit-box-shadow: inset 0 -1px 0 #ebebeb;
-        box-shadow: inset 0 -1px 0 #ebebeb;
-        padding: 0 10px;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        -o-appearance: none;
-    }
 
-    input[type=radio] {
-        width: 20px;
-        height: 20px;
-    }
 
     * {
         font-family: "Prompt", sans-serif;
@@ -293,10 +302,12 @@
     .font-menu {
         font-size: 17.5px !important;
     }
+
     .nav-menu {
         padding: 0rem 0;
         transition: all 0.3s ease;
     }
+
     .nav-menu.color-back {
         background-color: rgb(74, 13, 143);
         background: -moz-linear-gradient(90deg, rgb(41, 61, 147) 0%, rgb(70, 90, 183) 50%, rgb(41, 61, 147) 100%);
