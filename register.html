@@ -86,7 +86,33 @@
                         </ul>
                         <div class="tab-content" style="box-shadow: none !important;">
                             <div class="tab-pane fade show active" id="register" style="border-top-width: 7px;">
-                                <div style="display: flex;margin-bottom: 16px;">
+                                <div
+                                    style="margin-bottom: 16px;display: flex;margin-bottom: 5px;justify-content: space-around;">
+                                    <div class="image-f">
+                                        <img id="fileFShow" src="images/cid/id_puth.png" alt="รอเลือกภาพ"
+                                            style="width: 260px;" />
+                                        <p style="position: absolute;top: 32%;
+                                        font-size: 37px;
+                                        color: red;
+                                        font-weight: bold;
+                                        right: 67%;
+                                    ">ตัวอย่าง</p>
+                                    </div>
+
+                                    <div class="image-b">
+                                        <img id="fileBShow" src="images/cid/laser_code.png" alt="รอเลือกภาพ"
+                                        style="width: 260px;" />
+                                        <b style="position: absolute;
+                                        top: 35%;
+                                        font-size: 37px;
+                                        color: red;
+                                        font-weight: bold;
+                                        right: 22%;
+                                    ">ตัวอย่าง</b></div>
+                                  
+                                </div>
+                                <div
+                                    style="display: flex;margin-bottom: 16px;justify-content: space-around;margin-top: 10px;">
                                     <div class="file-input" style="margin-right: 10px;">
                                         <input accept="image/*" type='file' id="fileF" id="fileF" name="fileF"
                                             class="file">
@@ -172,6 +198,21 @@
     <script src="js/script.js"></script>
 
     <script>
+        console.log(document.getElementById('fileFShow').src);
+        // var youtubeimgsrc = document.getElementById("youtubeimg").src;
+        fileF.onchange = evt => {
+            const [file] = fileF.files
+            if (file) {
+                fileFShow.src = URL.createObjectURL(file)
+            }
+        }
+
+        fileB.onchange = evt => {
+            const [file] = fileB.files
+            if (file) {
+                fileBShow.src = URL.createObjectURL(file)
+            }
+        }
 
 
 
