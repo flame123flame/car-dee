@@ -80,28 +80,28 @@
         <div class="row">
             <div class="col-7" style="margin-top: 2px;">
                 <div class="carousel-wrapper">
-                     <div class="carousel-wrapper">
-                    <div class="carousel" >
-                        <div id="imageCar"></div>
-                        <div class="carousel-status"
-                        style=" z-index: 1030;border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;">
-                        <p style="margin-top: 13px; font-size: 19px; color: #edecec;">
-                            <span id="statusImagesCount"></span> <span id="statusImagesTotal"></span>
-                        </p>
-                    </div>
-                    <div id="next" class="carousel__button--next"></div>
-                    <div id="prev" class="carousel__button--prev"></div>
+                    <div class="carousel-wrapper">
+                        <div class="carousel">
+                            <div id="imageCar"></div>
+                            <div class="carousel-status"
+                                style=" z-index: 1030;border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;">
+                                <p style="margin-top: 13px; font-size: 19px; color: #edecec;">
+                                    <span id="statusImagesCount"></span> <span id="statusImagesTotal"></span>
+                                </p>
+                            </div>
+                            <div id="next" class="carousel__button--next"></div>
+                            <div id="prev" class="carousel__button--prev"></div>
+                        </div>
                     </div>
                 </div>
-                </div>
-               
+
             </div>
             <div class="col" style="margin-top: -9px;">
                 <div class="car-details-content">
                     <div class="detail-content"
                         style="display: flex; justify-content: space-between;margin-bottom: 2px;">
                         <b id="carName" style="color: rgb(58 58 58); font-size: 29px;"></b> <br>
-                        <b  id="carPrice" style="color: #ff7724;font-size: 30px;">ราคา 890,000.-</b>
+                        <b id="carPrice" style="color: #ff7724;font-size: 30px;">ราคา 890,000.-</b>
                     </div>
                 </div>
                 <table class="table" style="margin-top: 7px;    margin-bottom: -9px;">
@@ -158,7 +158,8 @@
                         </tr>
                     </tbody>
                 </table>
-                <div class="card" style="background: #efefef; border: none;  margin-top: -24px; border-top-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px;">
+                <div class="card"
+                    style="background: #efefef; border: none;  margin-top: -24px; border-top-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 10px; border-bottom-left-radius: 10px;">
                     <div class="card-body" style="padding-top: 19px; padding-bottom: 18px;">
                         <div class="contact-sell"
                             style="display: flex; justify-content: flex-start; flex-direction: row; align-content: center; align-items: center;">
@@ -255,12 +256,12 @@
             engine: "ดีเซล",
             engineSize: "2.2",
             gear: "ธรรมดา",
-            color:"ขาว",
+            color: "ขาว",
             phoneContact: "0982139552",
             lineContact: "@line42452",
             locationCar: "กรุงเทพมหานคร",
-            registrationNumber:"2ฒษ-9311",
-            expire:"มีนาคม 2022",
+            registrationNumber: "2ฒษ-9311",
+            expire: "มีนาคม 2022",
             miles: 12000,
             listImage: [
                 {
@@ -291,9 +292,9 @@
         }
         var carName = document.getElementById('carName');
         carName.innerHTML = detailCar.name
-        
+
         var carPrice = document.getElementById('carPrice');
-        carPrice.innerHTML = "ราคา "+ convertMoney(detailCar.price) + ".-"
+        carPrice.innerHTML = "ราคา " + convertMoney(detailCar.price) + ".-"
 
         var carGear = document.getElementById('carGear');
         carGear.innerHTML = detailCar.gear
@@ -315,19 +316,19 @@
 
         var carEngineSize = document.getElementById('carEngineSize');
         carEngineSize.innerHTML = detailCar.engineSize
-        
+
         var carMiles = document.getElementById('carMiles');
-        carMiles.innerHTML = convertMoney(detailCar.miles) +" กม."
+        carMiles.innerHTML = convertMoney(detailCar.miles) + " กม."
 
         var carRegistrationNumber = document.getElementById('carRegistrationNumber');
         carRegistrationNumber.innerHTML = detailCar.registrationNumber
-        
+
         var carExpire = document.getElementById('carExpire');
         carExpire.innerHTML = detailCar.expire
 
         var carLocation = document.getElementById('carLocation');
-        carLocation.innerHTML = '<span class="ti-location-pin" style="font-weight: bold;cursor: pointer;font-size: 16px;"></span> '+ detailCar.locationCar
-        
+        carLocation.innerHTML = '<span class="ti-location-pin" style="font-weight: bold;cursor: pointer;font-size: 16px;"></span> ' + detailCar.locationCar
+
         // set data
 
         const carImage = document.getElementById("imageCar");
@@ -349,9 +350,9 @@
             statusImagesTotal.innerHTML = "จาก " + totalItems + " รูป"
             var statusImagesCount = document.getElementById('statusImagesCount');
             statusImagesCount.innerHTML = "รูปที่ " + (slide + 1)
-            if((slide + 1) <= 1){
-                    document.getElementById('prev').style.display = 'none'
-                }
+            if ((slide + 1) <= 1) {
+                document.getElementById('prev').style.display = 'none'
+            }
             function setInitialClasses() {
                 items[totalItems - 1].classList.add("prev");
                 items[0].classList.add("active");
@@ -374,14 +375,14 @@
             }
 
             function moveCarouselTo(slide) {
-                if((slide + 1) <= 1){
+                if ((slide + 1) <= 1) {
                     document.getElementById('prev').style.display = 'none'
-                }else{
+                } else {
                     document.getElementById('prev').style.display = 'grid'
                 }
-                if((slide + 1) == totalItems){
+                if ((slide + 1) == totalItems) {
                     document.getElementById('next').style.display = 'none'
-                }else{
+                } else {
                     document.getElementById('next').style.display = 'grid'
                 }
 
@@ -496,6 +497,10 @@
         font-family: "Prompt", sans-serif;
     }
 
+    .ti-angle-left:hover {
+        color: rgb(41, 61, 147);
+        font-size: 18px;
+    }
 
     .font-menu {
         font-size: 17.5px !important;

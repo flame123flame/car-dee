@@ -666,7 +666,7 @@
                 name: "Bmw series 5",
                 image: "images/car2/1.jpg",
                 year: "2019",
-                price: "950,000",
+                price: 235345,
                 engine: "เบนซิน",
                 engineSize: "2.0",
                 gear: "อัตโนมัติ",
@@ -681,7 +681,7 @@
                 name: "Ford ranger 2.2 xlt",
                 image: "images/car2/2.jpg",
                 year: "2017",
-                price: "782,000",
+                price: 536543,
                 engine: "ดีเซล",
                 engineSize: "2.2",
                 gear: "ธรรมดา",
@@ -697,7 +697,7 @@
                 name: "Ford mustang 5.0",
                 image: "images/car2/3.jpg",
                 year: "2017",
-                price: "1,910,000",
+                price: 2335534,
                 engine: "เบนซิน",
                 engineSize: "5.0",
                 gear: "อัตโนมัติ",
@@ -713,7 +713,7 @@
                 name: "Honda Civic 1.8 E",
                 image: "images/car2/4.jpg",
                 year: "2017",
-                price: "625,000",
+                price: 534253,
                 engine: "เบนซิน",
                 engineSize: "1.8",
                 gear: "อัตโนมัติ",
@@ -729,7 +729,7 @@
                 name: "Honda Civic 1.5 RS ",
                 image: "images/car2/5.jpg",
                 year: "2017",
-                price: "740,000",
+                price: 254235,
                 engine: "เบนซิน",
                 engineSize: "1.5",
                 gear: "อัตโนมัติ",
@@ -745,7 +745,7 @@
                 name: "Isuzu D-max 2.5",
                 image: "images/car2/6.jpg",
                 year: "2017",
-                price: "479,900",
+                price: 563455,
                 engine: "ดีเซล",
                 engineSize: "2.5",
                 gear: "ธรรมดา",
@@ -760,7 +760,7 @@
                 name: "Bmw series 5",
                 image: "images/car2/1.jpg",
                 year: "2019",
-                price: "950,000",
+                price: 950000,
                 engine: "เบนซิน",
                 engineSize: "2.0",
                 gear: "อัตโนมัติ",
@@ -775,7 +775,7 @@
                 name: "Ford ranger 2.2 xlt",
                 image: "images/car2/2.jpg",
                 year: "2017",
-                price: "782,000",
+                price: 694534,
                 engine: "ดีเซล",
                 engineSize: "2.2",
                 gear: "ธรรมดา",
@@ -790,7 +790,7 @@
                 name: "Bmw series 5",
                 image: "images/car2/1.jpg",
                 year: "2019",
-                price: "950,000",
+                price: 435431,
                 engine: "เบนซิน",
                 engineSize: "2.0",
                 gear: "อัตโนมัติ",
@@ -805,7 +805,7 @@
                 name: "Ford ranger 2.2 xlt",
                 image: "images/car2/2.jpg",
                 year: "2017",
-                price: "782,000",
+                price: 545312,
                 engine: "ดีเซล",
                 engineSize: "2.2",
                 gear: "ธรรมดา",
@@ -821,7 +821,7 @@
                 name: "Ford mustang 5.0",
                 image: "images/car2/3.jpg",
                 year: "2017",
-                price: "1,910,000",
+                price: 1342545,
                 engine: "เบนซิน",
                 engineSize: "5.0",
                 gear: "อัตโนมัติ",
@@ -837,7 +837,7 @@
                 name: "Honda Civic 1.8 E",
                 image: "images/car2/4.jpg",
                 year: "2017",
-                price: "625,000",
+                price: 984032,
                 engine: "เบนซิน",
                 engineSize: "1.8",
                 gear: "อัตโนมัติ",
@@ -853,7 +853,7 @@
                 name: "Honda Civic 1.5 RS ",
                 image: "images/car2/5.jpg",
                 year: "2017",
-                price: "740,000",
+                price: 395940,
                 engine: "เบนซิน",
                 engineSize: "1.5",
                 gear: "อัตโนมัติ",
@@ -869,7 +869,7 @@
                 name: "Isuzu D-max 2.5",
                 image: "images/car2/6.jpg",
                 year: "2017",
-                price: "479,900",
+                price: 748244,
                 engine: "ดีเซล",
                 engineSize: "2.5",
                 gear: "ธรรมดา",
@@ -884,7 +884,7 @@
                 name: "Bmw series 5",
                 image: "images/car2/1.jpg",
                 year: "2019",
-                price: "950,000",
+                price: 384204,
                 engine: "เบนซิน",
                 engineSize: "2.0",
                 gear: "อัตโนมัติ",
@@ -899,7 +899,7 @@
                 name: "Ford ranger 2.2 xlt",
                 image: "images/car2/2.jpg",
                 year: "2017",
-                price: "782,000",
+                price: 134534,
                 engine: "ดีเซล",
                 engineSize: "2.2",
                 gear: "ธรรมดา",
@@ -915,13 +915,14 @@
         const conCardDeck = document.getElementById("conCardDeck");
         conCardDeck.innerHTML = dataCar
             .map(({ name, image, year, price, engine, engineSize, gear, phoneContact, lineContact, location, miles, isNew }, i) => `
-                        <div class="col-12 col-sm-6 col-md-3 col-xs-3 mt-2">
-                            <div class="card card-car mt-3 card-hover" onclick="goToCarDetail()" >
+                   
+                        <div class="col-12 col-sm-6 col-md-3 col-xs-3 mt-2" >
+                            <div class="card card-car mt-3 card-hover" >
                                 <div class="ribbon ribbon-top-left ${isNew}" id="newCar"><span>รถเข้าใหม่</span></div>
-                                <img class="card-img-top" src="${image}" alt="Card image cap">
-                                <div class="card-body">
+                                <img class="card-img-top" src="${image}" alt="Card image cap"  onclick="goToCarDetail()">
+                                <div class="card-body" onclick="goToCarDetail()">
                                     <div style="display: flex;justify-content: space-between;font-size: 25px;">
-                                        <b style="color:rgb(41, 61, 147)">รถปี ${year}</b><b style="color: #ff7724;">฿${price}</b>
+                                        <b style="color:rgb(41, 61, 147)">รถปี ${year}</b><b style="color: #ff7724;">฿${convertMoneytoFixed0(price)} </b>
                                     </div>
                                     <b class="font-header-card" stype="color: #343434;">${name}</b>
                                     <p class="card-text mt-2"> <span class="ti-dashboard mr-2"></span><span class="mr-2">${miles}
@@ -933,7 +934,10 @@
                                         <span class="ti-location-pin mr-1"></span>
                                         <span>${location}</span>
                                     </p>
-                                    <div
+                                
+                                </div>
+                                <div class="card-body" style="padding-top: 0px;">
+                                <div
                                         style="display: flex;justify-content: space-around;flex-direction: row-reverse;align-items: baseline;">
                                         <button type="button" id="modalLine${i}"
                                             class="btn  btn-lg  btn-outline-success btn-block padding-button-contract"
@@ -986,6 +990,9 @@
             lineContactHTML.innerHTML =  "ไอดีไลน์ : " + lineContact
             $("#modalContactLine").modal();
 
+        }
+        function convertMoneytoFixed0(money) {
+            return (Number(money)).toFixed(1).replace(/\d(?=(\d{3})+\.)/g, '$&,').split(".")[0];
         }
 
 
