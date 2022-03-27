@@ -66,11 +66,47 @@
 
 
     <div class="size-container ">
-        <div class="card" style="box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;margin-top: 100px;margin-bottom: 100px;">
-            <div class="card-body text-center">
-             <h1 style="padding: 130px;font-size: 110px;">COMING SOON</h1>
+
+        <div class="card"
+            style="box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;margin-top: 50px;margin-bottom: 100px;border-radius: 12px; border: none;">
+            <div class="section-title" style="margin-top: 30px;margin-bottom: 0px;">
+                <h3 style="color: #633991; font-size: 38px; font-weight: bold;">CAR-DEE ยินดีต้อนรับ </h3>
+                <hr>
             </div>
-          </div>
+            <div class="card-body text-center">
+                <div class="row">
+                    <div class="col">
+                        <ul class="nav nav-tabs nav-justified" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" data-toggle="tab" href="#register">ลงทะเบียนขายรถ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#login">เข้าสู่ระบบขายรถ</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" style="box-shadow: none !important;">
+                            <div class="tab-pane fade show active" id="register" style="border-top-width: 7px;">
+                                <div style="display: flex;margin-bottom: 16px;">
+                                    <div class="file-input" style="margin-right: 10px;">
+                                        <input accept="image/*" type='file' id="fileF" id="fileF" name="fileF"
+                                            class="file">
+                                        <label for="fileF">เลือกภาพหน้าบัตรประชาชน</label>
+                                    </div>
+                                    <div class="file-input">
+                                        <input type="file" id="fileB" name="fileB" class="file">
+                                        <label for="fileB">เลือกภาพหลังบัตรประชาชน</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="login">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 
@@ -144,13 +180,51 @@
 </body>
 
 <style>
+    .file {
+        opacity: 0;
+        width: 0.1px;
+        height: 0.1px;
+        position: absolute;
+    }
+
+    .file-input label {
+        display: block;
+        position: relative;
+        width: 350px;
+        height: 50px;
+        border-radius: 7px;
+        background: linear-gradient(40deg, #5965b1, #7873f5);
+        box-shadow: 0 4px 7px rgba(0, 0, 0, 0.4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-weight: bold;
+        cursor: pointer;
+        transition: transform .2s ease-out;
+    }
+
+    .row-image {
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-around;
+    }
+
     @font-face {
         font-family: "Prompt";
         src: url("fonts/Prompt-Regular.ttf"), url("fonts/Prompt-Medium.ttf"),
             url("fonts/Prompt-SemiBold.ttf");
     }
 
-    
+    .nav-tabs .nav-link.active {
+        background: #fefefe;
+        border-top-width: 4px;
+        border-bottom-width: 1px;
+        border-color: rgb(41, 61, 147) #faf6fb rgb(228, 228, 228);
+        color: rgb(41, 61, 147);
+    }
+
     .input-style {
         cursor: pointer;
         border-radius: 12px;
@@ -174,10 +248,11 @@
         font-family: "Prompt", sans-serif;
     }
 
-    
+
     .font-menu {
         font-size: 17.5px !important;
     }
+
     .nav-menu.color-back {
         background-color: rgb(74, 13, 143);
         background: -moz-linear-gradient(90deg, rgb(41, 61, 147) 0%, rgb(70, 90, 183) 50%, rgb(41, 61, 147) 100%);
@@ -190,15 +265,10 @@
 
 
     .size-container {
-        margin-left: 185px;
-        margin-right: 185px;
+        margin-left: 17%;
+        margin-right: 17%;
         margin-top: 23px;
     }
-
-   
-
-
-
 </style>
 
 </html>
