@@ -737,12 +737,14 @@
         const brandCarInnerHTML = document.getElementById("brandCar");
         brandCarInnerHTML.innerHTML = brandCar
             .map(({ name, image, sizeImage }, i) => `
+           
             <div class="search-item">
                 <div class="img-wrapper">
                     <img class="item-img imge-size" src="${image}" style="${sizeImage}">
                 </div>
                 <div class="item-title">${name}</div>
             </div>
+   
             `).join("");
 
         function convertMoney(money) {
@@ -793,11 +795,13 @@
         src: url("fonts/Prompt-Regular.ttf"), url("fonts/Prompt-Medium.ttf"),
             url("fonts/Prompt-SemiBold.ttf");
     }
-
+    .test,
     .search-item :hover {
         cursor: pointer;
-        color: #ff7724;
+        color: #ff7724 !important;
         font-size: 15.5px;
+        padding: 1px;
+        font-weight: bold;
     }
 
     .item-title {
@@ -809,13 +813,6 @@
     .search-item {
         cursor: pointer;
         margin-right: 55px;
-        display: flex;
-        -webkit-box-align: center;
-        align-items: center;
-        -webkit-box-pack: end;
-        justify-content: flex-end;
-        flex-direction: column;
-        height: 100%;
     }
 
     .search-item .img-wrapper {
