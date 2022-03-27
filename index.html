@@ -99,7 +99,8 @@
 
     <div class="section light-bg" id="gallery">
         <div class="section-title">
-            <h3 style="color: #633991; font-size: 38px; font-weight: bold;">ขายรถกับเราง่ายๆ เพียงมีมือถือเครื่องเดียว</h3>
+            <h3 style="color: #633991; font-size: 38px; font-weight: bold;">ขายรถกับเราง่ายๆ เพียงมีมือถือเครื่องเดียว
+            </h3>
         </div>
         <div class="container">
             <hr>
@@ -129,7 +130,8 @@
     <div class="section" id="calculate">
         <div class="container">
             <div class="section-title">
-                <h3 style="color: #633991; font-size: 38px; font-weight: bold;">ทดลองคำนวณค่างวดรถของคุณได้ง่ายๆ ผ่านเว็บเรา</h3>
+                <h3 style="color: #633991; font-size: 38px; font-weight: bold;">ทดลองคำนวณค่างวดรถของคุณได้ง่ายๆ
+                    ผ่านเว็บเรา</h3>
             </div>
             <div class="row">
                 <div class="col">
@@ -469,20 +471,21 @@
                     <h4 class="modal-title" style="font-size: 24px; margin-left: 13px;">เบอร์โทรศัพท์ผู้ขาย</h4>
                 </div>
                 <div class="modal-body" style="    display: flex;">
-                    <b id="phoneContact"  class="mr-2" style="font-size: 20px; color: #6a6a6a;"></b> 
-                    <button type="button" onclick="copyTextPhone()" id="buttonCopy" class="btn " style="padding-top: 4px; padding-right: 11px; padding-bottom: 4px; padding-left: 11px; margin-left: 4px;cursor: pointer;">
-                         <b id="copyText">คัดลอก</b> </button>
+                    <b id="phoneContact" class="mr-2" style="font-size: 20px; color: #6a6a6a;"></b>
+                    <button type="button" onclick="copyTextPhone()" id="buttonCopy" class="btn "
+                        style="padding-top: 4px; padding-right: 11px; padding-bottom: 4px; padding-left: 11px; margin-left: 4px;cursor: pointer;">
+                        <b id="copyText">คัดลอก</b> </button>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal"
-                        style="cursor: pointer;"><b style="color: #666464; font-size: 15px;">ปิด</b></button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" style="cursor: pointer;"><b
+                            style="color: #666464; font-size: 15px;">ปิด</b></button>
                 </div>
             </div>
 
         </div>
     </div>
 
-    
+
     <div class="modal fade" id="modalContactLine" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -493,11 +496,11 @@
                 </div>
                 <div class="modal-body">
                     <b id="lineContact" class="mr-2" style="font-size: 20px; color: #6a6a6a;">
-                    </b> 
+                    </b>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal"
-                        style="cursor: pointer;"><b style="color: #666464; font-size: 15px;">ปิด</b></button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" style="cursor: pointer;"><b
+                            style="color: #666464; font-size: 15px;">ปิด</b></button>
                 </div>
             </div>
         </div>
@@ -509,8 +512,8 @@
     <script src="js/script.js"></script>
 
     <script>
-    
-    function copyTextPhone() {
+
+        function copyTextPhone() {
             const cb = navigator.clipboard;
             const paragraph = document.querySelector('#phoneContact');
             cb.writeText(paragraph.innerText.split(":")[1].split("-").join('')).then(() => {
@@ -979,7 +982,7 @@
         function goToRegister() {
             window.location.href = 'register.html';
         }
-     
+
 
         // modalphone
         for (let i = 0; i < dataCar.length; i++) {
@@ -992,14 +995,14 @@
             const phoneContactHTML = document.getElementById("phoneContact");
             phoneContactHTML.innerHTML = "เบอร์โทร : " + formatPhoneNumber(phoneContact)
             $("#modalContactPhone").modal();
-                const b = document.querySelector('#copyText');
-                b.innerHTML = "คัดลอก"
-                var element = document.getElementById("buttonCopy");
-                element.classList.add("btn-outline-info");
+            const b = document.querySelector('#copyText');
+            b.innerHTML = "คัดลอก"
+            var element = document.getElementById("buttonCopy");
+            element.classList.add("btn-outline-info");
 
         }
 
-       // modalphone
+        // modalphone
         for (let i = 0; i < dataCar.length; i++) {
             $('#modalLine' + i).click(function () {
                 openModalContactLine(dataCar[i].lineContact)
@@ -1008,7 +1011,7 @@
         }
         function openModalContactLine(lineContact) {
             const lineContactHTML = document.getElementById("lineContact");
-            lineContactHTML.innerHTML =  "ไอดีไลน์ : " + lineContact
+            lineContactHTML.innerHTML = "ไอดีไลน์ : " + lineContact
             $("#modalContactLine").modal();
 
         }
@@ -1425,8 +1428,8 @@
     }
 
     .size-container {
-        margin-left: 185px;
-        margin-right: 185px;
+        margin-left: 8%;
+        margin-right: 8%;
         margin-top: 23px;
     }
 
