@@ -127,16 +127,59 @@
                             </div>
 
                             <div class="tab-pane fade" id="login">
+                         
                                 <div class="row">
                                     <div class="col-3"></div>
                                     <div class="col-6">
-                                        <div class="form-group mt-2"  style="text-align: left;">
-                                            <label>Username</label>
-                                            <input class="form-control input-style" type="text" placeholder="username">
-    
+                                        <b style="font-size: 28px !important;color: #633991;">เข้าสู่ระบบ</b>
+                                    
+                                        <h4>Login to Continue</h4>
+                                        <hr>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-3"></div>
+                                    <div class="col-6">
+                                        <div class="form-group mt-2" style="text-align: left;">
+                                            <span class="ti-user position-icon"></span>
+                                            <input class="form-control input-style" type="text"
+                                                placeholder="Enter username">
                                         </div>
                                     </div>
-                                  
+                                </div>
+                                <div class="row">
+                                    <div class="col-3"></div>
+                                    <div class="col-6">
+                                        <div class="form-group mt-2" style="text-align: left;">
+                                            <span class="ti-key position-icon"></span>
+                                            <input class="form-control input-style" type="text"
+                                                placeholder="Enter password">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-3"></div>
+                                    <div class="col-6" style="display: flex;justify-content: space-between;">
+                                        <div class="form-check form-check-inline" style="margin-left: 35px;">
+                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" style="zoom: 1.5;margin-top: 2px;">
+                                            <label class="form-check-label pl-0" for="inlineCheckbox1" style="color: #606060;">จำรหัสผ่าน</label>
+                                          </div>
+                                          <u style="color: #606060;"><span class="ti-key"></span>&nbsp;ลืมรหัสผ่าน</u>
+                                    </div>
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col-3"></div>
+                                    <div class="col-3">
+                                        <button type="button" class="btn btn-block"
+                                            style="border-radius: 10px;background-color: #cfcfcf;cursor: pointer;padding-top: 8px; padding-bottom: 8px;">
+                                            <b style="font-size: 17px;color: #505050;"
+                                                class="mt-2 mb-2">กลับสู่หน้าหลัก</b></button>
+                                    </div>
+                                    <div class="col-3">
+                                        <button type="button" class="btn btn-block"
+                                            style="border-radius: 10px;padding-top: 8px; padding-bottom: 8px; background: linear-gradient(90deg, rgb(41, 61, 147) 0%, rgb(70, 90, 183) 50%, rgb(41, 61, 147) 100%);cursor: pointer;">
+                                            <b style="font-size: 17px;color: #fff;">เข้าสู่ระบบ</b></button>
+                                    </div>
                                 </div>
 
                             </div>
@@ -233,18 +276,34 @@
 </body>
 
 <style>
+    .position-icon {
+        position: absolute;
+        left: 14px;
+        top: 8px;
+        border-radius: 10px;
+        font-size: 22px;
+        color: #fff;
+        z-index: 1030;
+        padding: 13px;
+        background: linear-gradient(90deg, rgb(41, 61, 147) 0%, rgb(70, 90, 183) 50%, rgb(41, 61, 147) 100%)
+    }
+
+
     .input-style {
         height: 50px;
         cursor: pointer;
         border-radius: 8px;
         width: 100%;
         border: none;
-        background: #efefef;
-        -webkit-box-shadow: inset 0 -1px 0 #ebebeb;
-        box-shadow: inset 0 -1px 0 #ebebeb;
+        background-color: #eaebf3 !important;
         padding: 0 10px;
         -webkit-appearance: none;
         -moz-appearance: none;
+        position: relative;
+        -webkit-box-shadow: none;
+        box-shadow: none !important;
+        outline: none !important;
+        padding-left: 60px !important;
     }
 
     .file {
