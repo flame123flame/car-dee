@@ -85,30 +85,101 @@
                             </li>
                         </ul>
                         <div class="tab-content" style="box-shadow: none !important;">
-                            <div class="tab-pane fade show active" id="register" style="border-top-width: 7px;">
-                                <div
+                            <div class="tab-pane fade show active text-left" id="register"
+                                style="border-top-width: 7px;">
+                                <div class="row mb-3">
+                                    <div class="col text-center">
+                                        <b style="font-size: 28px !important;color: #633991;">ระบบสมัครสมาชิก</b>
+                                        <h4>กรอกข้อมูลเพื่อสมัคร</h4>
+                                        <hr>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <label for="usernameRegis">Username <span style="color: red;">*</span></label>
+                                        <input type="text" class="form-control" id="usernameRegis"
+                                            placeholder="Username">
+                                        <div class="invalid-feedback">
+                                            username ต้องมากกว่า 6 ตัวขึ้นไป
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="passwordRegis">Password <span style="color: red;">*</span></label>
+                                        <input type="password" class="form-control" id="passwordRegis"
+                                            placeholder="Password">
+                                        <div class="invalid-feedback">
+                                            password ต้องมากกว่า 6 ตัวขึ้นไป
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-md-6">
+                                        <label for="cid">เลขบัตรประชาชน <span style="color: red;">*</span></label>
+                                        <input type="text" class="form-control" id="cid"   maxlength="13"
+                                            placeholder="x-xxxxx-xxxxx-xx-x">
+                                        <div class="invalid-feedback">
+                                            เลขบัตรประชาชน 13 หลักไม่ถูกต้อง
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="back_cid">เลขหลังบัตรประชาชน <span
+                                                style="color: red;">*</span></label>
+                                        <input type="text" class="form-control" id="back_cid"
+                                            placeholder="xxx-xxxxxxxx-xx">
+                                        <div class="invalid-feedback">
+                                            กรอกเลขหลังบัตรประชาชนไม่ถูกต้อง
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="fname">ชื่อ <span style="color: red;">*</span></label>
+                                        <input type="text" class="form-control" id="fname" placeholder="ชื่อ">
+                                        <div class="invalid-feedback">
+                                            กรุณากรอกชื่อ
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="lname">นามสกุล <span style="color: red;">*</span></label>
+                                        <input type="text" class="form-control" id="lname" placeholder="นามสกุล">
+                                        <div class="invalid-feedback">
+                                            กรุณากรอกนามสกุล
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="phoneNumber">เบอร์โทรศัพท์ <span
+                                                style="color: red;">*</span></label>
+                                        <input type="text" class="form-control" maxlength="10" id="phoneNumber"
+                                            placeholder="เบอร์โทรศัพท์">
+                                        <div class="invalid-feedback">
+                                            กรอกเบอร์โทรศัพท์ 10 หลักเท่านั้น
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <label for="idline">ไอดีไลน์ <span style="color: red;">*</span></label>
+                                        <input type="text" class="form-control" id="idline" placeholder="ไอดีไลน์">
+                                        <div class="invalid-feedback">
+                                            กรุณากรอกไอดีไลน์
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-md-12">
+                                        <label for="address">ที่อยู่ <span style="color: red;">*</span></label>
+                                        <textarea class="form-control" id="address" rows="3"></textarea>
+                                        <div class="invalid-feedback">
+                                            กรุณากรอกที่อยู่
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="mt-lg-4"
                                     style="margin-bottom: 16px;display: flex;margin-bottom: 5px;justify-content: space-around;">
                                     <div class="image-f">
                                         <img id="fileFShow" src="images/cid/id_puth.png" alt="รอเลือกภาพ"
                                             style="width: 260px;" />
-                                        <p style="position: absolute;top: 32%;
-                                        font-size: 37px;
-                                        color: red;
-                                        font-weight: bold;
-                                        right: 67%;
-                                    ">ตัวอย่าง</p>
                                     </div>
 
                                     <div class="image-b">
                                         <img id="fileBShow" src="images/cid/laser_code.png" alt="รอเลือกภาพ"
                                             style="width: 260px;" />
-                                        <b style="position: absolute;
-                                        top: 35%;
-                                        font-size: 37px;
-                                        color: red;
-                                        font-weight: bold;
-                                        right: 22%;
-                                    ">ตัวอย่าง</b>
                                     </div>
 
                                 </div>
@@ -122,6 +193,21 @@
                                     <div class="file-input">
                                         <input type="file" id="fileB" name="fileB" class="file">
                                         <label for="fileB">เลือกภาพหลังบัตรประชาชน</label>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="row mt-5">
+                                    <div class="col-3"></div>
+                                    <div class="col-3">
+                                        <button type="button" class="btn btn-block"
+                                            style="border-radius: 10px;background-color: #cfcfcf;cursor: pointer;padding-top: 8px; padding-bottom: 8px;">
+                                            <b style="font-size: 17px;color: #505050;"
+                                                class="mt-2 mb-2">กลับสู่หน้าหลัก</b></button>
+                                    </div>
+                                    <div class="col-3">
+                                        <button type="button" class="btn btn-block" onclick="validateRegister()"
+                                            style="border-radius: 10px;padding-top: 8px; padding-bottom: 8px; background: linear-gradient(90deg, rgb(41, 61, 147) 0%, rgb(70, 90, 183) 50%, rgb(41, 61, 147) 100%);cursor: pointer;">
+                                            <b style="font-size: 17px;color: #fff;">สมัครสมาชิก</b></button>
                                     </div>
                                 </div>
                             </div>
@@ -143,7 +229,8 @@
                                             <span class="ti-user position-icon"></span>
                                             <input class="form-control input-style" type="text"
                                                 placeholder="Enter username" id="username">
-                                            <div class="invalid-feedback" style="margin-left: 48px;margin-bottom: -15px;">
+                                            <div class="invalid-feedback"
+                                                style="margin-left: 48px;margin-bottom: -15px;">
                                                 username ต้องมากกว่า 6 ตัวขึ้นไป
                                             </div>
                                         </div>
@@ -155,7 +242,7 @@
                                         <div class="form-group mt-2" style="text-align: left;">
                                             <span class="ti-key position-icon"></span>
                                             <input class="form-control input-style" type="password"
-                                                placeholder="Enter password" id="password" style="font: small-caption;font-size: 23px;">
+                                                placeholder="Enter password" id="password">
                                             <div class="invalid-feedback" style="margin-left: 48px;">
                                                 password ต้องมากกว่า 6 ตัวขึ้นไป
                                             </div>
@@ -273,7 +360,89 @@
                 fileBShow.src = URL.createObjectURL(file)
             }
         }
-        
+     
+        function scripCheckCID(id) {
+            if (!IsNumeric(id)) return false;
+            if (id.substring(0, 1) == 0) return false;
+            if (id.length != 13) return false;
+            for (i = 0, sum = 0; i < 12; i++)
+                sum += parseFloat(id.charAt(i)) * (13 - i);
+            if ((11 - sum % 11) % 10 != parseFloat(id.charAt(12))) return false;
+            return true;
+        }
+        function IsNumeric(input) {
+            var RE = /^-?(0|INF|(0[1-7][0-7]*)|(0x[0-9a-fA-F]+)|((0|[1-9][0-9]*|(?=[\.,]))([\.,][0-9]+)?([eE]-?\d+)?))$/;
+            return (RE.test(input));
+        }
+
+        function validateRegister() {
+            var username = document.getElementById("usernameRegis")
+            var password = document.getElementById("passwordRegis")
+            var cid = document.getElementById("cid")
+            var backCid = document.getElementById("back_cid")
+            var fname = document.getElementById("fname")
+            var lname = document.getElementById("lname")
+            var phoneNumber = document.getElementById("phoneNumber")
+            var idline = document.getElementById("idline")
+            var address = document.getElementById("address")
+
+            if (username.value && username.value.length >= 6) {
+                username.classList.remove("is-invalid");
+            } else {
+                username.classList.add("is-invalid");
+            }
+            if (password.value && password.value.length >= 6) {
+                password.classList.remove("is-invalid");
+            } else {
+                password.classList.add("is-invalid");
+            }
+            if ((cid.value && cid.value.length == 13) && scripCheckCID(cid.value)) {
+                cid.classList.remove("is-invalid");
+            } else {
+                cid.classList.add("is-invalid");
+            }
+            if (backCid.value && backCid.value.length == 12) {
+                backCid.classList.remove("is-invalid");
+            } else {
+                backCid.classList.add("is-invalid");
+            }
+            if (fname.value) {
+                fname.classList.remove("is-invalid");
+            } else {
+                fname.classList.add("is-invalid");
+            }
+            if (lname.value) {
+                lname.classList.remove("is-invalid");
+            } else {
+                lname.classList.add("is-invalid");
+            }
+            if (phoneNumber.value && phoneNumber.value.length == 10) {
+                phoneNumber.classList.remove("is-invalid");
+            } else {
+                phoneNumber.classList.add("is-invalid");
+            }
+            if (idline.value) {
+                idline.classList.remove("is-invalid");
+            } else {
+                idline.classList.add("is-invalid");
+            }
+            if (address.value) {
+                address.classList.remove("is-invalid");
+            } else {
+                address.classList.add("is-invalid");
+            }
+            if ((username.value && username.value.length >= 6) && (password.value && password.value.length >= 6) && (cid.value && cid.value.length == 13)
+                && (backCid.value && backCid.value.length == 12) && fname.value && lname.value && (phoneNumber.value && phoneNumber.value.length == 10)
+                && idline.value && address.value) {
+                // register()
+            }
+        }
+
+
+        function register() {
+            console.log("register");
+        }
+
 
         function validateLogin() {
             var username = document.getElementById("username")
@@ -282,19 +451,19 @@
                 username.classList.remove("is-invalid");
             } else {
                 username.classList.add("is-invalid");
-               return;
+                return;
             }
             if (password.value && password.value.length >= 6) {
                 password.classList.remove("is-invalid");
             } else {
                 password.classList.add("is-invalid");
-               return;
+                return;
             }
             return true;
         }
 
-        function login(){
-            if(validateLogin()){
+        function login() {
+            if (validateLogin()) {
                 // login
                 console.log("login");
             }
