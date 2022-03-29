@@ -142,8 +142,11 @@
                                     <div class="col-6">
                                         <div class="form-group mt-2" style="text-align: left;">
                                             <span class="ti-user position-icon"></span>
-                                            <input class="form-control input-style" type="text"
+                                            <input class="form-control input-style is-invalid " type="text"
                                                 placeholder="Enter username">
+                                                <div class="invalid-feedback" style="margin-left: 48px;">
+                                                   กรุณากรอก username
+                                                  </div>
                                         </div>
                                     </div>
                                 </div>
@@ -152,8 +155,11 @@
                                     <div class="col-6">
                                         <div class="form-group mt-2" style="text-align: left;">
                                             <span class="ti-key position-icon"></span>
-                                            <input class="form-control input-style" type="text"
+                                            <input class="form-control input-style  is-invalid" type="text"
                                                 placeholder="Enter password">
+                                                <div class="invalid-feedback" style="margin-left: 48px;">
+                                                    กรุณากรอก password
+                                                   </div>
                                         </div>
                                     </div>
                                 </div>
@@ -278,14 +284,14 @@
 <style>
     .position-icon {
         position: absolute;
-        left: 14px;
-        top: 8px;
-        border-radius: 10px;
-        font-size: 22px;
-        color: #fff;
-        z-index: 1030;
-        padding: 13px;
-        background: linear-gradient(90deg, rgb(41, 61, 147) 0%, rgb(70, 90, 183) 50%, rgb(41, 61, 147) 100%)
+    left: 14px;
+    top: 8px;
+    border-radius: 10px;
+    font-size: 22px;
+    color: #fff;
+    z-index: 1030;
+    padding: 14px;
+    background: linear-gradient(90deg, rgb(41, 61, 147) 0%, rgb(70, 90, 183) 50%, rgb(41, 61, 147) 100%);
     }
 
 
@@ -294,7 +300,7 @@
         cursor: pointer;
         border-radius: 8px;
         width: 100%;
-        border: none;
+        /* border: none; */
         background-color: #eaebf3 !important;
         padding: 0 10px;
         -webkit-appearance: none;
@@ -302,7 +308,7 @@
         position: relative;
         -webkit-box-shadow: none;
         box-shadow: none !important;
-        outline: none !important;
+        /* outline: none !important; */
         padding-left: 60px !important;
     }
 
