@@ -205,7 +205,7 @@
                                                 class="mt-2 mb-2">กลับสู่หน้าหลัก</b></button>
                                     </div>
                                     <div class="col-3">
-                                        <button type="button" class="btn btn-block" onclick="validateRegister()"
+                                        <button type="button" class="btn btn-block" onclick="register()"
                                             style="border-radius: 10px;padding-top: 8px; padding-bottom: 8px; background: linear-gradient(90deg, rgb(41, 61, 147) 0%, rgb(70, 90, 183) 50%, rgb(41, 61, 147) 100%);cursor: pointer;">
                                             <b style="font-size: 17px;color: #fff;">สมัครสมาชิก</b></button>
                                     </div>
@@ -434,13 +434,16 @@
             if ((username.value && username.value.length >= 6) && (password.value && password.value.length >= 6) && (cid.value && cid.value.length == 13)
                 && (backCid.value && backCid.value.length == 12) && fname.value && lname.value && (phoneNumber.value && phoneNumber.value.length == 10)
                 && idline.value && address.value) {
-                // register()
+              return true;
             }
+            return false;
         }
 
 
         function register() {
-            console.log("register");
+            if(validateRegister()){
+
+            }
         }
 
 
