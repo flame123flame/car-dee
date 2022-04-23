@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    include('server.php'); 
+
+?>
 <!doctype html>
 <html lang="en">
 
@@ -47,7 +52,7 @@
                                         class="font-menu">ค้นหารถมือสอง</b></a>
                             </li>
                             <li class="nav-item">
-                                <a href="register.html" style="color: #fff; border: 2px solid #fff; border-radius: 8px;"
+                                <a href="login.php" style="color: #fff; border: 2px solid #fff; border-radius: 8px;"
                                     class="btn btn-outline-light my-3 my-sm-0 ml-lg-3">
                                     <b class="font-menu"> ลงทะเบียนขายรถ / เข้าสู่ระบบ</b></a>
                             </li>
@@ -76,144 +81,9 @@
             <div class="card-body text-center">
                 <div class="row">
                     <div class="col">
-                        <ul class="nav nav-tabs nav-justified" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" data-toggle="tab" href="#register">ลงทะเบียนขายรถ</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#login">เข้าสู่ระบบขายรถ</a>
-                            </li>
-                        </ul>
-                        <div class="tab-content" style="box-shadow: none !important;">
-                            <div class="tab-pane fade show active text-left" id="register"
-                                style="border-top-width: 7px;">
-                                <div class="row mb-3">
-                                    <div class="col text-center">
-                                        <b style="font-size: 28px !important;color: #633991;">ระบบสมัครสมาชิก</b>
-                                        <h4>กรอกข้อมูลเพื่อสมัคร</h4>
-                                        <hr>
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label for="usernameRegis">Username <span style="color: red;">*</span></label>
-                                        <input type="text" class="form-control" id="usernameRegis"
-                                            placeholder="Username">
-                                        <div class="invalid-feedback">
-                                            username ต้องมากกว่า 6 ตัวขึ้นไป
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="passwordRegis">Password <span style="color: red;">*</span></label>
-                                        <input type="password" class="form-control" id="passwordRegis"
-                                            placeholder="Password">
-                                        <div class="invalid-feedback">
-                                            password ต้องมากกว่า 6 ตัวขึ้นไป
-                                        </div>
-                                    </div>
-
-                                    <div class="form-group col-md-6">
-                                        <label for="cid">เลขบัตรประชาชน <span style="color: red;">*</span></label>
-                                        <input type="text" class="form-control" id="cid"   maxlength="13"
-                                            placeholder="x-xxxxx-xxxxx-xx-x">
-                                        <div class="invalid-feedback">
-                                            เลขบัตรประชาชน 13 หลักไม่ถูกต้อง
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="back_cid">Email <span
-                                                style="color: red;">*</span></label>
-                                        <input type="text" class="form-control" id="email"
-                                            placeholder="email">
-                                        <div class="invalid-feedback">
-                                            กรอก Email ไม่ถูกต้อง
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="fname">ชื่อ <span style="color: red;">*</span></label>
-                                        <input type="text" class="form-control" id="fname" placeholder="ชื่อ">
-                                        <div class="invalid-feedback">
-                                            กรุณากรอกชื่อ
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="lname">นามสกุล <span style="color: red;">*</span></label>
-                                        <input type="text" class="form-control" id="lname" placeholder="นามสกุล">
-                                        <div class="invalid-feedback">
-                                            กรุณากรอกนามสกุล
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="phoneNumber">เบอร์โทรศัพท์ <span
-                                                style="color: red;">*</span></label>
-                                        <input type="text" class="form-control" maxlength="10" id="phoneNumber"
-                                            placeholder="เบอร์โทรศัพท์">
-                                        <div class="invalid-feedback">
-                                            กรอกเบอร์โทรศัพท์ 10 หลักเท่านั้น
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-6">
-                                        <label for="idline">ไอดีไลน์ <span style="color: red;">*</span></label>
-                                        <input type="text" class="form-control" id="idline" placeholder="ไอดีไลน์">
-                                        <div class="invalid-feedback">
-                                            กรุณากรอกไอดีไลน์
-                                        </div>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="address">ที่อยู่ <span style="color: red;">*</span></label>
-                                        <textarea class="form-control" id="address" rows="3"></textarea>
-                                        <div class="invalid-feedback">
-                                            กรุณากรอกที่อยู่
-                                        </div>
-                                    </div>
-                                </div>
-
-
-
-                                <div class="mt-lg-4"
-                                    style="margin-bottom: 16px;display: flex;margin-bottom: 5px;justify-content: space-around;">
-                                    <div class="image-f">
-                                        <img id="fileFShow" src="images/cid/id_puth.png" alt="รอเลือกภาพ"
-                                            style="width: 260px;" />
-                                    </div>
-
-                                    <div class="image-b">
-                                        <img id="fileBShow" src="images/cid/laser_code.png" alt="รอเลือกภาพ"
-                                            style="width: 260px;" />
-                                    </div>
-
-                                </div>
-                                <div
-                                    style="display: flex;margin-bottom: 16px;justify-content: space-around;margin-top: 10px;">
-                                    <div class="file-input" style="margin-right: 10px;">
-                                        <input accept="image/*" type='file' id="fileF" id="fileF" name="fileF"
-                                            class="file">
-                                        <label for="fileF">เลือกภาพหน้าบัตรประชาชน</label>
-                                    </div>
-                                    <div class="file-input">
-                                        <input type="file" id="fileB" name="fileB" class="file">
-                                        <label for="fileB">เลือกภาพหลังบัตรประชาชน</label>
-                                    </div>
-                                </div>
-                                <hr>
-                                <div class="row mt-5">
-                                    <div class="col-3"></div>
-                                    <div class="col-3">
-                                        <button type="button" class="btn btn-block"
-                                            style="border-radius: 10px;background-color: #cfcfcf;cursor: pointer;padding-top: 8px; padding-bottom: 8px;">
-                                            <b style="font-size: 17px;color: #505050;"
-                                                class="mt-2 mb-2">กลับสู่หน้าหลัก</b></button>
-                                    </div>
-                                    <div class="col-3">
-                                        <button type="button" class="btn btn-block" onclick="register()"
-                                            style="border-radius: 10px;padding-top: 8px; padding-bottom: 8px; background: linear-gradient(90deg, rgb(41, 61, 147) 0%, rgb(70, 90, 183) 50%, rgb(41, 61, 147) 100%);cursor: pointer;">
-                                            <b style="font-size: 17px;color: #fff;">สมัครสมาชิก</b></button>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="tab-pane fade" id="login">
-
+                   
+                    <form action="login_db.php" method="post">
+                         
                                 <div class="row">
                                     <div class="col-3"></div>
                                     <div class="col-6">
@@ -228,7 +98,7 @@
                                         <div class="form-group mt-2" style="text-align: left;">
                                             <span class="ti-user position-icon"></span>
                                             <input class="form-control input-style" type="text"
-                                                placeholder="Enter username" id="username">
+                                                placeholder="Enter username" name="username" id="username" required>
                                             <div class="invalid-feedback"
                                                 style="margin-left: 48px;margin-bottom: -15px;">
                                                 username ต้องมากกว่า 6 ตัวขึ้นไป
@@ -241,14 +111,24 @@
                                     <div class="col-6">
                                         <div class="form-group mt-2" style="text-align: left;">
                                             <span class="ti-key position-icon"></span>
-                                            <input class="form-control input-style" type="password"
-                                                placeholder="Enter password" id="password">
+                                            <input class="form-control input-style" name="password" type="password"
+                                                placeholder="Enter password" id="password" required>
                                             <div class="invalid-feedback" style="margin-left: 48px;">
                                                 password ต้องมากกว่า 6 ตัวขึ้นไป
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                                <?php if (isset($_SESSION['error'])) : ?>
+                             <div class="error">
+                               <h6 style="color: red;">
+                               <?php 
+                                 echo $_SESSION['error'];
+                                unset($_SESSION['error']);
+                               ?>
+                             </h6>
+                                 </div>
+                         <?php endif ?>
                                 <div class="row">
                                     <div class="col-3"></div>
                                     <div class="col-6" style="display: flex;justify-content: space-between;">
@@ -258,7 +138,7 @@
                                             <label class="form-check-label pl-0" for="inlineCheckbox1"
                                                 style="color: #606060;">จำรหัสผ่าน</label>
                                         </div>
-                                        <u style="color: #606060;"><span class="ti-key"></span>&nbsp;ลืมรหัสผ่าน</u>
+                                        <u style="color: #606060;cursor: pointer;"></span><a style="color: #606060;cursor: pointer;" href="register.php" >สมัครสมาชิก</a> </u>
                                     </div>
                                 </div>
                                 <div class="row mt-4">
@@ -270,14 +150,13 @@
                                                 class="mt-2 mb-2">กลับสู่หน้าหลัก</b></button>
                                     </div>
                                     <div class="col-3">
-                                        <button type="button" class="btn btn-block" onclick="login()"
+                                        <button  class="btn btn-block" type="submit"  name="login_user"
                                             style="border-radius: 10px;padding-top: 8px; padding-bottom: 8px; background: linear-gradient(90deg, rgb(41, 61, 147) 0%, rgb(70, 90, 183) 50%, rgb(41, 61, 147) 100%);cursor: pointer;">
                                             <b style="font-size: 17px;color: #fff;">เข้าสู่ระบบ</b></button>
                                     </div>
                                 </div>
-
-                            </div>
-                        </div>
+                                </form>
+                          
                     </div>
                 </div>
             </div>
@@ -467,8 +346,10 @@
 
         function login() {
             if (validateLogin()) {
-                // login
-                console.log("login");
+                var username = document.getElementById("username").value;
+                var password = document.getElementById("password").value;
+      
+    }
             }
         }
 
