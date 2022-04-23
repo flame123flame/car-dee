@@ -121,12 +121,12 @@
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="back_cid">เลขหลังบัตรประชาชน <span
+                                        <label for="back_cid">Email <span
                                                 style="color: red;">*</span></label>
-                                        <input type="text" class="form-control" id="back_cid"
-                                            placeholder="xxx-xxxxxxxx-xx">
+                                        <input type="text" class="form-control" id="email"
+                                            placeholder="email">
                                         <div class="invalid-feedback">
-                                            กรอกเลขหลังบัตรประชาชนไม่ถูกต้อง
+                                            กรอก Email ไม่ถูกต้อง
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
@@ -379,7 +379,7 @@
             var username = document.getElementById("usernameRegis")
             var password = document.getElementById("passwordRegis")
             var cid = document.getElementById("cid")
-            var backCid = document.getElementById("back_cid")
+            var email = document.getElementById("email")
             var fname = document.getElementById("fname")
             var lname = document.getElementById("lname")
             var phoneNumber = document.getElementById("phoneNumber")
@@ -401,10 +401,10 @@
             } else {
                 cid.classList.add("is-invalid");
             }
-            if (backCid.value && backCid.value.length == 12) {
-                backCid.classList.remove("is-invalid");
+            if (email.value && email.value.length == 12) {
+                email.classList.remove("is-invalid");
             } else {
-                backCid.classList.add("is-invalid");
+                email.classList.add("is-invalid");
             }
             if (fname.value) {
                 fname.classList.remove("is-invalid");
