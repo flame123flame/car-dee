@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en" id="active">
 
@@ -47,7 +48,7 @@
                                         class="font-menu">ค้นหารถมือสอง</b></a>
                             </li>
                             <li class="nav-item">
-                                <a href="register.html"  style="color: #fff; border: 2px solid #fff; border-radius: 8px;"
+                                <a href="login.php"   style="color: #fff; border: 2px solid #fff; border-radius: 8px;"
                                     class="btn btn-outline-light my-3 my-sm-0 ml-lg-3">
                                     <b class="font-menu"> ลงทะเบียนขายรถ / เข้าสู่ระบบ</b></a>
                             </li>
@@ -76,7 +77,9 @@
                     </div>
                 </div>
             </div>
+         
             <div class="col-12 mt-2" id="status-show">
+            <form action="search-car.php" method="post">
                 <div class="card card-search" style="border-radius: 10px;border: none;">
                     <h2 class="heading-line" style="margin-top: 12px; font-size: 27px; ">ค้นหารถ</h2>
                     <div class="card-body">
@@ -160,7 +163,7 @@
                             </div>
                         </div>
                         <div class="col-12 text-center mt-3 mb-3">
-                            <button type="button" class="btn"
+                            <button type="button" name="search" class="btn" 
                                 style="cursor: pointer; background: linear-gradient(90deg, rgb(41, 61, 147) 0%, rgb(70, 90, 183) 50%, rgb(41, 61, 147) 100%);">
                                 <b style="color: #fff;font-size: 17px;" class="mr-5 ml-5">ค้นหารถ</b>
                             </button>
@@ -171,6 +174,7 @@
 
                     </div>
                 </div>
+                </form>
             </div>
 
 
@@ -200,7 +204,72 @@
 
 
                 <hr>
-                <div class="row" id="conCardDeck"></div>
+            <div class="row">
+            <?php
+            if(isset($_POST['search'])){
+                $user_check_Car = "SELECT * FROM Car order by id DESC ";
+                $queryCar = mysqli_query($conn, $user_check_Car);
+                $resultCar = mysqli_fetch_array($queryCar);
+
+            }
+            ?>
+
+
+
+<?php
+       include "server.php";
+       $user_check_Car = "SELECT * FROM Post JOIN Car on Post.id = Car.ID_Post JOIN image on Car.id = image.id_car GROUP by Car.id";
+       $queryCar = mysqli_query($conn, $user_check_Car);
+       while ( $row = mysqli_fetch_array($queryCar) ) :
+
+      ?>
+                <div class="col-12 col-sm-6 col-md-3 col-xs-3 mt-2" >
+                            <div class="card card-car mt-3 card-hover" >
+                                <img class="card-img-top" src="<?php echo $row['file_name']; ?>" alt="Card image cap"  onclick="goToCarDetail()">
+                                <div class="card-body" onclick="goToCarDetail()">
+                                    <div style="display: flex;justify-content: space-between;font-size: 25px;">
+                                        <b style="color:rgb(41, 61, 147)">รถปี <?php echo $row['year_car']; ?></b><b style="color: #ff7724;">
+                                        <?php
+$number = $row['Prize']; 
+setlocale(LC_MONETARY,"en_US");
+echo  number_format($number); ;
+?> </b>
+                                    </div>
+                                    <b class="font-header-card" stype="color: #343434;"><?php echo $row['Model']; ?></b>
+                                    <p class="card-text mt-2"> <span class="ti-dashboard mr-2"></span><span class="mr-2"><?php echo $row['NumberOfMile']; ?>
+                                            กม.</span>
+                                        <span class="ti-plug mr-1"></span><span class="mr-2">เกียร์<?php echo $row['GearSystem']; ?></span>
+                                        <span class="ti-car mr-1"></span><span><?php echo $row['Engine']; ?></span>
+                                    </p>
+                                    <p class="card-text" style="margin-top: -8px;">
+                                        <span class="ti-location-pin mr-1"></span>
+                                        <span>กรุงเทพมหานคร</span>
+                                    </p>
+                                
+                                </div>
+                                <div class="card-body" style="padding-top: 0px;">
+                                <div
+                                        style="display: flex;justify-content: space-around;flex-direction: row-reverse;align-items: baseline;">
+                                        <button type="button" id="modalLine${i}"
+                                            class="btn  btn-lg  btn-outline-success btn-block padding-button-contract"
+                                            style="margin-left: 3px;cursor: pointer;">
+                                            <img src="images/icons8-line.svg" class="img-fluid icon-width"
+                                                alt="logo"><b>ติดต่อไลน์</b></button>
+                                        <button type="button"  id="modal${i}"
+                                            class="btn  btn-outline-info btn-lg  btn-lg btn-block padding-button-contract"
+                                            style="margin-right: 3px;cursor: pointer;">
+                                            <img src="images/icons8-phone-48.png" class="img-fluid icon-width" alt="logo">
+                                            <b>เบอร์ติดต่อ</b></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                </div>
+                <?php
+       endwhile;
+       ?>
+                
 
             </div>
         </div>
@@ -345,7 +414,7 @@
             }
             return null;
         }
-
+ 
         var dataCar = [
             {
                 name: "Bmw series 5",
@@ -374,213 +443,12 @@
                 location: "กรุงเทพมหานคร",
                 miles: "12,980",
                 isNew: "new"
-            },
-            {
-
-                name: "Ford mustang 5.0",
-                image: "images/car2/3.jpg",
-                year: "2017",
-                price: 1910000,
-                engine: "เบนซิน",
-                engineSize: "5.0",
-                gear: "อัตโนมัติ",
-                phoneContact: "0932423133",
-                lineContact: "@line",
-                location: "กรุงเทพมหานคร",
-                miles: "89,382",
-                isNew: "old"
-            },
-            {
-
-                name: "Honda Civic 1.8 E",
-                image: "images/car2/4.jpg",
-                year: "2017",
-                price: 625000,
-                engine: "เบนซิน",
-                engineSize: "1.8",
-                gear: "อัตโนมัติ",
-                phoneContact: "0982139552",
-                lineContact: "@line",
-                location: "กรุงเทพมหานคร",
-                miles: "89,382",
-                isNew: "new"
-            },
-            {
-
-                name: "Honda Civic 1.5 RS ",
-                image: "images/car2/5.jpg",
-                year: "2017",
-                price: 910000,
-                engine: "เบนซิน",
-                engineSize: "1.5",
-                gear: "อัตโนมัติ",
-                phoneContact: "0982139552",
-                lineContact: "@line",
-                location: "กรุงเทพมหานคร",
-                miles: "89,382",
-                isNew: "old"
-            },
-            {
-
-                name: "Isuzu D-max 2.5",
-                image: "images/car2/6.jpg",
-                year: "2017",
-                price: 187909,
-                engine: "ดีเซล",
-                engineSize: "2.5",
-                gear: "ธรรมดา",
-                phoneContact: "0982139552",
-                lineContact: "@line",
-                location: "กรุงเทพมหานคร",
-                miles: "89,382",
-                isNew: "old"
-            },
-            {
-                name: "Bmw series 5",
-                image: "images/car2/1.jpg",
-                year: "2019",
-                price: 450000,
-                engine: "เบนซิน",
-                engineSize: "2.0",
-                gear: "อัตโนมัติ",
-                phoneContact: "0982139552",
-                lineContact: "@line",
-                location: "กรุงเทพมหานคร",
-                miles: "28,980",
-                isNew: "old"
-            },
-            {
-                name: "Ford ranger 2.2 xlt",
-                image: "images/car2/2.jpg",
-                year: "2017",
-                price: 882000,
-                engine: "ดีเซล",
-                engineSize: "2.2",
-                gear: "ธรรมดา",
-                phoneContact: "0982139552",
-                lineContact: "@line",
-                location: "กรุงเทพมหานคร",
-                miles: "12,980",
-                isNew: "new"
-            },
-            {
-                name: "Bmw series 5",
-                image: "images/car2/1.jpg",
-                year: "2019",
-                price: 950000,
-                engine: "เบนซิน",
-                engineSize: "2.0",
-                gear: "อัตโนมัติ",
-                phoneContact: "0982139552",
-                lineContact: "@line",
-                location: "กรุงเทพมหานคร",
-                miles: "28,980",
-                isNew: "old"
-            },
-            {
-                name: "Ford ranger 2.2 xlt",
-                image: "images/car2/2.jpg",
-                year: "2017",
-                price: 782000,
-                engine: "ดีเซล",
-                engineSize: "2.2",
-                gear: "ธรรมดา",
-                phoneContact: "0982139552",
-                lineContact: "@line",
-                location: "กรุงเทพมหานคร",
-                miles: "12,980",
-                isNew: "new"
-            },
-            {
-
-                name: "Ford mustang 5.0",
-                image: "images/car2/3.jpg",
-                year: "2017",
-                price: 2910000,
-                engine: "เบนซิน",
-                engineSize: "5.0",
-                gear: "อัตโนมัติ",
-                phoneContact: "0982139552",
-                lineContact: "@line",
-                location: "กรุงเทพมหานคร",
-                miles: "89,382",
-                isNew: "old"
-            },
-            {
-
-                name: "Honda Civic 1.8 E",
-                image: "images/car2/4.jpg",
-                year: "2017",
-                price: 800000,
-                engine: "เบนซิน",
-                engineSize: "1.8",
-                gear: "อัตโนมัติ",
-                phoneContact: "0982139552",
-                lineContact: "@line",
-                location: "กรุงเทพมหานคร",
-                miles: "89,382",
-                isNew: "new"
-            },
-            {
-
-                name: "Honda Civic 1.5 RS ",
-                image: "images/car2/5.jpg",
-                year: "2017",
-                price: 230000,
-                engine: "เบนซิน",
-                engineSize: "1.5",
-                gear: "อัตโนมัติ",
-                phoneContact: "0982139552",
-                lineContact: "@line",
-                location: "กรุงเทพมหานคร",
-                miles: "89,382",
-                isNew: "old"
-            },
-            {
-
-                name: "Isuzu D-max 2.5",
-                image: "images/car2/6.jpg",
-                year: "2017",
-                price: 479900,
-                engine: "ดีเซล",
-                engineSize: "2.5",
-                gear: "ธรรมดา",
-                phoneContact: "0982139552",
-                lineContact: "@line",
-                location: "กรุงเทพมหานคร",
-                miles: "89,382",
-                isNew: "old"
-            },
-            {
-                name: "Bmw series 5",
-                image: "images/car2/1.jpg",
-                year: "2019",
-                price: 750000,
-                engine: "เบนซิน",
-                engineSize: "2.0",
-                gear: "อัตโนมัติ",
-                phoneContact: "0982139552",
-                lineContact: "@line",
-                location: "กรุงเทพมหานคร",
-                miles: "28,980",
-                isNew: "old"
-            },
-            {
-                name: "Ford ranger 2.2 xlt",
-                image: "images/car2/2.jpg",
-                year: "2017",
-                price: 980900,
-                engine: "ดีเซล",
-                engineSize: "2.2",
-                gear: "ธรรมดา",
-                phoneContact: "0982139552",
-                lineContact: "@line",
-                location: "กรุงเทพมหานคร",
-                miles: "12,980",
-                isNew: "new"
-            },
-
+            }
         ]
+
+    
+
+
         let length = dataCar.length;
         var lengthCar = document.getElementById('lengthCar');
         lengthCar.innerHTML = "รถมือสอง  " + length + " คัน"

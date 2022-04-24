@@ -32,10 +32,11 @@
     <link rel="dns-prefetch" href="//fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <title>Dashboard Sidebar Menu</title> 
 </head>
 <body>
-    <nav class="sidebar close">
+    <nav class="sidebar">
         <header>
             <div class="image-text">
                 <span class="image">
@@ -44,17 +45,17 @@
 
                 <div class="text logo-text">
                     <span class="name">CARDEE</span>
-                    <span class="profession">User <?php
+                    <span class="profession">User: <?php
                     echo $dataUser['username'];
                      ?></span>
                 </div>
             </div>
 
-            <i class='bx bx-chevron-right toggle'></i>
+            <!-- <i class='bx bx-chevron-right toggle'></i> -->
         </header>
 
         <div class="menu-bar">
-            <div class="menu">
+            <div class="menu" style="margin-left: -15px !important;">
               
                 <ul class="menu-links">
               
@@ -92,9 +93,9 @@
 
                     
                     <li class="nav-link"  <?php if ($dataUser['status']== "admin"){?>style="display:none"<?php }?>>
-                        <a href="#">
+                        <a href="seller.php">
                             <i class='bx bx-car icon'></i>
-                            <span class="text nav-text">ขายรถ</span>
+                            <span class="text nav-text">รายการขายรถ</span>
                         </a>
                     </li>
 
@@ -118,7 +119,7 @@
 
             <div class="bottom-content">
                 <li class="">
-                    <a href="dashbroad.php?logout='1'" >
+                    <a href="seller.php?logout='1'" >
                         <i class='bx bx-log-out icon' ></i>
                         <span  class="text nav-text">Logout</span>
                     </a>
@@ -130,64 +131,55 @@
     </nav>
 
     <section class="home">
-
+    <nav aria-label="breadcrumb">
+  <ol class="breadcrumb" style="background-color: #fcfcfc;">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">รายการขายรถ</li>
+  </ol>
+</nav>
     <div class="card">
-      <table id="customers">
+    <div style="display: flex; justify-content: space-between; align-content: flex-start; align-items: center;">
+    <h3>รายการขายรถ</h3>
+      <button type="button" class="btn btn-info btn-sm"><a class="nav-link" href="selle-add.php" style="cursor: pointer;color:#fff;text-decoration: none;">เพิ่มขายรถ</a></button>
+     </div>
+
+      <table id="customers" class="table table-striped mt-3 table-bordered" >
   <tr>
-    <th>Company</th>
-    <th>Contact</th>
-    <th>Country</th>
+    <th>ยี่ห้อ</th>
+    <th>รุ่น</th>
+    <th>ระบบเกียร์</th>
+    <th>เครื่องยนต์</th>
+    <th>สี</th>
+    <th>ราคา</th>
+    <th>สถานะการขาย</th>
+    <th>รายละเอียด</th>
   </tr>
-  <tr>
-    <td>Alfreds Futterkiste</td>
-    <td>Maria Anders</td>
-    <td>Germany</td>
-  </tr>
-  <tr>
-    <td>Berglunds snabbköp</td>
-    <td>Christina Berglund</td>
-    <td>Sweden</td>
-  </tr>
-  <tr>
-    <td>Centro comercial Moctezuma</td>
-    <td>Francisco Chang</td>
-    <td>Mexico</td>
-  </tr>
-  <tr>
-    <td>Ernst Handel</td>
-    <td>Roland Mendel</td>
-    <td>Austria</td>
-  </tr>
-  <tr>
-    <td>Island Trading</td>
-    <td>Helen Bennett</td>
-    <td>UK</td>
-  </tr>
-  <tr>
-    <td>Königlich Essen</td>
-    <td>Philip Cramer</td>
-    <td>Germany</td>
-  </tr>
-  <tr>
-    <td>Laughing Bacchus Winecellars</td>
-    <td>Yoshi Tannamuri</td>
-    <td>Canada</td>
-  </tr>
-  <tr>
-    <td>Magazzini Alimentari Riuniti</td>
-    <td>Giovanni Rovelli</td>
-    <td>Italy</td>
-  </tr>
-  <tr>
-    <td>North/South</td>
-    <td>Simon Crowther</td>
-    <td>UK</td>
-  </tr>
-  <tr>
-    <td>Paris spécialités</td>
-    <td>Marie Bertrand</td>
-    <td>France</td>
-  </tr>
+  <?php 
+
+                include_once('functions-add-car.php');
+                $fetchdata = new DB_con();
+                $sql = $fetchdata->fetchdataProcess();
+                while($row = mysqli_fetch_array($sql)) {
+                    
+            ?>
+
+                <tr>
+                <td><?php echo $row['BrandOfCar']; ?></td>
+                <td><?php echo $row['Model']; ?></td>
+                <td><?php echo $row['GearSystem']; ?></td>
+                <td><?php echo $row['Engine']; ?></td>
+                <td><?php echo $row['Color']; ?></td>
+                <td><?php echo $row['Prize']; ?></td>
+                <td><?php echo $row['Status']; ?></td>
+                    <td><a href="update.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">Edit</a>
+                    <a href="delete.php?del=<?php echo $row['id']; ?>" class="btn btn-danger">Delete</a></td>
+
+                </tr>
+
+            <?php 
+
+                }
+            ?>
 </table>
 </div>
    
@@ -198,36 +190,26 @@
 </body>
 </html>
 <style>
-#customers {
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
+  @font-face {
+        font-family: "Prompt";
+        src: url("fonts/Prompt-Regular.ttf"), url("fonts/Prompt-Medium.ttf"),
+            url("fonts/Prompt-SemiBold.ttf");
+    }
 
-#customers td, #customers th {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
+    * {
+        font-family: "Prompt", sans-serif;
+    }
 
-#customers tr:nth-child(even){background-color: #f2f2f2;}
-
-#customers tr:hover {background-color: #ddd;}
-
-#customers th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #04AA6D;
-  color: white;
-}
 .home{
-    padding: 4%;
+    padding: 2%;
  
 }
 .card {
+    padding: 15px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   border-radius: 5px;
   background-color: #ffff;
 }
+
 </style>

@@ -48,7 +48,7 @@
                                         class="font-menu">คำนวณค่างวดเบื้องต้น</b></a> </li>
                             <li class="nav-item"> <a class="nav-link" href="index.html?active=contact"><b
                                         class="font-menu">เกี่ยวกับเรา</b> </a> </li>
-                            <li class="nav-item"> <a class="nav-link" href="search-car.html" style="cursor: pointer;"><b
+                            <li class="nav-item"> <a class="nav-link" href="search-car.php" style="cursor: pointer;"><b
                                         class="font-menu">ค้นหารถมือสอง</b></a>
                             </li>
                             <li class="nav-item">
@@ -91,18 +91,28 @@
                                         <hr>
                                     </div>
                                 </div>
+                                <?php if (isset($_SESSION['error'])) : ?>
+            <div class="error">
+                <h3>
+                    <?php 
+                        echo $_SESSION['error'];
+                        unset($_SESSION['error']);
+                    ?>
+                </h3>
+            </div>
+        <?php endif ?>
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label for="usernameRegis">Username <span style="color: red;">*</span></label>
-                                        <input type="text" class="form-control" id="usernameRegis"
+                                        <input type="text" class="form-control" name="username" id="usernameRegis"
                                             placeholder="Username" required>
                                         <div class="invalid-feedback">
                                             username ต้องมากกว่า 6 ตัวขึ้นไป
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
-                                        <label for="passwordRegis">Password <span style="color: red;">*</span></label>
-                                        <input type="password" class="form-control" id="passwordRegis"
+                                        <label for="password">Password <span style="color: red;">*</span></label>
+                                        <input type="password" class="form-control" name="password"    id="password"
                                             placeholder="Password" required>
                                         <div class="invalid-feedback">
                                             password ต้องมากกว่า 6 ตัวขึ้นไป
@@ -111,7 +121,7 @@
 
                                     <div class="form-group col-md-6">
                                         <label for="cid">เลขบัตรประชาชน <span style="color: red;">*</span></label>
-                                        <input type="text" class="form-control" id="cid"   maxlength="13"
+                                        <input type="text" class="form-control" id="cid"  name="cid"    maxlength="13"
                                             placeholder="x-xxxxx-xxxxx-xx-x">
                                         <div class="invalid-feedback" required>
                                             เลขบัตรประชาชน 13 หลักไม่ถูกต้อง
@@ -120,7 +130,7 @@
                                     <div class="form-group col-md-6">
                                         <label for="back_cid">Email <span
                                                 style="color: red;">*</span></label>
-                                        <input type="text" class="form-control" id="email"
+                                        <input type="text" class="form-control" id="email" name="email" 
                                             placeholder="email" required>
                                         <div class="invalid-feedback">
                                             กรอก Email ไม่ถูกต้อง
@@ -128,14 +138,14 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="fname">ชื่อ <span style="color: red;">*</span></label>
-                                        <input type="text" class="form-control" id="fname" placeholder="ชื่อ" required>
+                                        <input type="text" class="form-control" id="fname" name="fname" placeholder="ชื่อ" required>
                                         <div class="invalid-feedback">
                                             กรุณากรอกชื่อ
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="lname">นามสกุล <span style="color: red;">*</span></label>
-                                        <input type="text" class="form-control" id="lname" placeholder="นามสกุล" required>
+                                        <input type="text" class="form-control" id="lname" name="lname" placeholder="นามสกุล" required>
                                         <div class="invalid-feedback">
                                             กรุณากรอกนามสกุล
                                         </div>
@@ -143,7 +153,7 @@
                                     <div class="form-group col-md-6">
                                         <label for="phoneNumber">เบอร์โทรศัพท์ <span
                                                 style="color: red;">*</span></label>
-                                        <input type="text" class="form-control" maxlength="10" id="phoneNumber"
+                                        <input type="text" class="form-control" maxlength="10" id="phoneNumber" name="phone"
                                             placeholder="เบอร์โทรศัพท์">
                                         <div class="invalid-feedback">
                                             กรอกเบอร์โทรศัพท์ 10 หลักเท่านั้น
@@ -151,20 +161,14 @@
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="idline">ไอดีไลน์ <span style="color: red;">*</span></label>
-                                        <input type="text" class="form-control" id="idline" placeholder="ไอดีไลน์" required>
+                                        <input type="text" class="form-control" id="idline" name="idline" placeholder="ไอดีไลน์" required>
                                         <div class="invalid-feedback">
                                             กรุณากรอกไอดีไลน์
                                         </div>
                                     </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="address">ที่อยู่ <span style="color: red;">*</span></label>
-                                        <textarea class="form-control" id="address" rows="3" required></textarea>
-                                        <div class="invalid-feedback">
-                                            กรุณากรอกที่อยู่
-                                        </div>
-                                    </div>
+                                   
                                 </div>
-
+                       
 
 
                               

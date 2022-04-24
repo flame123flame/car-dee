@@ -23,7 +23,7 @@
             if (mysqli_num_rows($result) == 1) {
                 $_SESSION['username'] = $username; 
                 $_SESSION['success'] = "เข้าสู่ระบบโดย ".$_SESSION['username'];
-                header("location: dashbroad.php");
+                header("location: seller.php");
             } else {
                 array_push($errors, "Wrong Username or Password");
                 $_SESSION['error'] = "Username หรือ Password ไม่ถูกต้อง";

@@ -48,7 +48,7 @@
                                         class="font-menu">คำนวณค่างวดเบื้องต้น</b></a> </li>
                             <li class="nav-item"> <a class="nav-link" href="index.html?active=contact"><b
                                         class="font-menu">เกี่ยวกับเรา</b> </a> </li>
-                            <li class="nav-item"> <a class="nav-link" href="search-car.html" style="cursor: pointer;"><b
+                            <li class="nav-item"> <a class="nav-link" href="search-car.php" style="cursor: pointer;"><b
                                         class="font-menu">ค้นหารถมือสอง</b></a>
                             </li>
                             <li class="nav-item">

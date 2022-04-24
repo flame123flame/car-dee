@@ -7,13 +7,12 @@
     if (isset($_POST['reg_user'])) {
         $username = mysqli_real_escape_string($conn, $_POST['username']);
         $email = mysqli_real_escape_string($conn, $_POST['email']);
-        $password_1 = mysqli_real_escape_string($conn, $_POST['password_1']);
+        $password = mysqli_real_escape_string($conn, $_POST['password']);
         $cid = mysqli_real_escape_string($conn, $_POST['cid']);
         $fname = mysqli_real_escape_string($conn, $_POST['fname']);
         $lname = mysqli_real_escape_string($conn, $_POST['lname']);
         $phone = mysqli_real_escape_string($conn, $_POST['phone']);
         $idline = mysqli_real_escape_string($conn, $_POST['idline']);
-        $address = mysqli_real_escape_string($conn, $_POST['address']);
 
         if (empty($username)) {
             array_push($errors, "Username is required");
@@ -23,7 +22,7 @@
             array_push($errors, "Email is required");
             $_SESSION['error'] = "Email is required";
         }
-        if (empty($password_1)) {
+        if (empty($password)) {
             array_push($errors, "Password is required");
             $_SESSION['error'] = "Password is required";
         }
@@ -47,35 +46,30 @@
             array_push($errors, "idline is required");
             $_SESSION['error'] = "idline is required";
         }
-        if (empty($address)) {
-            array_push($errors, "address is required");
-            $_SESSION['error'] = "address is required";
-        }
 
-        
-
-        $user_check_query = "SELECT * FROM user WHERE username = '$username' OR email = '$email' LIMIT 1";
+        $user_check_query = "SELECT * FROM user WHERE username = '$username'  LIMIT 1";
         $query = mysqli_query($conn, $user_check_query);
         $result = mysqli_fetch_assoc($query);
 
-        if ($result) { // if user exists
+        if ($result) {
             if ($result['username'] === $username) {
                 array_push($errors, "Username already exists");
             }
-            if ($result['email'] === $email) {
-                array_push($errors, "Email already exists");
-            }
+           
         }
 
         if (count($errors) == 0) {
-            $sql = "INSERT INTO user (username, email, password, cid, fname, lname, phone, idline, address) VALUES ('$username', '$email', '$password', '$cid', '$fname', '$lname', '$phone', '$idline', '$address')";
+            $sql1 = "INSERT INTO user (username, password, status) VALUES ('$username','$password', 'seller')";
+            $sql = "INSERT INTO Seller(username, E_mail, Id_Card_number, Fname, Lname, Phone_number, Id_Line , ID_Admin) VALUES ('$username', '$email', '$cid', '$fname', '$lname', '$phone', '$idline','')"; 
             mysqli_query($conn, $sql);
+            mysqli_query($conn, $sql1);
 
             $_SESSION['username'] = $username;
             $_SESSION['success'] = "You are now logged in";
-            header('location: dashbroad.php');
+            header('location: seller.php');
         } else {
             header("location: register.php");
+            array_push($errors, "Username already exists");
         }
     }
 
