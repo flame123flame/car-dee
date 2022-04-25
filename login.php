@@ -26,7 +26,7 @@
         <div class="row">
             <div class="col-md-12">
                 <nav class="navbar navbar-dark navbar-expand-lg">
-                    <a class="navbar-brand" href="index.html" style="margin-left: 44px;">
+                    <a class="navbar-brand" href="index.php" style="margin-left: 44px;">
                         <h3
                             style="font-weight: bold;color: #fff;    text-shadow: 0px 2px 0px #fff, 1px 6px 0px rgb(0 0 0 / 10%);">
                             CAR-DEE</h3>
@@ -38,15 +38,15 @@
                     <div class="collapse navbar-collapse" id="navbar"
                         style="flex-direction: column-reverse;display: flex; ">
                         <ul class="navbar-nav ">
-                            <li class="nav-item"> <a class="nav-link " href="index.html?active=home"><b
+                            <li class="nav-item"> <a class="nav-link " href="index.php?active=home"><b
                                         class="font-menu">หน้าหลัก</b></a> </li>
-                            <li class="nav-item"> <a class="nav-link" href="index.html?active=search_car">
+                            <li class="nav-item"> <a class="nav-link" href="index.php?active=search_car">
                                     <b class="font-menu">สำหรับคุณ</b></a> </li>
-                            <li class="nav-item"> <a class="nav-link" href="index.html?active=gallery"><b
+                            <li class="nav-item"> <a class="nav-link" href="index.php?active=gallery"><b
                                         class="font-menu">ขายรถกับเรา</b></a> </li>
-                            <li class="nav-item"> <a class="nav-link" href="index.html?active=calculate"><b
+                            <li class="nav-item"> <a class="nav-link" href="index.php?active=calculate"><b
                                         class="font-menu">คำนวณค่างวดเบื้องต้น</b></a> </li>
-                            <li class="nav-item"> <a class="nav-link" href="index.html?active=contact"><b
+                            <li class="nav-item"> <a class="nav-link" href="index.php?active=contact"><b
                                         class="font-menu">เกี่ยวกับเรา</b> </a> </li>
                             <li class="nav-item"> <a class="nav-link" href="search-car.php" style="cursor: pointer;"><b
                                         class="font-menu">ค้นหารถมือสอง</b></a>

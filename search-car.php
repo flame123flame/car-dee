@@ -1,4 +1,48 @@
 
+<?php
+include 'upload.php';
+$searchErr = '';
+$data='';
+
+$stmt = $con->prepare("SELECT * FROM Post JOIN Car on Post.id = Car.ID_Post JOIN image on Car.id = image.id_car GROUP by Car.id");
+$stmt->execute();
+$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+if(isset($_POST['save']))
+{
+        $Prize = $_POST['Prize'];
+        $type = $_POST['type'];
+        $BrandOfCar = $_POST['BrandOfCar'];
+        $year_car = $_POST['year_car'];
+        $Model = $_POST['Model'];
+        $Color = $_POST['Color'];
+        $GearSystem = $_POST['GearSystem'];
+        $stmt = $con->prepare("SELECT * FROM Post JOIN Car on Post.id = Car.ID_Post JOIN image on Car.id = image.id_car WHERE Car.Prize like '%$Prize%'
+         and Car.ID_cartype like '%$type%'
+         and Car.BrandOfCar like '%$BrandOfCar%'
+         and Car.year_car like '%$year_car%'
+         and Car.Model like '%$Model%'
+         and Car.Color like '%$Color%'
+         and Car.GearSystem like '%$GearSystem%' GROUP by Car.id");
+        $stmt->execute();
+        $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      
+         
+    
+    
+}
+ 
+?>
+
+<?php 
+      include "server.php";
+    $query2 = "SELECT * FROM Cartype ORDER BY id asc" or die("Error:" . mysqli_error());
+    $result = mysqli_query($conn, $query2);
+
+    $query5 = "SELECT * FROM Car ORDER BY id asc" or die("Error:" . mysqli_error());
+    $result1 = mysqli_query($conn, $query5);
+?>
+
 <!doctype html>
 <html lang="en" id="active">
 
@@ -22,7 +66,7 @@
         <div class="row">
             <div class="col-md-12">
                 <nav class="navbar navbar-dark navbar-expand-lg">
-                    <a class="navbar-brand" href="index.html" style="margin-left: 44px;">
+                    <a class="navbar-brand" href="index.php" style="margin-left: 44px;">
                         <h3
                             style="font-weight: bold;color: #fff;    text-shadow: 0px 2px 0px #fff, 1px 6px 0px rgb(0 0 0 / 10%);">
                             CAR-DEE</h3>
@@ -34,15 +78,15 @@
                     <div class="collapse navbar-collapse" id="navbar"
                         style="flex-direction: column-reverse;display: flex; ">
                         <ul class="navbar-nav ">
-                            <li class="nav-item"> <a class="nav-link " href="index.html?active=home"><b
+                            <li class="nav-item"> <a class="nav-link " href="index.php?active=home"><b
                                         class="font-menu">หน้าหลัก</b></a> </li>
-                            <li class="nav-item"> <a class="nav-link" href="index.html?active=search_car">
+                            <li class="nav-item"> <a class="nav-link" href="index.php?active=search_car">
                                     <b class="font-menu">สำหรับคุณ</b></a> </li>
-                            <li class="nav-item"> <a class="nav-link" href="index.html?active=gallery"><b
+                            <li class="nav-item"> <a class="nav-link" href="index.php?active=gallery"><b
                                         class="font-menu">ขายรถกับเรา</b></a> </li>
-                            <li class="nav-item"> <a class="nav-link" href="index.html?active=calculate"><b
+                            <li class="nav-item"> <a class="nav-link" href="index.php?active=calculate"><b
                                         class="font-menu">คำนวณค่างวดเบื้องต้น</b></a> </li>
-                            <li class="nav-item"> <a class="nav-link" href="index.html?active=contact"><b
+                            <li class="nav-item"> <a class="nav-link" href="index.php?active=contact"><b
                                         class="font-menu">เกี่ยวกับเรา</b> </a> </li>
                             <li class="nav-item"> <a class="nav-link active" href="#active" style="cursor: pointer;"><b
                                         class="font-menu">ค้นหารถมือสอง</b></a>
@@ -86,84 +130,115 @@
                         <div class="row">
                             <div class="col-4">
                                 <div class="form-group">
-                                    <select class="form-control form-control-lg input-style dropdown-toggle">
-                                        <option>เลือกราคา</option>
-                                        <option>น้อยกว่า 100,000</option>
-                                        <option>100,000-300,000</option>
-                                        <option>400,000-600,000</option>
-                                        <option>มากกว่า 600,0000</option>
+                                    <select name="Prize" class="form-control form-control-lg input-style dropdown-toggle">
+                                        <option value="">เลือกราคา</option>
+                                        <option value="100000">100,000</option>
+                                        <option value="200000">200,000</option>
+                                        <option value="300000">300,000</option>
+                                        <option value="400000">400,000</option>
+                                        <option value="500000">500,000</option>
+                                        <option value="600000">600,000</option>
+                                        <option value="700000">700,000</option>
+                                        <option value="800000">800,000</option>
+                                        <option value="900000">900,000</option>
+                                        <option value="1000000">1,000,000</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-4">
                                 <div class="form-group">
-                                    <select class="form-control form-control-lg input-style">
-                                        <option>ยี่ห้อ/แบรนด์</option>
-                                        <option>Toyota</option>
+                                    <select name="BrandOfCar" class="form-control form-control-lg input-style">
+                                        <option value="">ยี่ห้อ/แบรนด์</option>
+                                        <option value="อีซูซุ">อีซูซุ</option>
+  <option value="โตโยต้า">โตโยต้า</option>
+<option value="ฮอนด้า">ฮอนด้า</option>
+<option value="มิทซูบิชิ">มิทซูบิชิ</option>
+<option value="นิสสัน">นิสสัน</option>
+<option value="มาซด้า">มาซด้า</option>
+<option value="ฟอร์ด">ฟอร์ด</option>
+<option value="เอ็มจี">เอ็มจี</option>
+<option value="ซูซูกิ">ซูซูกิ</option>
+<option value="เชฟโรเลต">เชฟโรเลต</option>
+<option value="ซูบารุ">ซูบารุ</option>
+<option value="บีเอ็มดับเบิลยู">บีเอ็มดับเบิลยู</option>
+<option value="เมอร์เซเดส-เบนซ์">เมอร์เซเดส-เบนซ์</option>
+<option value="เทสล่า">เทสล่า</option>
+<option value="โฟล์คสวาเกน">โฟล์คสวาเกน</option>
+<option value="จีเอ็ม">จีเอ็ม</option>
+<option value="สเตแลนทิส">สเตแลนทิส</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-4">
                                 <div class="form-group">
-                                    <select class="form-control form-control-lg input-style">
-                                        <option>รุ่น</option>
-                                        <option>veloz</option>
+                                    <select class="form-control form-control-lg input-style" name="Model">
+                                        <option value="">รุ่น</option>
+                                        <?php foreach($result1 as $results2){?>
+    <option value="<?php echo $results2["Model"];?>">
+      <?php echo $results2["Model"]; ?>
+      </option>
+    <?php } ?>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-4">
                                 <div class="form-group">
-                                    <select class="form-control form-control-lg input-style">
-                                        <option>ปี</option>
-                                        <option>2022</option>
+                                    <select class="form-control form-control-lg input-style" name="year_car" >
+                                        <option value="">ปี</option>
+                                        <option value="2022">2022</option>
+      <option value="2021">2021</option>
+      <option value="2020">2020</option>
+       <option value="2019">2019</option>
+      <option value="2018">2018</option>
+      <option value="2017">2017</option>
+      <option value="2016">2016</option>
+      <option value="2015">2015</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-4">
                                 <div class="form-group">
-                                    <select class="form-control form-control-lg input-style">
-                                        <option>เลขไมล์ </option>
-                                        <option>30,000</option>
+                                <select class="form-control form-control-lg input-style" name="Color" >
+                                        <option value="">สี</option>
+                                        <option value="ดำ">ดำ</option>
+                                        <option value="แดง">แดง</option>
+                                        <option value="เทา">เทา</option>
+                                        <option value="ขาว">ขาว</option>
+                                        <option value="ขาวมุก">ขาวมุก</option>
+                                        <option value="ส้ม">ส้ม</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-4">
                                 <div class="form-group">
-                                    <select class="form-control form-control-lg input-style">
-                                        <option>ระบบเกียร์</option>
-                                        <option>เกียร์อัตโนมัติ</option>
-                                        <option>เกียร์ธรรมดา</option>
+                                    <select class="form-control form-control-lg input-style" name="GearSystem" >
+                                        <option value="">ระบบเกียร์</option>
+                                        <option value="อัตโนมัติ">เกียร์อัตโนมัติ</option>
+                                        <option value="ธรรมดา">เกียร์ธรรมดา</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-4">
                                 <div class="form-group">
-                                    <select class="form-control form-control-lg input-style">
-                                        <option>ประเภทรถ</option>
-                                        <option>SUV</option>
+                                    <select name="type" class="form-control form-control-lg input-style">
+                                        <option value="">ประเภทรถ</option>
+    <?php foreach($result as $results){?>
+    <option value="<?php echo $results["Cartype_Name"];?>">
+      <?php echo $results["Cartype_Name"]; ?>
+      </option>
+    <?php } ?>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-4">
-                                <div class="form-group">
-                                    <select class="form-control form-control-lg input-style">
-                                        <option>สี</option>
-                                        <option>ดำ</option>
-                                        <option>แดง</option>
-                                    </select>
-                                </div>
+                              
                             </div>
                             <div class="col-4">
-                                <div class="form-group">
-                                    <select class="form-control form-control-lg input-style">
-                                        <option>จังหวัด</option>
-                                        <option>กรุงเทพมหานคร</option>
-                                    </select>
-                                </div>
+                               
                             </div>
                         </div>
                         <div class="col-12 text-center mt-3 mb-3">
-                            <button type="button" name="search" class="btn" 
+                            <button type="submit" name="save" class="btn" 
                                 style="cursor: pointer; background: linear-gradient(90deg, rgb(41, 61, 147) 0%, rgb(70, 90, 183) 50%, rgb(41, 61, 147) 100%);">
                                 <b style="color: #fff;font-size: 17px;" class="mr-5 ml-5">ค้นหารถ</b>
                             </button>
@@ -183,7 +258,7 @@
                 <br>
                 <div class="position-row"
                     style="display: flex; align-content: flex-start; align-items: flex-end; justify-content: space-between;">
-                    <h3 style="color: #633991;font-size:32px;font-weight: bold;" id="lengthCar"></h3>
+                    <h3 style="color: #633991;font-size:32px;font-weight: bold;">รถมือสอง</h3>
                     <div style="display: flex;">
                         <label for="price" class="col-form-label text-right" style="padding-right: 12px;">
                             <h3 style="color: #633991;font-size: 20px;font-weight: bold;">ตามราคา</h3>
@@ -201,35 +276,24 @@
                         </div>
                     </div>
                 </div>
-
-
                 <hr>
-            <div class="row">
-            <?php
-            if(isset($_POST['search'])){
-                $user_check_Car = "SELECT * FROM Car order by id DESC ";
-                $queryCar = mysqli_query($conn, $user_check_Car);
-                $resultCar = mysqli_fetch_array($queryCar);
-
-            }
-            ?>
-
-
-
-<?php
-       include "server.php";
-       $user_check_Car = "SELECT * FROM Post JOIN Car on Post.id = Car.ID_Post JOIN image on Car.id = image.id_car GROUP by Car.id";
-       $queryCar = mysqli_query($conn, $user_check_Car);
-       while ( $row = mysqli_fetch_array($queryCar) ) :
-
-      ?>
-                <div class="col-12 col-sm-6 col-md-3 col-xs-3 mt-2" >
+                <div class="row">
+                <?php
+                 if(!$data)
+                 {
+                 }
+                 else{
+                    foreach($data as $key=>$row)
+                    {
+                        ?>
+      <div class="col-12 col-sm-6 col-md-3 col-xs-3 mt-2" >
                             <div class="card card-car mt-3 card-hover" >
-                                <img class="card-img-top" src="<?php echo $row['file_name']; ?>" alt="Card image cap"  onclick="goToCarDetail()">
-                                <div class="card-body" onclick="goToCarDetail()">
+                              <a href="car-detail.php?id=<?php echo $row['id']; ?>" > <img class="card-img-top" src="uploads/<?php echo $row['file_name']; ?>" alt="Card image cap"  ></a> 
+                              
+                                <div class="card-body" >
                                     <div style="display: flex;justify-content: space-between;font-size: 25px;">
                                         <b style="color:rgb(41, 61, 147)">รถปี <?php echo $row['year_car']; ?></b><b style="color: #ff7724;">
-                                        <?php
+                                        ฿<?php
 $number = $row['Prize']; 
 setlocale(LC_MONETARY,"en_US");
 echo  number_format($number); ;
@@ -239,7 +303,7 @@ echo  number_format($number); ;
                                     <p class="card-text mt-2"> <span class="ti-dashboard mr-2"></span><span class="mr-2"><?php echo $row['NumberOfMile']; ?>
                                             กม.</span>
                                         <span class="ti-plug mr-1"></span><span class="mr-2">เกียร์<?php echo $row['GearSystem']; ?></span>
-                                        <span class="ti-car mr-1"></span><span><?php echo $row['Engine']; ?></span>
+                                        <span class="ti-car mr-1"></span><span>เครื่องยนต์<?php echo $row['Engine']; ?></span>
                                     </p>
                                     <p class="card-text" style="margin-top: -8px;">
                                         <span class="ti-location-pin mr-1"></span>
@@ -264,15 +328,14 @@ echo  number_format($number); ;
                                 </div>
                             </div>
                         </div>
-                        
-                </div>
-                <?php
-       endwhile;
-       ?>
-                
+                        <?php
+                    }
+                     
+                 }
+                ?>
 
-            </div>
-        </div>
+        
+       
     </div>
 
 
@@ -404,144 +467,6 @@ echo  number_format($number); ;
         }
 
 
-
-
-        function formatPhoneNumber(phoneNumberString) {
-            var cleaned = ('' + phoneNumberString).replace(/\D/g, '');
-            var match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
-            if (match) {
-                return '' + match[1] + '-' + match[2] + '-' + match[3];
-            }
-            return null;
-        }
- 
-        var dataCar = [
-            {
-                name: "Bmw series 5",
-                image: "images/car2/1.jpg",
-                year: "2019",
-                price: 950000,
-                engine: "เบนซิน",
-                engineSize: "2.0",
-                gear: "อัตโนมัติ",
-                phoneContact: "0222222222",
-                lineContact: "@line",
-                location: "กรุงเทพมหานคร",
-                miles: "28,980",
-                isNew: "old"
-            },
-            {
-                name: "Ford ranger 2.2 xlt",
-                image: "images/car2/2.jpg",
-                year: "2017",
-                price: 782000,
-                engine: "ดีเซล",
-                engineSize: "2.2",
-                gear: "ธรรมดา",
-                phoneContact: "03333333333",
-                lineContact: "@line",
-                location: "กรุงเทพมหานคร",
-                miles: "12,980",
-                isNew: "new"
-            }
-        ]
-
-    
-
-
-        let length = dataCar.length;
-        var lengthCar = document.getElementById('lengthCar');
-        lengthCar.innerHTML = "รถมือสอง  " + length + " คัน"
-
-        ngOnInit()
-        function ngOnInit() {
-            orderData("low")
-        }
-        function orderData(data) {
-            if (data == "low") {
-                dataCar.sort((a, b) => (a.price > b.price) ? 1 : ((b.price > a.price) ? -1 : 0))
-            } else {
-                dataCar.sort((a, b) => (b.price > a.price) ? 1 : ((a.price > b.price) ? -1 : 0))
-            }
-            const conCardDeck = document.getElementById("conCardDeck");
-            conCardDeck.innerHTML = dataCar
-                .map(({ name, image, year, price, engine, engineSize, gear, phoneContact, lineContact, location, miles, isNew }, i) => `
-                        <div class="col-12 col-sm-6 col-md-3 col-xs-3 mt-2" >
-                            <div class="card card-car mt-3 card-hover" >
-                                <div class="ribbon ribbon-top-left ${isNew}" id="newCar"><span>รถเข้าใหม่</span></div>
-                                <img class="card-img-top" src="${image}" alt="Card image cap"  onclick="goToCarDetail()">
-                                <div class="card-body" onclick="goToCarDetail()">
-                                    <div style="display: flex;justify-content: space-between;font-size: 25px;">
-                                        <b style="color:rgb(41, 61, 147)">รถปี ${year}</b><b style="color: #ff7724;">฿${convertMoney(price)} </b>
-                                    </div>
-                                    <b class="font-header-card" stype="color: #343434;">${name}</b>
-                                    <p class="card-text mt-2"> <span class="ti-dashboard mr-2"></span><span class="mr-2">${miles}
-                                            กม.</span>
-                                        <span class="ti-plug mr-1"></span><span class="mr-2">เกียร์${gear}</span>
-                                        <span class="ti-car mr-1"></span><span>${engine} ${engineSize}</span>
-                                    </p>
-                                    <p class="card-text" style="margin-top: -8px;">
-                                        <span class="ti-location-pin mr-1"></span>
-                                        <span>${location}</span>
-                                    </p>
-                                
-                                </div>
-                                <div class="card-body" style="padding-top: 0px;">
-                                <div
-                                        style="display: flex;justify-content: space-around;flex-direction: row-reverse;align-items: baseline;">
-                                        <button type="button" id="modalLine${i}"
-                                            class="btn  btn-lg  btn-outline-success btn-block padding-button-contract"
-                                            style="margin-left: 3px;cursor: pointer;">
-                                            <img src="images/icons8-line.svg" class="img-fluid icon-width"
-                                                alt="logo"><b>ติดต่อไลน์</b></button>
-                                        <button type="button"  id="modal${i}"
-                                            class="btn  btn-outline-info btn-lg  btn-lg btn-block padding-button-contract"
-                                            style="margin-right: 3px;cursor: pointer;">
-                                            <img src="images/icons8-phone-48.png" class="img-fluid icon-width" alt="logo">
-                                            <b>เบอร์ติดต่อ</b></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                   `).join("");
-
-            // phone
-            for (let i = 0; i < dataCar.length; i++) {
-                $('#modal' + i).click(function () {
-                    openModalContactPhone(dataCar[i].phoneContact)
-                });
-
-            }
-            function openModalContactPhone(phoneContact) {
-                const phoneContactHTML = document.getElementById("phoneContact");
-                phoneContactHTML.innerHTML = "เบอร์โทร : " + formatPhoneNumber(phoneContact)
-                $("#modalContactPhone").modal();
-                const b = document.querySelector('#copyText');
-                b.innerHTML = "คัดลอก"
-                var element = document.getElementById("buttonCopy");
-                element.classList.add("btn-outline-info");
-
-            }
-            // line
-            for (let i = 0; i < dataCar.length; i++) {
-                $('#modalLine' + i).click(function () {
-                    openModalContactLine(dataCar[i].lineContact)
-                });
-
-            }
-            function openModalContactLine(lineContact) {
-                const lineContactHTML = document.getElementById("lineContact");
-                lineContactHTML.innerHTML = "ไอดีไลน์ : " + lineContact
-                $("#modalContactLine").modal();
-
-            }
-
-
-        }
-
-
-
         const brandCar = [
             {
                 name: "Toyota",
@@ -602,6 +527,7 @@ echo  number_format($number); ;
 
 
         ]
+
         const brandCarInnerHTML = document.getElementById("brandCar");
         brandCarInnerHTML.innerHTML = brandCar
             .map(({ name, image, sizeImage }, i) => `

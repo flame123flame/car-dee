@@ -21,7 +21,7 @@
         <div class="row">
             <div class="col-md-12">
                 <nav class="navbar navbar-dark navbar-expand-lg">
-                    <a class="navbar-brand" href="index.html" style="margin-left: 44px;">
+                    <a class="navbar-brand" href="index.php" style="margin-left: 44px;">
                         <h3
                             style="font-weight: bold;color: #fff;    text-shadow: 0px 2px 0px #fff, 1px 6px 0px rgb(0 0 0 / 10%);">
                             CAR-DEE</h3>
@@ -33,21 +33,21 @@
                     <div class="collapse navbar-collapse" id="navbar"
                         style="flex-direction: column-reverse;display: flex; ">
                         <ul class="navbar-nav ">
-                            <li class="nav-item"> <a class="nav-link " href="index.html?active=home"><b
+                            <li class="nav-item"> <a class="nav-link " href="index.php?active=home"><b
                                         class="font-menu">หน้าหลัก</b></a> </li>
-                            <li class="nav-item"> <a class="nav-link" href="index.html?active=search_car">
+                            <li class="nav-item"> <a class="nav-link" href="index.php?active=search_car">
                                     <b class="font-menu">สำหรับคุณ</b></a> </li>
-                            <li class="nav-item"> <a class="nav-link" href="index.html?active=gallery"><b
+                            <li class="nav-item"> <a class="nav-link" href="index.php?active=gallery"><b
                                         class="font-menu">ขายรถกับเรา</b></a> </li>
-                            <li class="nav-item"> <a class="nav-link" href="index.html?active=calculate"><b
+                            <li class="nav-item"> <a class="nav-link" href="index.php?active=calculate"><b
                                         class="font-menu">คำนวณค่างวดเบื้องต้น</b></a> </li>
-                            <li class="nav-item"> <a class="nav-link" href="index.html?active=contact"><b
+                            <li class="nav-item"> <a class="nav-link" href="index.php?active=contact"><b
                                         class="font-menu">เกี่ยวกับเรา</b> </a> </li>
                             <li class="nav-item"> <a class="nav-link" href="search-car.php" style="cursor: pointer;"><b
                                         class="font-menu">ค้นหารถมือสอง</b></a>
                             </li>
                             <li class="nav-item">
-                                <a href="register.html"  style="color: #fff; border: 2px solid #fff; border-radius: 8px;"
+                                <a href="login.php"  style="color: #fff; border: 2px solid #fff; border-radius: 8px;"
                                     class="btn btn-outline-light my-3 my-sm-0 ml-lg-3">
                                     <b class="font-menu"> ลงทะเบียนขายรถ / เข้าสู่ระบบ</b></a>
                             </li>
@@ -70,83 +70,104 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item active" aria-current="page">
                     <span class="ti-angle-left" style="font-weight: bold;cursor: pointer;"
-                        onclick="goToSearch()"></span> <b style="font-size: 20px; margin-left: 10px;">รายละเอียด Ford
-                        mustang</b>
+                        onclick="goToSearch()"></span> <b style="font-size: 20px; margin-left: 10px;">รายละเอียด </b>
                 </li>
 
             </ol>
         </nav>
+      
 
         <div class="row">
             <div class="col-7" style="margin-top: 2px;">
-                <div class="carousel-wrapper">
-                    <div class="carousel-wrapper">
-                        <div class="carousel">
-                            <div id="imageCar"></div>
-                            <div class="carousel-status"
-                                style=" z-index: 1030;border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;">
-                                <p style="margin-top: 13px; font-size: 19px; color: #edecec;">
-                                    <span id="statusImagesCount"></span> <span id="statusImagesTotal"></span>
-                                </p>
-                            </div>
-                            <div id="next" class="carousel__button--next"></div>
-                            <div id="prev" class="carousel__button--prev"></div>
-                        </div>
-                    </div>
-                </div>
+            <?php
+       include "server.php";
+       if(isset($_GET['id'])){
+        $id = $_GET['id'];
 
+        $user_check_Car = "SELECT *,Car.id as car_id FROM Post join Car on Post.id = Car.ID_Post where Post.id = '$id' ";
+        $queryCar = mysqli_query($conn, $user_check_Car);
+        $resultCar = mysqli_fetch_assoc($queryCar);
+        $id =  $resultCar['car_id'];
+    }
+
+       $user_check_Car_2 = "SELECT * FROM image where id_car = '$id' ";
+       $queryCar_2 = mysqli_query($conn, $user_check_Car_2);
+       while ( $row = mysqli_fetch_array($queryCar_2) ) :
+
+      ?>
+            
+
+           
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="uploads/<?php echo $row['file_name']; ?>" alt="First slide">
+    </div>
+</div> 
+                <?php
+       endwhile;
+       ?>
             </div>
+            <?php
+            include "server.php";
+            if(isset($_GET['id'])){
+                $id = $_GET['id'];
+
+                $user_check_Car = "SELECT * FROM Post join Car on Post.id =Car.ID_Post where Post.id = '$id' ";
+                $queryCar = mysqli_query($conn, $user_check_Car);
+                $resultCar = mysqli_fetch_assoc($queryCar);
+
+            }
+            ?>
+
+
             <div class="col" style="margin-top: -9px;">
+        
                 <div class="car-details-content">
                     <div class="detail-content"
                         style="display: flex; justify-content: space-between;margin-bottom: 2px;">
                         <b id="carName" style="color: rgb(58 58 58); font-size: 29px;"></b> <br>
-                        <b id="carPrice" style="color: #ff7724;font-size: 30px;">ราคา 890,000.-</b>
+                        <b style="color: #ff7724;font-size: 30px;">ราคา <?php  
+                          setlocale(LC_MONETARY,"en_US");
+                         echo  number_format($resultCar['Prize']); ?>.-</b>
                     </div>
                 </div>
+      
                 <table class="table" style="margin-top: 7px;    margin-bottom: -9px;">
                     <tbody>
 
                         <tr>
                             <td class="color-header">ยี่ห้อ</td>
-                            <th id="carBrand" class="color-detail"></th>
+                            <th id="carBrand" class="color-detail"><?php echo $resultCar['Prize']; ?></th>
                         </tr>
                         <tr>
                             <td class="color-header">รุ่น</td>
-                            <th id="carModel" class="color-detail"></th>
+                            <th id="carModel" class="color-detail"><?php echo $resultCar['Model']; ?></th>
                         </tr>
                         <tr>
                             <td class="color-header">สี</td>
-                            <th id="carColor" class="color-detail"></th>
+                            <th id="carColor" class="color-detail"><?php echo $resultCar['Color']; ?></th>
                         </tr>
                         <tr>
                             <td class="color-header">เครื่องยนต์</td>
-                            <th id="carEngine" class="color-detail"></th>
-                        </tr>
-                        <tr>
-                            <td class="color-header">ขนาดเครื่องยนต์</td>
-                            <th id="carEngineSize" class="color-detail"></th>
+                            <th id="carEngine" class="color-detail"><?php echo $resultCar['Engine']; ?></th>
                         </tr>
                         <tr>
                             <td class="color-header"> ระบบเกียร์</td>
-                            <th id="carGear" class="color-detail"></th>
+                            <th id="carGear" class="color-detail"><?php echo $resultCar['GearSystem']; ?></th>
                         </tr>
                         <tr>
                             <td class="color-header">ปีทะเบียน</td>
-                            <th id="carYear" class="color-detail"></th>
+                            <th id="carYear" class="color-detail"><?php echo $resultCar['year_car']; ?></th>
                         </tr>
                         <tr>
                             <td class="color-header">ระยะทางล่าสุด</td>
-                            <th id="carMiles" class="color-detail"></th>
+                            <th id="carMiles" class="color-detail"><?php echo $resultCar['NumberOfMile']; ?></th>
                         </tr>
                         <tr>
                             <td class="color-header">ทะเบียน</td>
-                            <th id="carRegistrationNumber" class="color-detail"></th>
+                            <th id="carRegistrationNumber" class="color-detail"><?php echo $resultCar['Vehicle_registration_number']; ?></th>
                         </tr>
-                        <tr>
-                            <td class="color-header">วันหมดอายุภาษีรถยนต์</td>
-                            <th id="carExpire" class="color-detail">มีนาคม 2022</th>
-                        </tr>
+                      
                         <tr>
                             <td class="color-header">จังหวัด</td>
                             <th id="carLocation" class="color-detail">
@@ -290,52 +311,13 @@
                 }
             ]
         }
-        var carName = document.getElementById('carName');
-        carName.innerHTML = detailCar.name
-
-        var carPrice = document.getElementById('carPrice');
-        carPrice.innerHTML = "ราคา " + convertMoney(detailCar.price) + ".-"
-
-        var carGear = document.getElementById('carGear');
-        carGear.innerHTML = detailCar.gear
-
-        var carColor = document.getElementById('carColor');
-        carColor.innerHTML = detailCar.color
-
-        var carBrand = document.getElementById('carBrand');
-        carBrand.innerHTML = detailCar.brand
-
-        var carYear = document.getElementById('carYear');
-        carYear.innerHTML = detailCar.year
-
-        var carEngine = document.getElementById('carEngine');
-        carEngine.innerHTML = detailCar.engine
-
-        var carModel = document.getElementById('carModel');
-        carModel.innerHTML = detailCar.model
-
-        var carEngineSize = document.getElementById('carEngineSize');
-        carEngineSize.innerHTML = detailCar.engineSize
-
-        var carMiles = document.getElementById('carMiles');
-        carMiles.innerHTML = convertMoney(detailCar.miles) + " กม."
-
-        var carRegistrationNumber = document.getElementById('carRegistrationNumber');
-        carRegistrationNumber.innerHTML = detailCar.registrationNumber
-
-        var carExpire = document.getElementById('carExpire');
-        carExpire.innerHTML = detailCar.expire
-
+       
         var carLocation = document.getElementById('carLocation');
         carLocation.innerHTML = '<span class="ti-location-pin" style="font-weight: bold;cursor: pointer;font-size: 16px;"></span> ' + detailCar.locationCar
 
         // set data
 
-        const carImage = document.getElementById("imageCar");
-        carImage.innerHTML = detailCar.listImage
-            .map(({ id, image }, i) => `
-                  <img id="active-image" class="carousel__photo " src="${image}">`).join("");
-
+    
         function convertMoney(money) {
             return (Number(money)).toFixed(1).replace(/\d(?=(\d{3})+\.)/g, '$&,').split(".")[0];
 

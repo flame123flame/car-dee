@@ -90,7 +90,7 @@
 			crating array that stores allowed
 			to upload image extensions.
 			**/
-			$allowed_exs = array('jpg', 'jpeg', 'png');
+			$allowed_exs = array('jpg', 'jpeg', 'png', 'webp');
 
 
 			/** 
@@ -320,7 +320,7 @@
          <div class="col">
          <div class="form-group">
             <label >รุ่น</label>
-           <input type="text" class="form-control" name="Model" >
+           <input type="text" class="form-control" name="Model"  >
          </div>
          </div>
      </div>
@@ -329,13 +329,13 @@
          <div class="col">
          <div class="form-group">
             <label >เลขไมล์</label>
-           <input type="text" class="form-control" name="numberOfMile" >
+           <input type="text" class="form-control" name="numberOfMile"  required>
          </div>
          </div>
          <div class="col">
          <div class="form-group">
          <label >ระบบเกียร์</label>
-       <select class="form-control" name="GearSystem">
+       <select class="form-control" name="GearSystem" required>
              <option value="อัตโนมัติ">อัตโนมัติ</option>
              <option value="ธรรมดา">ธรรมดา</option>
        </select>
@@ -344,7 +344,7 @@
          <div class="col">
          <div class="form-group">
          <label >กุญแจสำรอง</label>
-       <select class="form-control" name="SpareKey">
+       <select class="form-control" name="SpareKey" required>
              <option value="มี">มี</option>
              <option value="ไม่มี">ไม่มี</option>
        </select>
@@ -356,7 +356,7 @@
   <div class="col">
          <div class="form-group">
             <label >ราคา</label>
-           <input type="text" class="form-control" name="Prize" >
+           <input type="text" class="form-control" name="Prize" required >
          </div>
          </div>
   <div class="col">
@@ -387,7 +387,15 @@
          <div class="col">
          <div class="form-group">
             <label >สี</label>
-           <input type="text" class="form-control" name="Color" >
+           <select class="form-control "  name="Color">
+                                        <option>เลือกสี</option>
+                                        <option value="ดำ">ดำ</option>
+                                        <option value="แดง">แดง</option>
+                                        <option value="เทา">เทา</option>
+                                        <option value="ขาว">ขาว</option>
+                                        <option value="ขาวมุก">ขาวมุก</option>
+                                        <option value="ส้ม">ส้ม</option>
+                                    </select>
          </div>
          </div>
          <div class="col">
@@ -399,11 +407,20 @@
          <div class="col">
          <div class="form-group">
             <label >รถปี</label>
-           <input type="text" class="form-control" name="year_car" >
+           <select class="form-control"  name="year_car">
+      <option value="2022">2022</option>
+      <option value="2021">2021</option>
+      <option value="2020">2020</option>
+       <option value="2019">2019</option>
+      <option value="2018">2018</option>
+      <option value="2017">2017</option>
+      <option value="2016">2016</option>
+      <option value="2015">2015</option>
+  </select>
          </div>
          </div>
          </div>
-     </div>
+  
      <div class="row">
        
          <div class="col">
@@ -430,6 +447,7 @@
          <div class="col text-center">
          <button type="button" class="btn btn-secondary">กลับ</button>
          <button type="submit" name="insert" class="btn btn-info">บันทึกข้อมูล</button>
+         </div>
          </div>
          </div>
  

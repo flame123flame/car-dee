@@ -59,24 +59,7 @@
               
                 <ul class="menu-links">
               
-                <li  class="nav-link active" <?php if ($dataUser['status']!= "admin"){?>style="display:none"<?php }?> >
-                        <a href="#">
-                            <i style="" class='bx bx-pie-chart-alt icon' ></i>
-                            <span class="text nav-text">Dashboard</span>
-                        </a>
-                </li>
-                    <li class="nav-link"  <?php if ($dataUser['status']!= "admin"){?>style="display:none"<?php }?>>
-                        <a href="#">
-                            <i class='bx bx-edit-alt icon' ></i>
-                            <span class="text nav-text">สมัครเข้ามา</span>
-                        </a>
-                    </li>
-                    <li class="nav-link"  <?php if ($dataUser['status']!= "admin"){?>style="display:none"<?php }?>>
-                        <a href="#">
-                            <i class='bx bx-edit-alt icon' ></i>
-                            <span class="text nav-text">ยืนยันการสมัครแล้ว</span>
-                        </a>
-                    </li>
+             
 
                     <li class="nav-link"  <?php if ($dataUser['status']!= "admin"){?>style="display:none"<?php }?>>
                         <a href="#">
@@ -155,12 +138,12 @@
     <th>รายละเอียด</th>
   </tr>
   <?php 
-
                 include_once('functions-add-car.php');
                 $fetchdata = new DB_con();
                 $sql = $fetchdata->fetchdataProcess();
+                // $sql2 =  mysqli_query($conn, "update  Post SET status=`post` where Post.id = 1 ");
                 while($row = mysqli_fetch_array($sql)) {
-                    
+     
             ?>
 
                 <tr>
@@ -171,8 +154,10 @@
                 <td><?php echo $row['Color']; ?></td>
                 <td><?php echo $row['Prize']; ?></td>
                 <td><?php echo $row['Status']; ?></td>
-                    <td><a href="update.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">Edit</a>
-                    <a href="delete.php?del=<?php echo $row['id']; ?>" class="btn btn-danger">Delete</a></td>
+                    <td>
+                    <a <?php if ($dataUser['status']!= "admin"){?>style="display:none"<?php }?> href="update.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">Approve</a>
+                    <a <?php if ($dataUser['status']== "admin"){?>style="display:none"<?php }?> href="update.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">Edit</a>
+                    <a <?php if ($dataUser['status']== "admin"){?>style="display:none"<?php }?> href="delete.php?del=<?php echo $row['id']; ?>" class="btn btn-danger">Delete</a></td>
 
                 </tr>
 
@@ -185,7 +170,14 @@
    
     </section>
 
-    <script src="script.js"></script>
+    <script src="script.js">
+    </script>
+    <script type="text/javascript">
+function doSomething(id){
+    $.post("del_notif.php", {id: id});
+return false;
+}
+</script>
 
 </body>
 </html>
