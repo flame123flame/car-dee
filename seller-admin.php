@@ -170,7 +170,11 @@
                 <td class="text-center"><?php echo $row['Color']; ?></td>
                 <td class="text-right"> <?php $number = $row['Prize']; setlocale(LC_MONETARY,"en_US"); echo  number_format($number); ; ?></td>
                 <td class="text-center"><?php echo $row['Status']; ?></td>
-                    <td class="text-center">
+                    <td class="text-center css">
+                    <form action='' method='POST' <?php if (($dataUser['status'] != "admin")){?>style="display:none"<?php }?>>
+                        <input type='hidden' value="<?php echo $row['id']; ?>" name='id_update'/>
+                        <input <?php if ($row['Status'] != "process"){?>style="display:none"<?php }?> class="bu" type='submit' name='submit' value="ยืนยันการขาย"></input>
+                    </form>  &nbsp; &nbsp; &nbsp;
                     <a <?php if ($dataUser['status']!= "admin"){?>style="display:none"<?php }?> href="selle-edit.php?id=<?php echo $row['id_car']; ?>" class="btn btn-primary">ดูรายละเอียด</a>
 
 
@@ -211,6 +215,11 @@ return false;
 .home{
     padding: 2%;
  
+}
+
+.css{
+    display: flex;
+     justify-content: center;
 }
 .card {
     padding: 15px;
