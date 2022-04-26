@@ -125,7 +125,7 @@
                 <div class="car-details-content">
                     <div class="detail-content"
                         style="display: flex; justify-content: space-between;margin-bottom: 2px;">
-                        <b id="carName" style="color: rgb(58 58 58); font-size: 29px;"></b> <br>
+                        <b id="carName" style="color: rgb(58 58 58); font-size: 29px;"><?php echo $resultCar['Model']; ?></b> <br>
                         <b style="color: #ff7724;font-size: 30px;">ราคา <?php  
                           setlocale(LC_MONETARY,"en_US");
                          echo  number_format($resultCar['Prize']); ?>.-</b>
@@ -137,7 +137,7 @@
 
                         <tr>
                             <td class="color-header">ยี่ห้อ</td>
-                            <th id="carBrand" class="color-detail"><?php echo $resultCar['Prize']; ?></th>
+                            <th id="carBrand" class="color-detail"><?php echo $resultCar['BrandOfCar']; ?></th>
                         </tr>
                         <tr>
                             <td class="color-header">รุ่น</td>

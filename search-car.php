@@ -4,7 +4,7 @@ include 'upload.php';
 $searchErr = '';
 $data='';
 
-$stmt = $con->prepare("SELECT * FROM Post JOIN Car on Post.id = Car.ID_Post JOIN image on Car.id = image.id_car GROUP by Car.id");
+$stmt = $con->prepare("SELECT * FROM Post JOIN Car on Post.id = Car.ID_Post JOIN image on Car.id = image.id_car where Post.Status = 'post'  GROUP by Car.id");
 $stmt->execute();
 $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

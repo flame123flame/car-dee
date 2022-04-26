@@ -19,11 +19,17 @@
         if (count($errors) == 0) {
             $query = "SELECT * FROM user WHERE username = '$username' AND password = '$password' ";
             $result = mysqli_query($conn, $query);
-
+            $resultUser = mysqli_fetch_assoc($result);
             if (mysqli_num_rows($result) == 1) {
                 $_SESSION['username'] = $username; 
                 $_SESSION['success'] = "เข้าสู่ระบบโดย ".$_SESSION['username'];
-                header("location: seller.php");
+
+                if($resultUser['status'] == 'admin'){
+                    header("location: seller-admin.php");
+                }else{
+                    header("location: seller.php");
+                }
+               
             } else {
                 array_push($errors, "Wrong Username or Password");
                 $_SESSION['error'] = "Username หรือ Password ไม่ถูกต้อง";

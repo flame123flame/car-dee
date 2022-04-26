@@ -4,7 +4,7 @@ include 'upload.php';
 $searchErr = '';
 $data='';
 
-$stmt = $con->prepare("SELECT * FROM Post JOIN Car on Post.id = Car.ID_Post JOIN image on Car.id = image.id_car GROUP by Car.id");
+$stmt = $con->prepare("SELECT * FROM Post JOIN Car on Post.id = Car.ID_Post JOIN image on Car.id = image.id_car where Post.Status = 'post'  GROUP by Car.id");
 $stmt->execute();
 $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -23,7 +23,7 @@ if(isset($_POST['save']))
          and Car.year_car like '%$year_car%'
          and Car.Model like '%$Model%'
          and Car.Color like '%$Color%'
-         and Car.GearSystem like '%$GearSystem%' GROUP by Car.id");
+         and Car.GearSystem like '%$GearSystem%' and  Post.Status = 'post' GROUP by Car.id");
         $stmt->execute();
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
       
@@ -136,7 +136,7 @@ if(isset($_POST['save']))
                                         ฿<?php
 $number = $row['Prize']; 
 setlocale(LC_MONETARY,"en_US");
-echo  number_format($number); ;
+echo  number_format($number); 
 ?> </b>
                                     </div>
                                     <b class="font-header-card" stype="color: #343434;"><?php echo $row['Model']; ?></b>

@@ -17,7 +17,7 @@
     $dataUser = mysqli_fetch_assoc($data);
 
     if(isset($_POST['submit'])) {
-    mysqli_query($conn,"UPDATE Post set Status ='post' WHERE id='".$_POST['id_update']."'");
+    mysqli_query($conn,"UPDATE Post set Status ='sell' WHERE id='".$_POST['id_update']."'");
     }
 
 ?>
@@ -68,16 +68,10 @@
               
              
 
-                    <li class="nav-link"   <?php if ($dataUser['status']!= "admin"){?>style="display:none"<?php }?>>
+                    <li class="nav-link"  <?php if ($dataUser['status']!= "admin"){?>style="display:none"<?php }?>>
                         <a href="#">
                             <i class='bx bx-edit-alt icon' ></i>
                             <span class="text nav-text">ยืนยันการขายรถ</span>
-                        </a>
-                    </li>
-                    <li class="nav-link"   <?php if ($dataUser['status']!= "admin"){?>style="display:none"<?php }?>>
-                        <a href="seller-approve.php">
-                            <i class='bx bx-edit-alt icon' ></i>
-                            <span class="text nav-text">รายการที่ยืนยันแล้ว</span>
                         </a>
                     </li>
                     <li class="nav-link"  <?php if ($dataUser['status']!= "admin"){?>style="display:none"<?php }?>>
@@ -88,15 +82,15 @@
                     </li>
 
                     
-                    <li class="nav-link" style="background-color: #e8e5e5; border-radius: 10px; "  <?php if ($dataUser['status']== "admin"){?>style="display:none"<?php }?>>
+                    <li class="nav-link"  <?php if ($dataUser['status']== "admin"){?>style="display:none"<?php }?>>
                         <a href="seller.php">
                             <i class='bx bx-car icon'></i>
                             <span class="text nav-text">รายการขายรถ</span>
                         </a>
                     </li>
 
-                    <li class="nav-link"  <?php if ($dataUser['status']== "admin"){?>style="display:none"<?php }?>>
-                        <a href="seller-post.php">
+                    <li class="nav-link"  style="background-color: #e8e5e5; border-radius: 10px; " <?php if ($dataUser['status']== "admin"){?>style="display:none"<?php }?>>
+                        <a href="#">
                             <i class='bx bx-car icon'></i>
                             <span class="text nav-text">รถที่กำลังขาย</span>
                         </a>
@@ -136,7 +130,7 @@
     <div class="card">
     <div style="display: flex; justify-content: space-between; align-content: flex-start; align-items: center;">
     <h3>รายการขายรถ</h3>
-      <button type="button" class="btn btn-info btn-sm"><a class="nav-link" href="selle-add.php" style="cursor: pointer;color:#fff;text-decoration: none;">เพิ่มขายรถ</a></button>
+    
      </div>
 
       <table id="customers" class="table table-striped mt-3 table-bordered" >
@@ -154,30 +148,31 @@
   <?php 
                 include_once('functions-add-car.php');
                 $fetchdata = new DB_con();
-                $sql = $fetchdata->fetchdataProcess();
+                $sql = $fetchdata->fetchdataPost();
+                // $sql2 =  mysqli_query($conn, "update  Post SET status=`post` where Post.id = 1 ");
                 $i = 1;
                 while($row = mysqli_fetch_array($sql)) {
      
             ?>
 
                 <tr>
-                <td class="text-center">
-                <?php echo $i; $i++;?> </td>
+                <td class="text-center"><?php echo $i; $i++;?> </td>
                 <td class="text-center"><?php echo $row['BrandOfCar']; ?></td>
                 <td><?php echo $row['Model']; ?></td>
                 <td class="text-center"><?php echo $row['GearSystem']; ?></td>
                 <td class="text-center"><?php echo $row['Engine']; ?></td>
                 <td class="text-center"><?php echo $row['Color']; ?></td>
                 <td class="text-right"> <?php $number = $row['Prize']; setlocale(LC_MONETARY,"en_US"); echo  number_format($number); ; ?></td>
-                <td class="text-center"><?php echo $row['Status']; ?></td>
-                    <td>
-                    <form action='seller.php' method='POST' <?php if (($dataUser['status'] != "admin")){?>style="display:none"<?php }?>>
+                <td class="text-center "><?php echo $row['Status']; ?></td>
+            <td class="text-center action">
+                 
+            <form style="margin-right: 10px;" action='seller-post.php' method='POST' <?php if (($dataUser['status'] == "admin")){?>style="display:none"<?php }?>>
                         <input type='hidden' value="<?php echo $row['id']; ?>" name='id_update'/>
-                        <input <?php if ($row['Status'] != "process"){?>style="display:none"<?php }?> class="bu" type='submit' name='submit' value="ยืนยันการขาย"></input>
+                        <input  class="bu" type='submit' name='submit' value="ขายรถแล้ว"></input>
                     </form>  
-                   
-                    <a <?php if ($dataUser['status']== "admin"){?>style="display:none"<?php }?> href="selle-edit.php?id=<?php echo $row['id_car']; ?>" class="btn btn-primary">แก้ไขข้อมูล</a>
-                    <a <?php if ($dataUser['status']== "admin"){?>style="display:none"<?php }?> href="delete.php?del=<?php echo $row['id']; ?>" class="btn btn-danger">ลบข้อมูล</a></td>
+                    <a style="margin-right: 10px;" <?php if ($dataUser['status']== "admin"){?>style="display:none"<?php }?> href="selle-edit.php?id=<?php echo $row['id_car']; ?>" class="btn btn-primary">แก้ไขข้อมูล</a>
+                    <a <?php if ($dataUser['status']== "admin"){?>style="display:none"<?php }?> href="delete.php?del=<?php echo $row['id']; ?>" class="btn btn-danger">ลบข้อมูล</a>
+                </td>
 
                 </tr>
 
@@ -217,13 +212,6 @@ return false;
     padding: 2%;
  
 }
-.card {
-    padding: 15px;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  border-radius: 5px;
-  background-color: #ffff;
-}
 .text-center{
     text-align-last: center;
 }
@@ -231,9 +219,21 @@ return false;
     text-align: end;
 }
 
+.card {
+    padding: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 5px;
+  background-color: #ffff;
+}
+
+.action{
+    display: flex;
+}
+
 .bu{
     color: #fff;
-    background-color: #007bff;
+    background-color: #51b369;
     border-color: #007bff;
     display: inline-block;
     font-weight: 400;

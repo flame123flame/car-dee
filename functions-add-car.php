@@ -26,7 +26,23 @@
         }
 
         public function fetchdataProcess() {
-            $result = mysqli_query($this->dbcon, "SELECT * FROM Post join Car on Post.id = Car.ID_Post where Post.status = 'process' order by Post.id asc");
+            $result = mysqli_query($this->dbcon, "SELECT *,Car.id as id_car FROM Post join Car on Post.id = Car.ID_Post where Post.Status = 'process'  order by Post.id asc");
+            return $result;
+        }
+
+        public function fetchdataPost() {
+            $result = mysqli_query($this->dbcon, "SELECT *,Car.id as id_car FROM Post join Car on Post.id = Car.ID_Post  where Post.Status = 'post' order by Post.id asc");
+            return $result;
+        }
+
+        public function fetchdataSell() {
+            $result = mysqli_query($this->dbcon, "SELECT *,Car.id as id_car FROM Post join Car on Post.id = Car.ID_Post  where Post.Status = 'sell' order by Post.id asc");
+            return $result;
+        }
+
+
+        public function fetchdataApprove() {
+            $result = mysqli_query($this->dbcon, "SELECT *,Car.id as id_car FROM Post join Car on Post.id = Car.ID_Post  where Post.Status = 'sell' or Post.Status = 'post' order by Post.id asc");
             return $result;
         }
 

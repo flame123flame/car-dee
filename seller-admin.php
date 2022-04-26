@@ -68,8 +68,8 @@
               
              
 
-                    <li class="nav-link"   <?php if ($dataUser['status']!= "admin"){?>style="display:none"<?php }?>>
-                        <a href="#">
+                    <li class="nav-link" style="background-color: #e8e5e5; border-radius: 10px;"    <?php if ($dataUser['status']!= "admin"){?>style="display:none"<?php }?>>
+                        <a href="seller-admin.php">
                             <i class='bx bx-edit-alt icon' ></i>
                             <span class="text nav-text">ยืนยันการขายรถ</span>
                         </a>
@@ -88,7 +88,7 @@
                     </li>
 
                     
-                    <li class="nav-link" style="background-color: #e8e5e5; border-radius: 10px; "  <?php if ($dataUser['status']== "admin"){?>style="display:none"<?php }?>>
+                    <li class="nav-link" <?php if ($dataUser['status']== "admin"){?>style="display:none"<?php }?>>
                         <a href="seller.php">
                             <i class='bx bx-car icon'></i>
                             <span class="text nav-text">รายการขายรถ</span>
@@ -136,7 +136,7 @@
     <div class="card">
     <div style="display: flex; justify-content: space-between; align-content: flex-start; align-items: center;">
     <h3>รายการขายรถ</h3>
-      <button type="button" class="btn btn-info btn-sm"><a class="nav-link" href="selle-add.php" style="cursor: pointer;color:#fff;text-decoration: none;">เพิ่มขายรถ</a></button>
+      <!-- <button type="button" class="btn btn-info btn-sm"><a class="nav-link" href="selle-add.php" style="cursor: pointer;color:#fff;text-decoration: none;">เพิ่มขายรถ</a></button> -->
      </div>
 
       <table id="customers" class="table table-striped mt-3 table-bordered" >
@@ -170,14 +170,9 @@
                 <td class="text-center"><?php echo $row['Color']; ?></td>
                 <td class="text-right"> <?php $number = $row['Prize']; setlocale(LC_MONETARY,"en_US"); echo  number_format($number); ; ?></td>
                 <td class="text-center"><?php echo $row['Status']; ?></td>
-                    <td>
-                    <form action='seller.php' method='POST' <?php if (($dataUser['status'] != "admin")){?>style="display:none"<?php }?>>
-                        <input type='hidden' value="<?php echo $row['id']; ?>" name='id_update'/>
-                        <input <?php if ($row['Status'] != "process"){?>style="display:none"<?php }?> class="bu" type='submit' name='submit' value="ยืนยันการขาย"></input>
-                    </form>  
-                   
-                    <a <?php if ($dataUser['status']== "admin"){?>style="display:none"<?php }?> href="selle-edit.php?id=<?php echo $row['id_car']; ?>" class="btn btn-primary">แก้ไขข้อมูล</a>
-                    <a <?php if ($dataUser['status']== "admin"){?>style="display:none"<?php }?> href="delete.php?del=<?php echo $row['id']; ?>" class="btn btn-danger">ลบข้อมูล</a></td>
+                    <td class="text-center">
+                    <a <?php if ($dataUser['status']!= "admin"){?>style="display:none"<?php }?> href="selle-edit.php?id=<?php echo $row['id_car']; ?>" class="btn btn-primary">ดูรายละเอียด</a>
+
 
                 </tr>
 
